@@ -7,7 +7,8 @@
         3. The methods displays the results of the operations.
 ## Main Class
         1. The main class recieves two integers from user as input.
-        2. It displays the options for the different arithmetic operations.
-        3. It recives the user's perferred aithemtic operation as option.
-        4. The method for preferred arithemetic operations are called based on the option.
-        
+        2. The main class has GetInput method to recieve an number as a string and converts it to an integer.
+        3. It displays the options for the different arithmetic operations.
+        4. It recives the user's perferred aithemtic operation as option.
+        5. The method for preferred arithemetic operations are called based on the option.
+ 
