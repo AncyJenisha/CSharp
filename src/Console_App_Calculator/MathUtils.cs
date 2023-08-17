@@ -1,7 +1,7 @@
 ﻿// <copyright file="MathUtils.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
-namespace CSharp1
+namespace ConsoleCalculator
     {
         /// <summary>
         /// MathUtils contains the methods for arithmetic operations.
