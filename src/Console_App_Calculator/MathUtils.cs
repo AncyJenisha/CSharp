@@ -13,7 +13,7 @@ internal static class MathUtils
     /// </summary>
     /// <param name="a">Integer1</param>
     /// <param name="b">Integer2</param>
-    public static void Add(int a, int b)
+    public static void Add(float a, float b)
     {
         Console.WriteLine($"Sum of {a} and {b} is {a + b}");
     }
@@ -23,15 +23,15 @@ internal static class MathUtils
     /// </summary>
     /// <param name="a">Integer1</param>
     /// <param name="b">Integer2</param>
-    public static void Divide(int a, int b)
+    public static void Divide(float a, float b)
     {
-        try
+        if (b == 0)
+        {
+            Console.WriteLine("The second number cannot be zero");
+        }
+        else
         {
             Console.WriteLine($"Quotient of  {a} and {b} is {a / b}");
-        }
-        catch (DivideByZeroException)
-        {
-            Console.WriteLine("Integer2 cannot be zero");
         }
     }
 
@@ -40,7 +40,7 @@ internal static class MathUtils
     /// </summary>
     /// <param name="a">Integer1</param>
     /// <param name="b">Integer2</param>
-    public static void Multiply(int a, int b)
+    public static void Multiply(float a, float b)
     {
         Console.WriteLine($"Product of {a} and {b} is {a * b}");
     }
@@ -50,7 +50,7 @@ internal static class MathUtils
     /// </summary>
     /// <param name="a">Integer1</param>
     /// <param name="b">Integer2</param>
-    public static void Subtract(int a, int b)
+    public static void Subtract(float a, float b)
     {
         Console.WriteLine($"Difference of {a} and {b} is {a - b}");
     }
