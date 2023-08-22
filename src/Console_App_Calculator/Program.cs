@@ -20,21 +20,21 @@ namespace ConsoleAppCalculator
         }
 
         /// <summary>
-        /// Main method recieves two integers from user
+        /// Main method recieves two numbers from user
         /// </summary>
         /// <param name="args">reads a line</param>
         /// <exception cref="ArgumentNullException">Throws exception when args is null</exception>
         public static void Main(string[] args)
         {
-            float integer1, integer2;
+            float number1, number2;
             int option;
             string? stop;
             do
             {
                 Console.WriteLine("Enter the first number:");
-                integer1 = GetInput();
+                number1 = GetInput();
                 Console.WriteLine("Enter the second number:");
-                integer2 = GetInput();
+                number2 = GetInput();
             getoption:
                 Console.WriteLine("1.Addition 2.Subtraction 3.Multiplication 4.Divison");
                 Console.WriteLine("Enter the option: ");
@@ -42,16 +42,16 @@ namespace ConsoleAppCalculator
                 switch (option)
                 {
                     case (int)Options.Addition:
-                        MathUtils.Add(integer1, integer2);
+                        MathUtils.Add(number1, number2);
                         break;
                     case (int)Options.Subtraction:
-                        MathUtils.Subtract(integer1, integer2);
+                        MathUtils.Subtract(number1, number2);
                         break;
                     case (int)Options.Multiplication:
-                        MathUtils.Multiply(integer1, integer2);
+                        MathUtils.Multiply(number1, number2);
                         break;
                     case (int)Options.Divison:
-                        MathUtils.Divide(integer1, integer2);
+                        MathUtils.Divide(number1, number2);
                         break;
 
                     default:
@@ -71,14 +71,9 @@ namespace ConsoleAppCalculator
         /// <returns>Input converted to float</returns>
         public static float GetInput()
         {
+            string? n;
         getfloat:
-            string? n = Console.ReadLine();
-            if (string.IsNullOrEmpty(n))
-            {
-                Console.WriteLine("Enter a valid number");
-                goto getfloat;
-            }
-
+            n = Console.ReadLine();
             if (!float.TryParse(n, out float number))
             {
                 Console.WriteLine("Enter a valid number");
@@ -89,19 +84,13 @@ namespace ConsoleAppCalculator
         }
 
         /// <summary>
-        /// GetIntegerInput method gets input as string and converts to integer
+        /// GetIntegerInput method gets input as string and converts to integer.
         /// </summary>
         /// <returns>Input converted to integer</returns>
         public static int GetIntegerInput()
         {
         getint:
             string? n = Console.ReadLine();
-            if (string.IsNullOrEmpty(n))
-            {
-                Console.WriteLine("Enter a valid number");
-                goto getint;
-            }
-
             if (!int.TryParse(n, out int integer))
             {
                 Console.WriteLine("Enter a valid number");

@@ -9,20 +9,20 @@ namespace ConsoleAppCalculator;
 internal static class MathUtils
 {
     /// <summary>
-    /// Adds Integer1 to Integer2
+    /// Adds Number1 to Number2.
     /// </summary>
-    /// <param name="a">Integer1</param>
-    /// <param name="b">Integer2</param>
+    /// <param name="a">The number1 recieved from user</param>
+    /// <param name="b">The number2 recieved from user</param>
     public static void Add(float a, float b)
     {
         Console.WriteLine($"Sum of {a} and {b} is {a + b}");
     }
 
     /// <summary>
-    /// Divides Integer1 by Integer2
+    /// Divides number1 by number2
     /// </summary>
-    /// <param name="a">Integer1</param>
-    /// <param name="b">Integer2</param>
+    /// <param name="a">number1 recieved from user ,which is the dividend</param>
+    /// <param name="b">number2 recieved from user, which is the divisor.</param>
     public static void Divide(float a, float b)
     {
         if (b == 0)
@@ -36,20 +36,20 @@ internal static class MathUtils
     }
 
     /// <summary>
-    /// Mutiplies Integer1 and Integer2
+    /// Mutiplies number1 and number2
     /// </summary>
-    /// <param name="a">Integer1</param>
-    /// <param name="b">Integer2</param>
+    /// <param name="a">number1, which is the multiplicant</param>
+    /// <param name="b">number2, which is the multiplier</param>
     public static void Multiply(float a, float b)
     {
         Console.WriteLine($"Product of {a} and {b} is {a * b}");
     }
 
     /// <summary>
-    /// Subtracts Integer22 from Integer1
+    /// Subtracts number2 from number1
     /// </summary>
-    /// <param name="a">Integer1</param>
-    /// <param name="b">Integer2</param>
+    /// <param name="a">number1 is the minuend</param>
+    /// <param name="b">number2 is the subtrahend</param>
     public static void Subtract(float a, float b)
     {
         Console.WriteLine($"Difference of {a} and {b} is {a - b}");
