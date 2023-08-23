@@ -4,6 +4,8 @@
 
 namespace ContactManagerApp
 {
+    using System.Text.RegularExpressions;
+
     /// <summary>
     /// Class ProgramHelpers has methods to perform the functions of the options entered.
     /// </summary>
@@ -30,11 +32,19 @@ namespace ContactManagerApp
             string? name, phone, email, notes;
             int id;
             Console.WriteLine("Enter the Name: ");
-            name = GetStringInput();
+            do
+            {
+                name = GetStringInput();
+            }
+            while (NameValidate(name) == 0);
             Console.WriteLine("Enter the Phone Number:");
             phone = GetStringInput();
             Console.WriteLine("Enter the Email ID:");
-            email = GetStringInput();
+            do
+            {
+                email = GetStringInput();
+            }
+            while (EmailValidate(email) == 0);
             Console.WriteLine("Enter notes:");
             notes = GetStringInput();
             id = contactList.Count + 1;
@@ -48,9 +58,10 @@ namespace ContactManagerApp
         /// <param name="contactList">Gets the List of contacts</param>
         public static void DisplayContact(List<Contact> contactList)
         {
-            if (contactList.Count == 0)
+            if (!contactList.Any())
             {
-                Console.WriteLine("No contact to display");
+                Console.WriteLine("No contacts to display");
+                return;
             }
 
             foreach (var item in contactList)
@@ -70,6 +81,12 @@ namespace ContactManagerApp
         /// <param name="contactList">List of stored contacts.</param>
         public static void SearchContact(List<Contact> contactList)
         {
+            if (!contactList.Any())
+            {
+                Console.WriteLine("No Contacts to display");
+                return;
+            }
+
             string? nameToSearch;
             List<Contact> searchcontactList = new ();
             Console.WriteLine("Enter the name to search: ");
@@ -91,8 +108,13 @@ namespace ContactManagerApp
         /// <param name="contactList">updated list</param>
         public static void DeleteContact(List<Contact> contactList)
         {
+            if (!contactList.Any())
+            {
+                Console.WriteLine("No Contacts to display");
+                return;
+            }
+
             int newId = 0;
-            DisplayContact(contactList);
             Console.WriteLine("Enter the ID to be deleted:");
             int idToRemove = GetInput();
             if (idToRemove > 0 && idToRemove < contactList.Count)
@@ -129,9 +151,14 @@ namespace ContactManagerApp
         /// <returns>updated list</returns>
         public static List<Contact> EditContact(List<Contact> contactList)
         {
+            if (!contactList.Any())
+            {
+                Console.WriteLine("No contacts to display");
+                return contactList;
+            }
+
             string newChange;
             int fieldToEdit, idToEdit;
-            DisplayContact(contactList);
             Console.WriteLine("Enter the id to change.");
             idToEdit = GetInput();
             Console.WriteLine("1.Change ContactName\n2.Change PhoneNumber\n3.Change Email Id\n4.Change Notes");
@@ -149,6 +176,11 @@ namespace ContactManagerApp
                     break;
                 case (int)EditFields.EmailId:
                     newChange = GetStringInput();
+                    while (EmailValidate(newChange) == 0)
+                    {
+                        newChange = GetStringInput();
+                    }
+
                     contactList[idToEdit].Email = newChange;
                     break;
                 case (int)EditFields.Notes:
@@ -194,6 +226,62 @@ namespace ContactManagerApp
             }
 
             return n;
+        }
+
+        /// <summary>
+        /// The CheckIfEmpty method checks if the contact list is empty.
+        /// </summary>
+        /// <param name="contactList"> The contact list is passed as input </param>
+        /// <returns>Returns 0 if there is no contact in the list and 1 if the list has contacts</returns>
+        public static int CheckIfEmpty(List<Contact> contactList)
+        {
+            if (contactList.Count == 0)
+            {
+                Console.WriteLine("The contact list is empty");
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }
+        }
+
+        /// <summary>
+        /// Validates the email
+        /// </summary>
+        /// <param name="email"> The email entered by user is validated. </param>
+        /// <returns>Returns 0 if email is invalid and 1 if emailis valid.</returns>
+        public static int EmailValidate(string email)
+        {
+            string emailpattern = "^(\\w+)@([\\w\\-]+)((\\.(\\w){2,3})+)$";
+            if (!Regex.IsMatch(email, emailpattern))
+            {
+                Console.WriteLine("Enter a valid Email");
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }
+        }
+
+        /// <summary>
+        /// Validates the name entered by user
+        /// </summary>
+        /// <param name="name"> The name enetered as string by the user</param>
+        /// <returns> Returns 0 if name is invalid and 1 if the name is valid.</returns>
+        public static int NameValidate(string name)
+        {
+            string namepattern = "^(/[A-Z][a-z])+$";
+            if (!Regex.IsMatch(name, namepattern))
+            {
+                Console.WriteLine("Enter correct name");
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }
         }
     }
 }
