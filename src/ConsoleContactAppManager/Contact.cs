@@ -5,7 +5,7 @@
 namespace ContactManagerApp
 {
     /// <summary>
-    /// Class Contact has  name, phone number, email, notes as properties.
+    /// Class Contact has  name, phone number, email, notes.
     /// </summary>
     public class Contact
     {
@@ -18,7 +18,7 @@ namespace ContactManagerApp
         /// <param name="email">Email of object 'contact'</param>
         /// <param name="notes">Has additional notes</param>
         /// <param name="id">Has the unique id for the contact</param>
-        public Contact(int id, string? name, string? phoneNumber, string? email, string? notes)
+        public Contact(int id, string name, string phoneNumber, string email, string notes)
         {
             this.Id = id;
             this.Name = name;

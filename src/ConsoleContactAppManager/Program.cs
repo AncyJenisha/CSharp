@@ -9,6 +9,9 @@ namespace ContactManagerApp
     /// </summary>
     internal class Program
     {
+        /// <summary>
+        /// Options has the different options for the user to perform.
+        /// </summary>
         private enum Options
         {
             AddNewContact = 1,
@@ -22,20 +25,17 @@ namespace ContactManagerApp
         /// <summary>
         /// Main Method has displays the options of the tasks and call the methods for the option chosen.
         /// </summary>
-        /// <param name="args">Gets the options and calls the method.</param>
-        /// <returns>Returns zero to stop the application.</returns>
-        public static int Main(string[] args)
+        /// <param name="args">string</param>
+        public static void Main()
         {
             List<Contact> contactList = new ();
-
             int option;
 
-            // string name, phone, email, notes;
             do
             {
                 Console.WriteLine("1.AddNewContact 2.Display 3.Search 4.Edit 5.Delete 6.Exit");
                 Console.WriteLine("Enter your option:");
-                option = ProgramHelpers.GetInput();
+                option = Validators.GetInput();
 
                 switch (option)
                 {
@@ -55,7 +55,7 @@ namespace ContactManagerApp
                         ProgramHelpers.DeleteContact(contactList);
                         break;
                     case (int)Options.Stop:
-                        return 0;
+                        return;
                     default:
                         Console.WriteLine("Enter a valid Option");
                         break;
