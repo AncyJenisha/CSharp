@@ -7,7 +7,7 @@ namespace ContactManagerApp
     /// <summary>
     /// Class ProgramHelpers has methods to perform the functions of the options entered.
     /// </summary>
-    internal static class ProgramHelpers
+    public class ProgramHelpers
     {
         /// <summary>
         /// EditFields has the attributes of the contact from which user can select to edit.
@@ -21,37 +21,39 @@ namespace ContactManagerApp
         }
 
         /// <summary>
+        /// Gets or sets the contacts to a list.
+        /// </summary>
+        /// <value>List of objects</value>
+        public static List<Contact> ContactList { get; set; } = new List<Contact>();
+
+        /// <summary>
         /// AddNewContact adds a new contact to the list.
         /// </summary>
-        /// <param name="contactList">gets the old list</param>
-        /// <returns>Updated List</returns>
-        public static List<Contact> AddNewContact(List<Contact> contactList)
+        public static void AddNewContact()
         {
-            string? name, phone, email, notes;
-            int id;
+            Contact contacts = new ();
             do
             {
-                Console.WriteLine("Enter the Name: ");
-                name = Validators.GetStringInput();
+                Console.WriteLine("\nEnter the Name: ");
+                contacts.Name = InputHelpers.GetStringInput();
             }
-            while (Validators.NameValidate(name) == 0);
+            while (Validators.NameValidate(contacts.Name) == false);
             do
             {
                 Console.WriteLine("Enter the phone Number:");
-                phone = Validators.GetStringInput();
+                contacts.PhoneNumber = InputHelpers.GetStringInput();
             }
-            while (Validators.PhoneValidate(phone) == 0);
+            while (Validators.PhoneValidate(contacts.PhoneNumber) == false);
             do
             {
                 Console.WriteLine("Enter the Email ID:");
-                email = Validators.GetStringInput();
+                contacts.Email = InputHelpers.GetStringInput();
             }
-            while (Validators.EmailValidate(email) == 0);
+            while (Validators.EmailValidate(contacts.Email) == false);
             Console.WriteLine("Enter notes:");
-            notes = Validators.GetStringInput();
-            id = contactList.Count + 1;
-            contactList.Add(new Contact(id, name, phone, email, notes));
-            return contactList;
+            contacts.Notes = InputHelpers.GetStringInput();
+            contacts.Id = ContactList!.Count + 1;
+            ContactList.Add(contacts);
         }
 
         /// <summary>
@@ -60,47 +62,51 @@ namespace ContactManagerApp
         /// <param name="contactList">Gets the List of contacts</param>
         public static void DisplayContact(List<Contact> contactList)
         {
-            if (!contactList.Any())
+            if (contactList.Count == 0)
             {
                 Console.WriteLine("No contacts to display");
                 return;
             }
-
-            foreach (var item in contactList)
+            else
             {
-                Console.WriteLine($"Id:{item.Id}");
-                Console.WriteLine($"Name:{item.Name}");
-                Console.WriteLine($"phone Number:{item.PhoneNumber}");
-                Console.WriteLine($"Email ID:{item.Email}");
-                Console.WriteLine($"Notes:{item.Notes}");
-                Console.WriteLine(" ");
+                foreach (var item in contactList)
+                {
+                    Console.WriteLine($"\nId:{item.Id}");
+                    Console.WriteLine($"Name:{item.Name}");
+                    Console.WriteLine($"phone Number:{item.PhoneNumber}");
+                    Console.WriteLine($"Email ID:{item.Email}");
+                    Console.WriteLine($"Notes:{item.Notes}");
+                }
             }
         }
 
         /// <summary>
         /// It searches the Contact List.
         /// </summary>
-        /// <param name="contactList">List of stored contacts.</param>
-        public static void SearchContact(List<Contact> contactList)
+        public static void SearchContact()
         {
+            List<Contact> searchcontactList;
+
             // To check if there are no contacts in the list.
-            if (!contactList.Any())
+            if (ContactList!.Count == 0)
             {
                 Console.WriteLine("No Contacts to display");
                 return;
             }
-
-            string nameToSearch;
-            List<Contact> searchcontactList = new ();
-            Console.WriteLine("Enter the name to search: ");
-            nameToSearch = Validators.GetStringInput();
-            foreach (Contact contact in contactList)
+            else
             {
-                if (contact.Name is not null) // To change null state to non-null state before dereferencing.
+                string nameToSearch;
+                searchcontactList = new ();
+                Console.WriteLine("\nEnter the name to search: ");
+                nameToSearch = InputHelpers.GetStringInput();
+                foreach (Contact contacts in ContactList!)
                 {
-                    if (contact.Name.Contains(nameToSearch))
+                    if (contacts.Name is not null)
                     {
-                        searchcontactList.Add(contact);
+                        if (contacts.Name.Contains(nameToSearch))
+                        {
+                            searchcontactList.Add(contacts);
+                        }
                     }
                 }
             }
@@ -111,115 +117,112 @@ namespace ContactManagerApp
         /// <summary>
         /// Removes the contact that is to be deleted and updates the list
         /// </summary>
-        /// <param name="contactList">updated list</param>
-        public static void DeleteContact(List<Contact> contactList)
+        public static void DeleteContact()
         {
-            if (!contactList.Any())
+            if (ContactList!.Count == 0)
             {
-                Console.WriteLine("No Contacts to display");
+                Console.WriteLine("\nNo Contacts to display");
                 return;
-            }
-
-            bool flag = false;
-            DisplayContact(contactList);
-            Console.WriteLine("Enter the ID to be deleted:");
-            int idToRemove = Validators.GetInput();
-            if (idToRemove > 0 && idToRemove <= contactList.Count)
-            {
-                foreach (Contact contact in contactList.ToList())
-                {
-                    if (contact.Id == idToRemove)
-                    {
-                        contactList.RemoveAt(idToRemove - 1);
-                        flag = true;
-                    }
-
-                    // To update the contact id after deletion of a contact.
-                    else if (flag)
-                    {
-                        contact.Id--;
-                    }
-                }
             }
             else
             {
-                Console.WriteLine("Enter valid id");
-            }
+                bool flag = false;
+                DisplayContact(ContactList);
+                Console.WriteLine("Enter the ID to be deleted:");
+                int idToRemove = InputHelpers.GetInput();
+                if (idToRemove > 0 && idToRemove <= ContactList!.Count)
+                {
+                    foreach (Contact contacts in ContactList.ToList())
+                    {
+                        if (contacts.Id == idToRemove)
+                        {
+                            ContactList.RemoveAt(idToRemove - 1);
+                            flag = true;
+                        }
+                        else if (flag)
+                        {
+                            contacts.Id--;
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Enter valid id");
+                }
 
-            Console.WriteLine("Contact Removed.");
+                Console.WriteLine("Contact Removed.");
+            }
         }
 
         /// <summary>
         /// EditContact method changes the list by user and updates the contact list.
         /// </summary>
-        /// <param name="contactList">Takes the entire contact list.</param>
-        /// <returns>updated list</returns>
-        public static List<Contact> EditContact(List<Contact> contactList)
+        public static void EditContact()
         {
-            if (!contactList.Any())
+            if (ContactList!.Count == 0)
             {
                 Console.WriteLine("No contacts to display");
-                return contactList;
+                return;
             }
-
-            string newChange;
-            int fieldToEdit, idToEdit;
-            DisplayContact(contactList);
-            Console.WriteLine("Enter the id to change.");
-            idToEdit = Validators.GetInput();
-            int indexChange = idToEdit - 1;
-            Console.WriteLine("1.Change ContactName\n2.Change PhoneNumber\n3.Change Email Id\n4.Change Notes");
-            Console.WriteLine("Enter the option");
-            fieldToEdit = Validators.GetInput();
-
-            switch (fieldToEdit)
+            else
             {
-                case (int)EditFields.Name:
-                    do
-                    {
-                        Console.WriteLine("Enter the name");
-                        newChange = Validators.GetStringInput();
-                    }
-                    while (Validators.NameValidate(newChange) == 0);
-                    contactList[indexChange].Name = newChange;
-                    Console.WriteLine("Contact Name changed.");
-                    break;
+                string newChange;
+                int fieldToEdit, idToEdit;
+                DisplayContact(ContactList);
+                Console.WriteLine("Enter the id to change.");
+                idToEdit = InputHelpers.GetInput();
+                int indexChange = idToEdit - 1;
+                Console.WriteLine("1.Change ContactName\n2.Change PhoneNumber\n3.Change Email Id\n4.Change Notes");
+                Console.WriteLine("Enter the option");
+                fieldToEdit = InputHelpers.GetInput();
 
-                case (int)EditFields.PhoneNumber:
-                    do
-                    {
-                        Console.WriteLine("Enter the Phone Number");
-                        newChange = Validators.GetStringInput();
-                    }
-                    while (Validators.PhoneValidate(newChange) == 0);
-                    contactList[indexChange].PhoneNumber = newChange;
-                    Console.WriteLine("Contact Number changed.");
-                    break;
+                switch (fieldToEdit)
+                {
+                    case (int)EditFields.Name:
+                        do
+                        {
+                            Console.WriteLine("Enter the name");
+                            newChange = InputHelpers.GetStringInput();
+                        }
+                        while (Validators.NameValidate(newChange) == false);
+                        ContactList[indexChange].Name = newChange;
+                        Console.WriteLine("Contact Name changed.");
+                        break;
 
-                case (int)EditFields.EmailId:
-                    do
-                    {
-                        Console.WriteLine("Enter the EmailId");
-                        newChange = Validators.GetStringInput();
-                    }
-                    while (Validators.EmailValidate(newChange) == 0);
-                    contactList[idToEdit - 1].Email = newChange;
-                    Console.WriteLine("Contact Email Changed.");
-                    break;
+                    case (int)EditFields.PhoneNumber:
+                        do
+                        {
+                            Console.WriteLine("Enter the Phone Number");
+                            newChange = InputHelpers.GetStringInput();
+                        }
+                        while (Validators.PhoneValidate(newChange) == false);
+                        ContactList[indexChange].PhoneNumber = newChange;
+                        Console.WriteLine("Contact Number changed.");
+                        break;
 
-                case (int)EditFields.Notes:
-                    Console.WriteLine("Enter the notes");
-                    newChange = Validators.GetStringInput();
-                    contactList[indexChange].Notes = newChange;
-                    Console.WriteLine("Contact Notes Changed");
-                    break;
+                    case (int)EditFields.EmailId:
+                        do
+                        {
+                            Console.WriteLine("Enter the EmailId");
+                            newChange = InputHelpers.GetStringInput();
+                        }
+                        while (Validators.EmailValidate(newChange) == false);
+                        ContactList[idToEdit - 1].Email = newChange;
+                        Console.WriteLine("Contact Email Changed.");
+                        break;
 
-                default:
-                    Console.WriteLine("Enter appropriate option to edit");
-                    break;
+                    case (int)EditFields.Notes:
+                        Console.WriteLine("Enter the notes");
+                        newChange = InputHelpers.GetStringInput();
+                        ContactList[indexChange].Notes = newChange;
+                        Console.WriteLine("Contact Notes Changed");
+                        break;
+
+                    default:
+                        Console.WriteLine("Enter appropriate option to edit");
+                        break;
+                }
             }
-
-            return contactList;
         }
     }
 }

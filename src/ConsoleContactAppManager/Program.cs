@@ -7,52 +7,38 @@ namespace ContactManagerApp
     /// <summary>
     /// Program class has the options to perform and it recives the option from user.
     /// </summary>
-    internal class Program
+    internal partial class Program
     {
-        /// <summary>
-        /// Options has the different options for the user to perform.
-        /// </summary>
-        private enum Options
-        {
-            AddNewContact = 1,
-            Display,
-            Search,
-            Edit,
-            Delete,
-            Stop,
-        }
-
         /// <summary>
         /// Main Method has displays the options of the tasks and call the methods for the option chosen.
         /// </summary>
         /// <param name="args">string</param>
         public static void Main()
         {
-            List<Contact> contactList = new ();
             int option;
 
             do
             {
-                Console.WriteLine("1.AddNewContact 2.Display 3.Search 4.Edit 5.Delete 6.Exit");
+                Console.WriteLine("\n1.AddNewContact\n 2.Display\n 3.Search\n 4.Edit\n 5.Delete\n 6.Exit\n");
                 Console.WriteLine("Enter your option:");
-                option = Validators.GetInput();
+                option = InputHelpers.GetInput();
 
                 switch (option)
                 {
                     case (int)Options.AddNewContact:
-                        contactList = ProgramHelpers.AddNewContact(contactList);
+                        ProgramHelpers.AddNewContact();
                         break;
                     case (int)Options.Display:
-                        ProgramHelpers.DisplayContact(contactList);
+                        ProgramHelpers.DisplayContact(ProgramHelpers.ContactList!);
                         break;
                     case (int)Options.Search:
-                        ProgramHelpers.SearchContact(contactList);
+                        ProgramHelpers.SearchContact();
                         break;
                     case (int)Options.Edit:
-                        ProgramHelpers.EditContact(contactList);
+                        ProgramHelpers.EditContact();
                         break;
                     case (int)Options.Delete:
-                        ProgramHelpers.DeleteContact(contactList);
+                        ProgramHelpers.DeleteContact();
                         break;
                     case (int)Options.Stop:
                         return;

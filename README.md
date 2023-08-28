@@ -21,6 +21,9 @@
         1. It displays the functions of the application as options.
         2. The displayed options are Add New Contact, Display, Search, Edit and Delete.
         2. It reads the option entered by user and calls the method to  perform the task.
+
+ ## Program1.cs
+        It is a partial class of program class and has the enum for the functions to be performed.
   
   ## Contacts.cs
         1. It has the contact class instantiated.
@@ -58,11 +61,16 @@
                 The method reads the option and asks for the change to be made in the field of the contact.
                 It checks for validation and stores the changes.
 
+## InputHelpers.cs
+        GetInput:
+                This method gets input as string and converts it into integer and checks if its valid.
+
+        GetStringInput:
+                The method gets input and displays message if the string is null or empty.
+
+
 ## Validators.cs
         It has the methods to check if the input entered by user is valid.
-        CheckIfEmpty:
-                This method checks if the contactList is empty and displays message.
-
         nameValidate:
                 This method checks if the name entered by user is valid by checking it with a regular expression.
 
@@ -72,16 +80,12 @@
         phoneValidate:
                 This method checks if the phone number entered by user is valid.
 
-        GetInput:
-                This method gets input as string and converts it into integer and checks if its valid.
-
-        GetStringInput:
-                The method gets input and displays message if the string is null or empty.
-
         namepattern:
                 It has the format for the name. It is compared with the name entered by user.
+
         emailpattern:
                 It has the format for the email and is compared with the email to be entered by user.
+
         phonepattern:
                 It has the format for the phone number, which is compared to the number entered by user.
 

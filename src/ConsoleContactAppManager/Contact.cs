@@ -18,6 +18,25 @@ namespace ContactManagerApp
         /// <param name="email">Email of object 'contact'</param>
         /// <param name="notes">Has additional notes</param>
         /// <param name="id">Has the unique id for the contact</param>
+        public Contact()
+        {
+            this.Id = 0;
+            this.Name = string.Empty;
+            this.PhoneNumber = string.Empty;
+            this.Email = string.Empty;
+            this.Notes = string.Empty;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Contact"/> class.
+        /// Constructor Contact passes the input from user.
+        /// </summary>
+        /// <param name="name">Name as string</param>
+        /// <param name="phoneNumber">PhoneNumber</param>
+        /// <param name="email">Email of object 'contact'</param>
+        /// <param name="notes">Has additional notes</param>
+        /// <param name="
+        /// id">Has the unique id for the contact</param>
         public Contact(int id, string name, string phoneNumber, string email, string notes)
         {
             this.Id = id;
