@@ -13,7 +13,6 @@ namespace Assignment3
         /// <summary>
         /// Main method has the program entry point.
         /// </summary>
-        /// <param name="args">Input string</param>
         private static void Main()
         {
             var weatherForecast = new WeatherForecast

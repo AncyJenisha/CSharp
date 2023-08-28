@@ -1,28 +1,28 @@
 # HANDS ON WITH VISUAL STUDIO
 ## TASK -1 
-1.  The solution explorer:
-    The solution  explorer shows the hierarchy of files and folders in the solution, project or code folder.
-    The files from the solution explorer is selected to view it on the editor.
-2.  The Editor window:
-    The editor window shows the contents of the file and with it we can edit and work on our file.
-3.  Menu bar:
-    The menu bar has commands grouped into categories like projects, tools which has commands related to the fields.
-4.  Error List
-    The error list shows the error, warnings and current state of code.
-5. Serach box:
-    The search box makes it easy to search in visual studio.
-6.  Build Run and Debug:
-    The build, Run and Debug options in the menu are used to work with code. Hotload option makes it possible to change code in runtime.
+    1.  The solution explorer:
+        The solution  explorer shows the hierarchy of files and folders in the solution, project or code folder.
+        The files from the solution explorer is selected to view it on the editor.
+    2.  The Editor window:
+        The editor window shows the contents of the file and with it we can edit and work on our file.
+    3.  Menu bar:
+        The menu bar has commands grouped into categories like projects, tools which has commands related to the fields.
+    4.  Error List
+        The error list shows the error, warnings and current state of code.
+    5. Serach box:
+        The search box makes it easy to search in visual studio.
+    6.  Build Run and Debug:
+        The build, Run and Debug options in the menu are used to work with code. Hotload option makes it possible to change code in runtime.
 
 ## Solution file
     The  solution file is a container of one more related projects.
 ## Default files 
-1. Program.cs
-    It is the console project that starts executing from entry point.
-2.  Dependancies file 
-    It has the analyzers, frameworks and packages.
-3. EditorConfig
-    The code lines are formated based on the changes in the EditorConfig file.
+    1.  Program.cs
+        It is the console project that starts executing from entry point.
+    2.  Dependancies file 
+        It has the analyzers, frameworks and packages.
+    3. EditorConfig
+        The code lines are formated based on the changes in the EditorConfig file.
 
 ## TASK-2
      The generted program.cs file has the entry point of code with the main method in it.
