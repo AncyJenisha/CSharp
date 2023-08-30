@@ -9,7 +9,7 @@
         The menu bar has commands grouped into categories like projects, tools which has commands related to the fields.
     4.  Error List
         The error list shows the error, warnings and current state of code.
-    5. Serach box:
+    5.  Search box:
         The search box makes it easy to search in visual studio.
     6.  Build Run and Debug:
         The build, Run and Debug options in the menu are used to work with code. Hotload option makes it possible to change code in runtime.

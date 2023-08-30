@@ -22,9 +22,7 @@ namespace ConsoleAppCalculator
         /// <summary>
         /// Main method recieves two numbers from user
         /// </summary>
-        /// <param name="args">reads a line</param>
-        /// <exception cref="ArgumentNullException">Throws exception when args is null</exception>
-        public static void Main(string[] args)
+        public static void Main()
         {
             float number1, number2;
             int option;
