@@ -119,9 +119,7 @@ namespace ContactManagerApp
                     }
 
                     Console.WriteLine("Contact Removed.");
-
                 }
-
                 else
                 {
                     Console.WriteLine("Enter valid id");
