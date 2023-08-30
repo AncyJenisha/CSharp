@@ -22,8 +22,8 @@
         2. The displayed options are Add New Contact, Display, Search, Edit and Delete.
         2. It reads the option entered by user and calls the method to  perform the task.
 
- ## Program1.cs
-        It is a partial class of program class and has the enum for the functions to be performed.
+ ## enum.cs
+        It has the enum for the functions to be performed and an enum for the options to edit.
   
   ## Contacts.cs
         1. It has the contact class instantiated.

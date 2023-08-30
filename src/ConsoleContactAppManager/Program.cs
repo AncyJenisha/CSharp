@@ -7,12 +7,11 @@ namespace ContactManagerApp
     /// <summary>
     /// Program class has the options to perform and it recives the option from user.
     /// </summary>
-    internal partial class Program
+    internal class Program
     {
         /// <summary>
         /// Main Method has displays the options of the tasks and call the methods for the option chosen.
         /// </summary>
-        /// <param name="args">string</param>
         public static void Main()
         {
             int option;
@@ -29,7 +28,19 @@ namespace ContactManagerApp
                         ProgramHelpers.AddNewContact();
                         break;
                     case (int)Options.Display:
-                        ProgramHelpers.DisplayContact(ProgramHelpers.ContactList!);
+                        if (ProgramHelpers.ContactList.Count == 0)
+                        {
+                            Console.WriteLine("No contacts to display");
+                            return;
+                        }
+                        else
+                        {
+                            foreach (var item in ProgramHelpers.ContactList)
+                            {
+                                ProgramHelpers.DisplayContact(item);
+                            }
+                        }
+
                         break;
                     case (int)Options.Search:
                         ProgramHelpers.SearchContact();

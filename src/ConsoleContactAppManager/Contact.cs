@@ -13,18 +13,8 @@ namespace ContactManagerApp
         /// Initializes a new instance of the <see cref="Contact"/> class.
         /// Constructor Contact passes the input from user.
         /// </summary>
-        /// <param name="name">Name as string</param>
-        /// <param name="phoneNumber">PhoneNumber</param>
-        /// <param name="email">Email of object 'contact'</param>
-        /// <param name="notes">Has additional notes</param>
-        /// <param name="id">Has the unique id for the contact</param>
         public Contact()
         {
-            this.Id = 0;
-            this.Name = string.Empty;
-            this.PhoneNumber = string.Empty;
-            this.Email = string.Empty;
-            this.Notes = string.Empty;
         }
 
         /// <summary>
@@ -50,30 +40,30 @@ namespace ContactManagerApp
         /// Gets or sets stores Name of the person
         /// </summary>
         /// <value>string</value>
-        public string? Name { get; set; }
+        public string? Name { get; set; } = string.Empty;
 
         /// <summary>
         /// Gets or sets stores PhoneNumber.
         /// </summary>
         /// <value>string
-        public string? PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; } = string.Empty;
 
         /// <summary>
         /// Gets or sets stores Email ID.
         /// </summary>
         /// <value>string</value>
-        public string? Email { get; set; }
+        public string? Email { get; set; } = string.Empty;
 
         /// <summary>
         /// Gets or sets stores Notes.
         /// </summary>
         /// <value>string</value>
-        public string? Notes { get; set; }
+        public string? Notes { get; set; } = string.Empty;
 
         /// <summary>
         /// Gets or sets the serial number of the contact.
         /// </summary>
         /// <value>Id in integer</value>
-        public int Id { get; set; }
+        public int Id { get; set; } = 0;
     }
 }
