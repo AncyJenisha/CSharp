@@ -13,8 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "acceptance", "acceptance", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppCalculator", "src\ConsoleAppCalculator\ConsoleAppCalculator.csproj", "{7EA17DFC-BBDA-4FED-8FC8-5AFEF383C90A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment4GreetingApp", "src\Dependancy\Assignment4GreetingApp.csproj", "{E4240F6E-9561-4A44-A7D5-60B034F863CC}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assignment3", "src\Assignment3\Assignment3.csproj", "{BE567376-1355-4F26-8A21-84DB0EA11D66}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactManagerApp", "src\ConsoleContactAppManager\ContactManagerApp.csproj", "{3DD8942A-C09A-4411-A208-F008E8CBEFE8}"
