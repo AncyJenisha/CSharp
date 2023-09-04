@@ -5,7 +5,6 @@
 namespace Task5MathApp
 {
     using MathApp;
-    using Task5DisplayApp;
 
     /// <summary>
     /// Has the methods for the mathematical operations.
@@ -20,12 +19,12 @@ namespace Task5MathApp
             float number1, number2;
             int choiceofoperation;
             Console.WriteLine("Enter the first number:");
-            number1 = Inputreader.GetInput();
+            number1 = ProjectE.Program.GetInput();
             Console.WriteLine("Enter the second number:");
-            number2 = Inputreader.GetInput();
+            number2 = ProjectE.Program.GetInput();
             Console.WriteLine("The operations to be performed.\n 1.Addition\n 2.Subtraction\n 3.Multiplication\n 4.Division\n 5.Exit\n");
             Console.WriteLine("Enter your choice of operation");
-            choiceofoperation = Inputreader.GetIntegerInput();
+            choiceofoperation = ProjectE.Program.GetIntegerInput();
             Choice.ChoiceofMathoperation(choiceofoperation, number1, number2);
         }
 

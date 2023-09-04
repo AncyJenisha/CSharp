@@ -1,17 +1,13 @@
-﻿// <copyright file="Inputreader.cs" company="PlaceholderCompany">
+﻿// <copyright file="Program.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace MathApp
+namespace ProjectE
 {
-    using System.Runtime.CompilerServices;
-    using Task5DisplayApp;
-    using Task5MathApp;
-
     /// <summary>
-    /// Class Inputconvertors has the methods for converting inputs.
+    /// It has the methods to validate input recieved from user.
     /// </summary>
-    public class Inputreader
+    public class Program
     {
         /// <summary>
         /// Reads string and converts it into float.
@@ -20,12 +16,12 @@ namespace MathApp
         public static float GetInput()
         {
             string? n;
-        getfloat:
             n = Console.ReadLine();
-            if (!float.TryParse(n, out float number))
+            float number;
+            while (!float.TryParse(n, out number))
             {
                 Console.WriteLine("Enter a valid number");
-                goto getfloat;
+                n = Console.ReadLine();
             }
 
             return number;
@@ -38,15 +34,22 @@ namespace MathApp
         public static int GetIntegerInput()
         {
             string? n;
-        getinteger:
+            int integer;
             n = Console.ReadLine();
-            if (!int.TryParse(n, out int integer))
+            while (!int.TryParse(n, out integer))
             {
                 Console.WriteLine("Enter a valid number");
-                goto getinteger;
+                n = Console.ReadLine();
             }
 
             return integer;
+        }
+
+        /// <summary>
+        /// Main method.
+        /// </summary>
+        private static void Main()
+        {
         }
     }
 }

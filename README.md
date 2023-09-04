@@ -89,3 +89,51 @@
         phonepattern:
                 It has the format for the phone number, which is compared to the number entered by user.
 
+ 
+# ASSIGNMENT-5
+ For the task a solution with multiple console application is created and its dependancies and build order is manged.
+
+ ## Task5GreetingApp
+        It has the main method and it is the startup project for the solution.
+        The main method prints a message to greet the user.
+        It is dependent on Task5MathApp.
+        The main method calls the Readinput method.
+
+## Task5MathApp
+        It has the Methods to get input and calls the method based on the choice entered by user for
+        the math operation to be performed.
+        It is dependent on Task5DisplayApp and ProjectE.
+
+###     MathUtilis
+                It reads the two numbers from the user for performing the math operation and the choice of operation from user. It also has the methods for different mathematical operations.
+                The methods for math operations performs the operations and passes the result to the display method in Task5DisplayApp.
+                It validates the input recieved from user by calling methods in ProjectE.
+
+###     Choice
+                It has the switch case and enum for the options of mathematical operations
+                enum options:
+                        It has the list of math operations for the user to choose.
+                
+                ChoiceofMathoperation:
+                        It has the switch case which gets the option enetered by user and calls the respective method, which is in MathUtilis.
+
+## Task5DislayApp
+        It has the method to recieve the result from the math operation as input and displays it as result.
+
+## Task5UtilityApp
+        It has the thankyou message to be displayed at the end of the appliaction.
+
+## ProjectE
+        It has the methods to validate the input as integer and float.
+        GetInput:
+                It reads input from user and coverts it into float.
+        
+        GetIntegerInput:
+                It reads input from user and converts it into integer.
+
+## Circular Dependancy:
+
+        The project Task5MathApp is dependent on the Task5DisplayApp and it calls a method in the Task5DisplayApp to display the result of math operations.
+        It creates a circular dependency and can be solved by creating a new project ProjectE and having the getinput methods there and making it a dependency of Task5MathApp.
+
+![Build order](Screenshot%20(13).png)

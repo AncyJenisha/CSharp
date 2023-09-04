@@ -4,8 +4,6 @@
 
 namespace Task5MathApp
 {
-    using Task5DisplayApp;
-
     /// <summary>
     /// Progran class has the main method.
     /// </summary>

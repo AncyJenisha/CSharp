@@ -14,9 +14,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\ProjectE\ProjectE.csproj" />
-    <ProjectReference Include="..\task5UtilityApp\task5UtilityApp.csproj" />
-  </ItemGroup>
-
 </Project>

@@ -4,8 +4,6 @@
 
 namespace MathApp
 {
-    using System.Runtime.CompilerServices;
-    using Task5DisplayApp;
     using Task5MathApp;
 
     /// <summary>
@@ -28,7 +26,7 @@ namespace MathApp
         /// <summary>
         /// Gets input from user and calls the corresponding method of math operation.
         /// </summary>
-        /// <param name="choiceofoperation">choice integer</param>
+        /// <param name="choiceofoperation">The option chosen by the user for the mathematical operation to be performed.</param>
         /// <param name="number1">The first number entered by user</param>
         /// <param name="number2">The second number entered by user</param>
         public static void ChoiceofMathoperation(int choiceofoperation, float number1, float number2)
