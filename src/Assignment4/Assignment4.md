@@ -1,12 +1,13 @@
 # ASSIGNMENT -4
 ## Part-1
-    Git is a version control system that tracks changes in computer files or programs and helps in collaborate in code.
+    Git is a version control system that tracks changes in computer files or programs and helps to collaborate in code.
 
     1.  A new  console application project is created.
 
 ## Part-2
    1.   A new repository named Git-in-VS is initialized.
    2.   An initial commit with the project's starting code is made.
+   
 ![Initial Commit message](init.png)
 
 ## Part-3
@@ -16,7 +17,7 @@
 
 ## Part-4
     1. A meaningful commit message stating the changes made is written as commit message.
-    2. The changes are commited.
+    2. The changes are committed.
 ![Commiting after staging the changes](afterstaging.png)
 
 ## Part-5
@@ -26,10 +27,10 @@
 ![Creation of new branch](newbranch.png)
 
 ## Part-6
-    1.  Changes in the code are done in second branch which makes it have merge conflicts with the main branch.
-    2.  The branches when attempted to merge shows merge conflicts.
+    1.  Changes in the code are done in second branch.
+    2.  The branches when attempted to merge shows merge conflicts with the main branch.
     3.  The merge conflicts are resolved by choosing which change should be present in the final code.
-    4.  The conflicts are resolved and then merged.
+    4.  The changes are then merged.
 ![Merging Second branch to main](Screenshot(7).png)
 
 ## Part-7
@@ -40,9 +41,9 @@
 ## Part-8
     1.  Several changes are done to the file.
     2.  A write statement to display a welcome message is added.
-    3.  A read statement to read the user name enetered by the user and it is added to the display welcome message.
-    4.  Selective staging to select only the first change and then it is commited with a message.
-    5. The remaining changes are staged and commited with another commit message.
+    3.  A read statement to read the user name entered by the user and it is added to the display welcome message.
+    4.  Only the first change is selected and staged and then it is committed with a message.
+    5. The remaining changes are staged and committed with another commit message.
     6. The commits are all pushed to the Github repo.
 ![Selective staging and commit](Screenshot(12).png)
 
