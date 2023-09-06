@@ -17,7 +17,7 @@ internal static class InputReader
         string? n = Console.ReadLine();
         while (!float.TryParse(n, out number))
         {
-            Console.WriteLine("Enter valid Number");
+            Console.WriteLine("Enter the correct salary");
             n = Console.ReadLine();
         }
 
@@ -25,9 +25,9 @@ internal static class InputReader
     }
 
     /// <summary>
-    /// Gets input from user and converts it into float.
+    /// Gets input from user and converts it into Integer.
     /// </summary>
-    /// <returns>Float number</returns>
+    /// <returns>Integer number</returns>
     public static int GetIntegerInput()
     {
         int number;
