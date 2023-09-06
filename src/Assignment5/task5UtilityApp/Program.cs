@@ -2,21 +2,20 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace Task5DisplayApp
+namespace UtilityApp
 {
     /// <summary>
-    /// Program class has the method to display numbers.
+    /// Valida class has main method.
     /// </summary>
     public class Program
     {
         /// <summary>
-        /// Display method gets a number as input and displays it.
+        /// Message has the exit message.
         /// </summary>
-        /// <param name="number">result of a mathematical operation.</param>
-        public static void Display(float number)
+        public static void Message()
         {
-            Console.WriteLine($"The result: {number}\n");
-            Task5UtilityApp.Program.Message();
+            Console.WriteLine("Thank You for using this application");
+            Console.WriteLine("Have a Nice day!!\n");
         }
 
         /// <summary>

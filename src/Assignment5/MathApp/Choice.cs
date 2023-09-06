@@ -4,7 +4,7 @@
 
 namespace MathApp
 {
-    using Task5MathApp;
+    using MathApp;
 
     /// <summary>
     /// It has the options for the mathematical operations to be

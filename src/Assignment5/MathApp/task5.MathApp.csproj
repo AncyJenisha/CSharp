@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MathApp\Task5MathApp.csproj" />
+    <ProjectReference Include="..\task5DisplayApp\task5.DisplayApp.csproj" />
   </ItemGroup>
 
 </Project>

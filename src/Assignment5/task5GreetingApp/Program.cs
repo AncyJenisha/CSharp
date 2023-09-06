@@ -4,7 +4,7 @@
 
 namespace GreetingApp
 {
-    using Task5MathApp;
+    using MathApp;
 
     /// <summary>
     /// Program class contains the main method.
@@ -19,7 +19,7 @@ namespace GreetingApp
             Console.WriteLine("Welcome to console Application!!\n");
             do
             {
-                Task5MathApp.MathUtilis.Readinput();
+                MathApp.MathUtilis.Readinput();
             }
             while (true);
         }

@@ -15,7 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\task5DisplayApp\task5DisplayApp.csproj" />
+    <ProjectReference Include="..\task5UtilityApp\task5.UtilityApp.csproj" />
+    <ProjectReference Include="..\ValidationApp\task5.ValidatorsApp.csproj" />
   </ItemGroup>
 
 </Project>

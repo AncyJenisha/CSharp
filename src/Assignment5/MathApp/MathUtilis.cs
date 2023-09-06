@@ -2,9 +2,10 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace Task5MathApp
+namespace MathApp
 {
     using MathApp;
+    using ValidatorsApp;
 
     /// <summary>
     /// Has the methods for the mathematical operations.
@@ -19,12 +20,12 @@ namespace Task5MathApp
             float number1, number2;
             int choiceofoperation;
             Console.WriteLine("Enter the first number:");
-            number1 = ProjectE.Program.GetInput();
+            number1 = ValidatorsApp.Program.GetInput();
             Console.WriteLine("Enter the second number:");
-            number2 = ProjectE.Program.GetInput();
+            number2 = ValidatorsApp.Program.GetInput();
             Console.WriteLine("The operations to be performed.\n 1.Addition\n 2.Subtraction\n 3.Multiplication\n 4.Division\n 5.Exit\n");
             Console.WriteLine("Enter your choice of operation");
-            choiceofoperation = ProjectE.Program.GetIntegerInput();
+            choiceofoperation = ValidatorsApp.Program.GetIntegerInput();
             Choice.ChoiceofMathoperation(choiceofoperation, number1, number2);
         }
 
@@ -35,7 +36,7 @@ namespace Task5MathApp
         /// <param name="number2">The second number entered by user</param>
         public static void Addition(float number1, float number2)
         {
-            Task5DisplayApp.Program.Display(number1 + number2);
+            DisplayApp.Program.Display(number1 + number2);
         }
 
         /// <summary>
@@ -45,7 +46,7 @@ namespace Task5MathApp
         /// <param name="number2">The second number entered by user.</param>
         public static void Subtraction(float number1, float number2)
         {
-            Task5DisplayApp.Program.Display(number1 - number2);
+            DisplayApp.Program.Display(number1 - number2);
         }
 
         /// <summary>
@@ -55,7 +56,7 @@ namespace Task5MathApp
         /// <param name="number2">The second number entered by user.</param>
         public static void Multiplication(float number1, float number2)
         {
-            Task5DisplayApp.Program.Display(number2 * number1);
+            DisplayApp.Program.Display(number2 * number1);
         }
 
         /// <summary>
@@ -71,7 +72,7 @@ namespace Task5MathApp
             }
             else
             {
-                Task5DisplayApp.Program.Display(number1 / number2);
+                DisplayApp.Program.Display(number1 / number2);
             }
         }
     }

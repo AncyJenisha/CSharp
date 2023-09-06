@@ -2,7 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace ProjectE
+namespace ValidatorsApp
 {
     /// <summary>
     /// It has the methods to validate input recieved from user.

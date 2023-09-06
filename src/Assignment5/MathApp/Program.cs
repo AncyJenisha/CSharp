@@ -2,7 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace Task5MathApp
+namespace MathApp
 {
     /// <summary>
     /// Progran class has the main method.
