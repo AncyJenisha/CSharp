@@ -4,9 +4,6 @@
 
 namespace MathApp
 {
-    using MathApp;
-    using ValidatorsApp;
-
     /// <summary>
     /// Has the methods for the mathematical operations.
     /// </summary>

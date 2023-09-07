@@ -19,7 +19,7 @@ namespace GreetingApp
             Console.WriteLine("Welcome to console Application!!\n");
             do
             {
-                MathApp.MathUtilis.Readinput();
+                MathUtilis.Readinput();
             }
             while (true);
         }

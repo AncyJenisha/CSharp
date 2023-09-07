@@ -10,6 +10,13 @@ namespace ValidatorsApp
     public class Program
     {
         /// <summary>
+        /// Main method.
+        /// </summary>
+        public static void Main()
+        {
+        }
+
+        /// <summary>
         /// Reads string and converts it into float.
         /// </summary>
         /// <returns>float input</returns>
@@ -43,13 +50,6 @@ namespace ValidatorsApp
             }
 
             return integer;
-        }
-
-        /// <summary>
-        /// Main method.
-        /// </summary>
-        private static void Main()
-        {
         }
     }
 }
