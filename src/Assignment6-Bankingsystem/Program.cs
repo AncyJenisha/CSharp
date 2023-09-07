@@ -20,5 +20,4 @@ namespace Assignment6_Bankingsystem
 
         }
     }
-
 }
