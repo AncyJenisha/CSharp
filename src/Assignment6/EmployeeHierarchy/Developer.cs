@@ -2,7 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace Assignment6_Employee
+namespace EmployeeHierarchy
 {
     /// <summary>
     /// Developer object is derived from employee class.
@@ -24,7 +24,7 @@ namespace Assignment6_Employee
         /// Bonus calculates the bonus of the developer from his salary.
         /// </summary>
         /// <returns>Bonus as float.</returns>
-        public override float Bonus()
+        public override float CalculateBonus()
         {
             float bonus = 0.15F * this.Salary;
             return bonus;
@@ -35,10 +35,10 @@ namespace Assignment6_Employee
         /// </summary>
         public override void PrintDetails()
         {
-            Console.WriteLine($"Name of the Developer:{this.Name}");
+            Console.WriteLine($"\nName of the Developer:{this.Name}");
             Console.WriteLine("Postion:Developer");
             Console.WriteLine($"Salary:{this.Salary}");
-            Console.WriteLine($"Bonus Amount:{this.Bonus()}\n");
+            Console.WriteLine($"Bonus Amount:{this.CalculateBonus()}\n");
         }
     }
 }

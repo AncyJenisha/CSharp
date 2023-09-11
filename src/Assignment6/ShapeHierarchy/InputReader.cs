@@ -2,7 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace Assignment6
+namespace ShapeHierarchy
 {
     /// <summary>
     /// Input reader has the method to get input from user.

@@ -2,29 +2,8 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace Assignment6_Employee
+namespace EmployeeHierarchy
 {
-    /// <summary>
-    /// Options enum has thetypes of employees.
-    /// </summary>
-    public enum Options
-    {
-        /// <summary>
-        /// Manager creates an object manager.
-        /// </summary>
-        Manager = 1,
-
-        /// <summary>
-        /// Developer creates an object developer.
-        /// </summary>
-        Developer,
-
-        /// <summary>
-        /// Exit stops the program.
-        /// </summary>
-        Exit,
-    }
-
     /// <summary>
     /// Progran class has the main method.
     /// </summary>
@@ -49,7 +28,7 @@ namespace Assignment6_Employee
                         float salary = InputReader.GetFloatInput();
                         var manager = new Manager(name, salary);
                         manager.PrintDetails();
-                        manager.Bonus();
+                        manager.CalculateBonus();
                         break;
 
                     case (int)Options.Developer:
@@ -59,7 +38,7 @@ namespace Assignment6_Employee
                         float developersalary = InputReader.GetFloatInput();
                         var developer = new Developer(developername, developersalary);
                         developer.PrintDetails();
-                        developer.Bonus();
+                        developer.CalculateBonus();
                         break;
 
                     case (int)Options.Exit:

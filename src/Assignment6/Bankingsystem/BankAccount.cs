@@ -2,7 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace Assignment6_Bankingsystem
+namespace Bankingsystem
 {
     /// <summary>
     /// BankAccount is the base class.
@@ -30,18 +30,26 @@ namespace Assignment6_Bankingsystem
         /// <summary>
         /// Method to withdraw the amount.
         /// </summary>
-        /// <returns>Balance amount after withdrawal as float</returns>
-        public abstract float WithdrawAmount();
+        /// <param name="amount">Amount</param>
+        public abstract void WithdrawAmount(float amount);
 
         /// <summary>
         /// Deposite amount method adds the amount deposited to the main balance.
         /// </summary>
         /// <param name="amount">The amount deposited by user.</param>
-        /// <returns>The main balance after deposite</returns>
-        public float DepositeAmount(float amount)
+        public void DepositAmount(float amount)
         {
-            this.Balance -= amount;
-            return this.Balance;
+            this.Balance += amount;
+            Console.WriteLine($"Amount of {amount} is added and the balance is {this.Balance}");
+        }
+
+        /// <summary>
+        /// This method displays the Account number and Balance.
+        /// </summary>
+        public void CheckBalance()
+        {
+            Console.WriteLine($"\nAccount number: {this.Accountnumber}");
+            Console.WriteLine($"Balance: {this.Balance}");
         }
     }
 }

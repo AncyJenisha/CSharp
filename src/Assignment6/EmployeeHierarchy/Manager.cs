@@ -2,7 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace Assignment6_Employee
+namespace EmployeeHierarchy
 {
     /// <summary>
     /// Manager class has employee class as base.
@@ -24,7 +24,7 @@ namespace Assignment6_Employee
         /// Bonus calculates the bonus of the manager.
         /// </summary>
         /// <returns>Bonus as float value</returns>
-        public override float Bonus()
+        public override float CalculateBonus()
         {
             float bonus = 0.25F * this.Salary;
             return bonus;
@@ -35,10 +35,10 @@ namespace Assignment6_Employee
         /// </summary>
         public override void PrintDetails()
         {
-            Console.WriteLine($"Name of the Manager: {this.Name}");
+            Console.WriteLine($"\nName of the Manager: {this.Name}");
             Console.WriteLine($"Position:Manager");
             Console.WriteLine($"Salary:{this.Salary}");
-            Console.WriteLine($"Bonus amount:{this.Bonus()}\n");
+            Console.WriteLine($"Bonus amount:{this.CalculateBonus()}\n");
         }
     }
 }

@@ -2,7 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace Assignment6
+namespace ShapeHierarchy
 {
     /// <summary>
     /// Program class has the main method.

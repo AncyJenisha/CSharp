@@ -2,7 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace Assignment6_Employee
+namespace EmployeeHierarchy
 {
     /// <summary>
     /// Employee class is the base class.
@@ -25,7 +25,7 @@ namespace Assignment6_Employee
         /// Calculates the bonous for the employee
         /// </summary>
         /// <returns>Bonus value as float</returns>
-        public abstract float Bonus();
+        public abstract float CalculateBonus();
 
         /// <summary>
         /// Prints the details of the Employee.

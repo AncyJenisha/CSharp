@@ -2,7 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace Assignment6
+namespace ShapeHierarchy
 {
     /// <summary>
     /// Class Shape is abstract and has methods to calculate area and print details.
