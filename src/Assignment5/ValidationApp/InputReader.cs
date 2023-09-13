@@ -1,23 +1,16 @@
-﻿// <copyright file="Program.cs" company="PlaceholderCompany">
+﻿// <copyright file="InputReader.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
 namespace ValidatorsApp
 {
     /// <summary>
-    /// It has the methods to validate input recieved from user.
+    /// Class InputReader have method to read input from user and validate it.
     /// </summary>
-    public class Program
+    public static class InputReader
     {
         /// <summary>
-        /// Main method.
-        /// </summary>
-        public static void Main()
-        {
-        }
-
-        /// <summary>
-        /// Reads string and converts it into float.
+        /// Gets string and converts it into float.
         /// </summary>
         /// <returns>float input</returns>
         public static float GetInput()
@@ -37,7 +30,7 @@ namespace ValidatorsApp
         /// <summary>
         /// Gets string as input and converts it to an integer.
         /// </summary>
-        /// <returns>A integer number.</returns>
+        /// <returns>A integer number</returns>
         public static int GetIntegerInput()
         {
             string? n;

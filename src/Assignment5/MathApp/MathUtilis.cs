@@ -4,6 +4,9 @@
 
 namespace MathApp
 {
+    using DisplayApp;
+    using ValidatorsApp;
+
     /// <summary>
     /// Has the methods for the mathematical operations.
     /// </summary>
@@ -17,13 +20,13 @@ namespace MathApp
             float number1, number2;
             int choiceofoperation;
             Console.WriteLine("Enter the first number:");
-            number1 = ValidatorsApp.Program.GetInput();
+            number1 = InputReader.GetInput();
             Console.WriteLine("Enter the second number:");
-            number2 = ValidatorsApp.Program.GetInput();
+            number2 = InputReader.GetInput();
             Console.WriteLine("The operations to be performed.\n 1.Addition\n 2.Subtraction\n 3.Multiplication\n 4.Division\n 5.Exit\n");
             Console.WriteLine("Enter your choice of operation");
-            choiceofoperation = ValidatorsApp.Program.GetIntegerInput();
-            Choice.ChoiceofMathoperation(choiceofoperation, number1, number2);
+            choiceofoperation = InputReader.GetIntegerInput();
+            Choice.ChoiceOfMathOperation(choiceofoperation, number1, number2);
         }
 
         /// <summary>
@@ -33,7 +36,7 @@ namespace MathApp
         /// <param name="number2">The second number entered by user</param>
         public static void Addition(float number1, float number2)
         {
-            DisplayApp.Program.Display(number1 + number2);
+            DisplayResult.Display(number1 + number2);
         }
 
         /// <summary>
@@ -43,7 +46,7 @@ namespace MathApp
         /// <param name="number2">The second number entered by user.</param>
         public static void Subtraction(float number1, float number2)
         {
-            DisplayApp.Program.Display(number1 - number2);
+            DisplayResult.Display(number1 - number2);
         }
 
         /// <summary>
@@ -53,7 +56,7 @@ namespace MathApp
         /// <param name="number2">The second number entered by user.</param>
         public static void Multiplication(float number1, float number2)
         {
-            DisplayApp.Program.Display(number2 * number1);
+            DisplayResult.Display(number2 * number1);
         }
 
         /// <summary>
@@ -69,7 +72,7 @@ namespace MathApp
             }
             else
             {
-                DisplayApp.Program.Display(number1 / number2);
+                DisplayResult.Display(number1 / number2);
             }
         }
     }

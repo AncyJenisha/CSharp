@@ -4,8 +4,6 @@
 
 namespace MathApp
 {
-    using MathApp;
-
     /// <summary>
     /// It has the options for the mathematical operations to be
     /// </summary>
@@ -29,7 +27,7 @@ namespace MathApp
         /// <param name="choiceofoperation">The option chosen by the user for the mathematical operation to be performed.</param>
         /// <param name="number1">The first number entered by user</param>
         /// <param name="number2">The second number entered by user</param>
-        public static void ChoiceofMathoperation(int choiceofoperation, float number1, float number2)
+        public static void ChoiceOfMathOperation(int choiceofoperation, float number1, float number2)
         {
             switch (choiceofoperation)
             {

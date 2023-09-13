@@ -1,23 +1,16 @@
-﻿// <copyright file="Program.cs" company="PlaceholderCompany">
+﻿// <copyright file="DisplayResult.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
 namespace DisplayApp
 {
-    using ValidatorsApp;
+    using UtilityApp;
 
     /// <summary>
-    /// Program class has the method to display numbers.
+    /// Contains method to display the result of the mathematical operation.
     /// </summary>
-    public class Program
+    public static class DisplayResult
     {
-        /// <summary>
-        /// Main method.
-        /// </summary>
-        public static void Main()
-        {
-        }
-
         /// <summary>
         /// Display method gets a number as input and displays it.
         /// </summary>
@@ -25,7 +18,7 @@ namespace DisplayApp
         public static void Display(float number)
         {
             Console.WriteLine($"The result: {number}\n");
-            UtilityApp.Program.Message();
+            MessageDisplayer.Message();
         }
     }
 }
