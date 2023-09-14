@@ -5,7 +5,7 @@
 namespace GarbageCollection
 {
     /// <summary>
-    /// Has method to create and delete Large objects.
+    /// Is an empty class to create objects for it.
     /// </summary>
     public class SampleClass
     {

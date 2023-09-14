@@ -10,6 +10,9 @@
 
 Observation:
     The referencetype is incremented by 1. But, the valuetype remains the same.
+    The method recieves both value type and reference type as parameter.
+    When value type is passed as the parameter, a copy of the object instead of the object itself is passed to the method, therefore the change on the object inside the method does not affect the original object.
+    Passing the parameter by reference, the change to the object inside the method, changes the original object.
 
 ## TASK-2 WORKING WITH THE STACK AND THE HEAP.
     ReferenceTypeClass:
@@ -22,6 +25,8 @@ Observation:
 Observation:
       The OperationOnValueType method uses very less heap.
       The value types directly contain data and they are stored in stack.
+      For reference type the value is stored in heap, and the pointer to the value is stored in stack.
+      For the value type, the entire object is stored in stack.
 
 ![Memory Usage for Value types](.\Images\8.2.1.HeapusageforReferencetype.png) 
 
@@ -34,10 +39,13 @@ Observation:
     SampleClass:
         It is a empty class.
     Program Class:
-        It has the main method, which continously creates objects for the class and calls the Garbage Collector for every 500 objects created.
+        It has the main method, which continously creates objects for the class and calls the Garbage Collector for every 500000 objects created.
 
 Observation:
         When the GC is not called the heap size increases, when it is called it collects all the unused objects and frees the space.
+        Garbage Collector collects the heap space previously allocated to objects, which are no longer nedded.
+        GC.Collect performs blocking garbagecollection of all generations.
+        It force the system to try to reclaim the maximum memory available.
 
 ![Heap Usage before using GC.Collect](.\Images\8.3.1.WithoutGarbageCollect.png)
 
@@ -48,10 +56,10 @@ Observation:
     FileOperations Class:
         It has the method to read content and write content to a file.
         It inherits the Idisposable class.
-        WriteToFile:
+        WriteToFile():
             It reads input from user and adds it to the file.
             It calls the dispose method after adding contents to close the file.
-        ReadFromFile:
+        ReadFromFile():
             It reads content from file and displays it.    
     Program Class:
         It calls the method to read contents from a file and the method to display contents from a file.
