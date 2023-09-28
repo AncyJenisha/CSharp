@@ -13,17 +13,17 @@ namespace IDisposableDemo
         /// </summary>
         public static void WriteToFile()
         {
-            string? contentstoadd;
+            string? contentsToAdd;
             using (StreamWriter sw = new StreamWriter(@"C:\Users\Ancy.Vijayaraj\Desktop\CSharpTips\CSharp\src\Assignment8\IDisposableDemo\Task8.txt"))
             {
                 Console.WriteLine("Enter your contents here:");
                 Console.WriteLine("Enter q to Quit");
                 do
                 {
-                    contentstoadd = Console.ReadLine();
-                    sw.WriteLine(contentstoadd);
+                    contentsToAdd = Console.ReadLine();
+                    sw.WriteLine(contentsToAdd);
                 }
-                while (contentstoadd != "q");
+                while (contentsToAdd != "q");
                 sw.Dispose();
                 Console.WriteLine("Content successfully written on file.\n\n");
             }
@@ -34,11 +34,11 @@ namespace IDisposableDemo
         /// </summary>
         public static void ReadFromFile()
         {
-            using (StreamReader sr = File.OpenText(@"C:\Users\Ancy.Vijayaraj\Desktop\CSharpTips\CSharp\src\Assignment8\IDisposableDemo\Task8.txt"))
+            using (StreamReader streamReader = File.OpenText(@"C:\Users\Ancy.Vijayaraj\Desktop\CSharpTips\CSharp\src\Assignment8\IDisposableDemo\Task8.txt"))
             {
                 string? content = null;
 
-                while ((content = sr.ReadLine()) != "q")
+                while ((content = streamReader.ReadLine()) != "q")
                 {
                     Console.WriteLine("{0}", content);
                 }

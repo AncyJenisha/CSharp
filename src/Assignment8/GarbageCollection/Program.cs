@@ -18,7 +18,7 @@ namespace GarbageCollection
             {
                 for (int i = 0; i < 10000000; i++)
                 {
-                    SampleClass sampleobject = new ();
+                    SampleClass sampleObject = new ();
                     if (i % 500000 == 0)
                     {
                         GC.Collect();

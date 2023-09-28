@@ -16,26 +16,26 @@ namespace ValueAndReferenceType
         /// <param name="number">integer</param>
         public ReferenceTypeClass(int number)
         {
-            this.Referencetypenumber = number;
+            this.ReferenceTypeNumber = number;
         }
 
         /// <summary>
         /// Gets or sets Reference type data.
         /// </summary>
         /// <value>Integer</value>
-        public int Referencetypenumber { get; set; }
+        public int ReferenceTypeNumber { get; set; }
 
         /// <summary>
         /// Creates Large array of integers.
         /// </summary>
         public static void ArrayofIntegers()
         {
-            int[] largearray = new int[1000000];
+            int[] largeArray = new int[1000000];
             while (true)
             {
                 for (int i = 0; i < 1000000; i++)
                 {
-                    largearray[i] = i;
+                    largeArray[i] = i;
                 }
             }
         }

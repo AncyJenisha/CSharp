@@ -14,11 +14,11 @@ namespace ValueAndReferenceType
         /// </summary>
         private static void Main()
         {
-            int valuetypenumber = 1;
-            int number1 = 1000;
-            ReferenceTypeClass referencetypeclass = new (number1);
-            Modifier(valuetypenumber, referencetypeclass);
-            Console.WriteLine($"ValueType:{valuetypenumber}\nReferenceType:{referencetypeclass.Referencetypenumber}");
+            int valueTypeNumber = 1;
+            int firstNumber = 1000;
+            ReferenceTypeClass referenceTypeClass = new (firstNumber);
+            Modifier(valueTypeNumber, referenceTypeClass);
+            Console.WriteLine($"ValueType:{valueTypeNumber}\nReferenceType:{referenceTypeClass.ReferenceTypeNumber}");
             ReferenceTypeClass.ArrayofIntegers();
             ValueTypeClass.OperationOnValueType();
         }
@@ -26,12 +26,12 @@ namespace ValueAndReferenceType
         /// <summary>
         /// Modifier Method that modifies both value and reference type.
         /// </summary>
-        /// <param name="number1">Integer</param>
-        /// <param name="number2">ReferenceTypeClass</param>
-        private static void Modifier(int number1, ReferenceTypeClass number2)
+        /// <param name="firstNumber">Integer</param>
+        /// <param name="secondNumber">ReferenceTypeClass</param>
+        private static void Modifier(int firstNumber, ReferenceTypeClass secondNumber)
         {
-            number1++;
-            number2.Referencetypenumber++;
+            firstNumber++;
+            secondNumber.ReferenceTypeNumber++;
         }
     }
 }
