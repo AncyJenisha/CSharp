@@ -16,11 +16,11 @@ namespace Debugging
         public static int GetIntegerInput()
         {
             int integer;
-            string? n = Console.ReadLine();
-            while (!int.TryParse(n, out integer))
+            string? inputRead = Console.ReadLine();
+            while (!int.TryParse(inputRead, out integer))
             {
                 Console.WriteLine("Enter valid Number");
-                n = Console.ReadLine();
+                inputRead = Console.ReadLine();
             }
 
             return integer;
@@ -33,11 +33,11 @@ namespace Debugging
         public static float GetFloatInput()
         {
             float floatnumber;
-            string? n = Console.ReadLine();
-            while (!float.TryParse(n, out floatnumber))
+            string? inputRead = Console.ReadLine();
+            while (!float.TryParse(inputRead, out floatnumber))
             {
                 Console.WriteLine("Enter valid Number");
-                n = Console.ReadLine();
+                inputRead = Console.ReadLine();
             }
 
             return floatnumber;

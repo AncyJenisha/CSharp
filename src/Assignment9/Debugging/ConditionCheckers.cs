@@ -12,12 +12,12 @@ namespace Debugging
        /// <summary>
        /// Checks if the sides form a square.
        /// </summary>
-       /// <param name="sideoflength">List of the length of sides entered by user.</param>
-        public static void CheckIfSquare(List<float> sideoflength)
+       /// <param name="sideOfLength">List of the length of sides entered by user.</param>
+        public static void CheckIfSquare(List<float> sideOfLength)
         {
-            for (int i = 0; i < (sideoflength.Count - 1); i++)
+            for (int i = 0; i < (sideOfLength.Count - 1); i++)
             {
-                if (sideoflength[i] != sideoflength[i + 1])
+                if (sideOfLength[i] != sideOfLength[i + 1])
                 {
                     Console.WriteLine("The given sides doesn't form a square");
                     return;

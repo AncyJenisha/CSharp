@@ -15,14 +15,14 @@ namespace Debugging
         private static void Main()
         {
             Console.WriteLine("Enter the length of the sides in cm");
-            List<float> lengthofside = new List<float>();
+            List<float> lengthOfSide = new List<float>();
             for (int i = 0; i < 4; i++)
             {
                 float side = InputReaders.GetFloatInput();
-                lengthofside.Add(side);
+                lengthOfSide.Add(side);
             }
 
-            ConditionCheckers.CheckIfSquare(lengthofside);
+            ConditionCheckers.CheckIfSquare(lengthOfSide);
         }
     }
 }
