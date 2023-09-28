@@ -20,8 +20,8 @@ namespace ErrorHandling
             Console.WriteLine("Enter 5 numbers as elements of array");
             for (int i = 0; i < array.Length; i++)
             {
-                string number = Console.ReadLine();
-                array[i] = int.Parse(number);
+                int number = InputReaders.GetInteger();
+                array[i] = number;
             }
 
             return array;

@@ -12,12 +12,12 @@ namespace ErrorHandling
         /// <summary>
         /// Divides the number by zero
         /// </summary>
-        /// <param name="x">First number entered by user</param>
-        /// <param name="y">Second number entered by user</param>
+        /// <param name="firstNumber">First number entered by user</param>
+        /// <param name="secondNumber">Second number entered by user</param>
         /// <returns>Divident</returns>
-        public static int Divide(int x, int y)
+        public static int Divide(int firstNumber, int secondNumber)
         {
-            return x / y;
+            return firstNumber / secondNumber;
         }
     }
 }

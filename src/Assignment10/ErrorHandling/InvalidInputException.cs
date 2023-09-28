@@ -29,9 +29,9 @@ namespace ErrorHandling
         /// Initializes a new instance of the <see cref="InvalidInputException"/> class.
         /// </summary>
         /// <param name="message">Message to be displayed</param>
-        /// <param name="inner">Inner message</param>
-        public InvalidInputException(string message, Exception inner)
-        : base(message, inner)
+        /// <param name="innerMessage">Inner message</param>
+        public InvalidInputException(string message, Exception innerMessage)
+        : base(message, innerMessage)
         {
         }
     }

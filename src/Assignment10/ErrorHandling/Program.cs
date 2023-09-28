@@ -15,12 +15,12 @@ namespace ErrorHandling
         {
             int[] array = new int[5];
             Console.WriteLine("Enter two numbers to be divided");
-            int number1 = InputReaders.GetInteger();
-            int number2 = InputReaders.GetInteger();
+            int firstNumber = InputReaders.GetInteger();
+            int secondNumber = InputReaders.GetInteger();
 
             try
             {
-                Operators.Divide(number1, number2);
+                Operators.Divide(firstNumber, secondNumber);
             }
             catch (Exception dividebyzeroexception)
             {
@@ -44,19 +44,19 @@ namespace ErrorHandling
                     throw new InvalidInputException("Enter a valid Number\n");
                 }
             }
-            catch (Exception ex1)
+            catch (Exception exception)
             {
-                Console.WriteLine(ex1.ToString());
+                Console.WriteLine(exception.ToString());
             }
 
-            int.TryParse(index, out int arrayindex);
+            int.TryParse(index, out int arrayIndex);
             try
             {
-                Console.WriteLine(array[arrayindex]);
+                Console.WriteLine(array[arrayIndex]);
             }
-            catch (Exception e1)
+            catch (Exception exception)
             {
-                Console.WriteLine(e1.ToString());
+                Console.WriteLine(exception.ToString());
             }
 
             string? currentstacktrace = Environment.StackTrace;

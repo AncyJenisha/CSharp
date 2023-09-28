@@ -16,11 +16,11 @@ namespace ErrorHandling
         public static int GetInteger()
         {
             int integer;
-            string? n = Console.ReadLine();
-            while (!int.TryParse(n, out integer))
+            string? inputRead = Console.ReadLine();
+            while (!int.TryParse(inputRead, out integer))
             {
                 Console.WriteLine("Enter a valid Number\n");
-                n = Console.ReadLine();
+                inputRead = Console.ReadLine();
             }
 
             return integer;
