@@ -1,4 +1,4 @@
-﻿// <copyright file="Inputvalidators.cs" company="PlaceholderCompany">
+﻿// <copyright file="InputValidators.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
@@ -9,7 +9,7 @@ namespace Bankingsystem
     /// <summary>
     /// Has methods to validate inputs.
     /// </summary>
-    internal static class Inputvalidators
+    internal static class InputValidators
     {
         /// <summary>
         /// Gets String as input and converts it into integer.
@@ -18,11 +18,11 @@ namespace Bankingsystem
         public static int IntegerValidator()
         {
             int integer;
-            string? n = Console.ReadLine();
-            while (!int.TryParse(n, out integer))
+            string? inputRead = Console.ReadLine();
+            while (!int.TryParse(inputRead, out integer))
             {
                 Console.WriteLine("Enter valid Number");
-                n = Console.ReadLine();
+                inputRead = Console.ReadLine();
             }
 
             return integer;
@@ -34,14 +34,14 @@ namespace Bankingsystem
         /// <returns>Non empty string</returns>
         public static string StringValidator()
         {
-            string? n = Console.ReadLine();
-            while (string.IsNullOrEmpty(n))
+            string? inputRead = Console.ReadLine();
+            while (string.IsNullOrEmpty(inputRead))
             {
                 Console.WriteLine("Enter a valid Input");
-                n = Console.ReadLine();
+                inputRead = Console.ReadLine();
             }
 
-            return n;
+            return inputRead;
         }
 
         /// <summary>
@@ -51,11 +51,11 @@ namespace Bankingsystem
         public static float FloatValidator()
         {
             float number;
-            string? n = Console.ReadLine();
-            while (!float.TryParse(n, out number))
+            string? inputRead = Console.ReadLine();
+            while (!float.TryParse(inputRead, out number))
             {
                 Console.WriteLine("Enter valid Number");
-                n = Console.ReadLine();
+                inputRead = Console.ReadLine();
             }
 
             return number;
@@ -64,12 +64,12 @@ namespace Bankingsystem
         /// <summary>
         /// Checks and validates the account number
         /// </summary>
-        /// <param name="accountnumber">String</param>
+        /// <param name="accountNumber">String</param>
         /// <returns>Returns true if the account number is valid.</returns>
-        public static bool AccountNumberValidate(string accountnumber)
+        public static bool AccountNumberValidate(string accountNumber)
         {
-            string accountnumberpattern = "^([0-9]{9})$";
-            if (!Regex.IsMatch(accountnumber, accountnumberpattern))
+            string accountNumberPattern = "^([0-9]{9})$";
+            if (!Regex.IsMatch(accountNumber, accountNumberPattern))
             {
                 Console.WriteLine("Enter the correct account number");
                 return false;

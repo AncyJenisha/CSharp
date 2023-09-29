@@ -12,12 +12,12 @@ namespace EmployeeHierarchy
         /// <summary>
         /// Initializes a new instance of the <see cref="Developer"/> class.
         /// </summary>
-        /// <param name="developername">Name of the developer as string.</param>
-        /// <param name="developersalary">Salary of the developer as string.</param>
-        public Developer(string developername, float developersalary)
+        /// <param name="developerName">Name of the developer as string.</param>
+        /// <param name="developerSalary">Salary of the developer as string.</param>
+        public Developer(string developerName, float developerSalary)
         {
-            this.Name = developername;
-            this.Salary = developersalary;
+            this.Name = developerName;
+            this.Salary = developerSalary;
         }
 
         /// <summary>

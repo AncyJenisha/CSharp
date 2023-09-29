@@ -13,7 +13,7 @@ namespace Bankingsystem
         /// Gets or sets Account number value as string.
         /// </summary>
         /// <value>Account number as string</value>
-        public string? Accountnumber { get; set; }
+        public string? AccountNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the amount.
@@ -48,7 +48,7 @@ namespace Bankingsystem
         /// </summary>
         public void CheckBalance()
         {
-            Console.WriteLine($"\nAccount number: {this.Accountnumber}");
+            Console.WriteLine($"\nAccount number: {this.AccountNumber}");
             Console.WriteLine($"Balance: {this.Balance}");
         }
     }

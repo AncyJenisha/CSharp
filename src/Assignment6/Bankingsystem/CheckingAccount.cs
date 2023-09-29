@@ -12,10 +12,10 @@ namespace Bankingsystem
         /// <summary>
         /// Initializes a new instance of the <see cref="CheckingAccount"/> class.
         /// </summary>
-        /// <param name="accountnumber">Accountnumber entered by user as stirng</param>
-        public CheckingAccount(string accountnumber)
+        /// <param name="accountNumber">AccountNumber entered by user as stirng</param>
+        public CheckingAccount(string accountNumber)
         {
-            this.Accountnumber = accountnumber;
+            this.AccountNumber = accountNumber;
         }
 
         /// <summary>

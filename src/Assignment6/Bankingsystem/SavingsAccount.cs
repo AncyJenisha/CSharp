@@ -4,8 +4,6 @@
 
 namespace Bankingsystem
 {
-    using System.Runtime.CompilerServices;
-
     /// <summary>
     /// SavingsAccount has BankAccount as the base class.
     /// </summary>
@@ -17,7 +15,7 @@ namespace Bankingsystem
         /// <param name="accountnumber">Account number as string.</param>
         public SavingsAccount(string accountnumber)
         {
-            this.Accountnumber = accountnumber;
+            this.AccountNumber = accountnumber;
         }
 
         /// <summary>

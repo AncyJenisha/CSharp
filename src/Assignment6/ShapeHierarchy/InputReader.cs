@@ -16,11 +16,11 @@ namespace ShapeHierarchy
         public static float GetFloatInput()
         {
             float number;
-            string? n = Console.ReadLine();
-            while (!float.TryParse(n, out number))
+            string? inputRead = Console.ReadLine();
+            while (!float.TryParse(inputRead, out number))
             {
                 Console.WriteLine("Enter valid Number");
-                n = Console.ReadLine();
+                inputRead = Console.ReadLine();
             }
 
             return number;
@@ -32,14 +32,14 @@ namespace ShapeHierarchy
         /// <returns>A valid string</returns>
         public static string GetStringInput()
         {
-            string? n = Console.ReadLine();
-            while (string.IsNullOrEmpty(n))
+            string? inputRead = Console.ReadLine();
+            while (string.IsNullOrEmpty(inputRead))
             {
                 Console.WriteLine("Enter a valid Input");
-                n = Console.ReadLine();
+                inputRead = Console.ReadLine();
             }
 
-            return n;
+            return inputRead;
         }
     }
 }

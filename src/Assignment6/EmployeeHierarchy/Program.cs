@@ -33,10 +33,10 @@ namespace EmployeeHierarchy
 
                     case (int)Options.Developer:
                         Console.WriteLine("Enter the name of Developer");
-                        string developername = InputReader.GetStringInput();
+                        string developerName = InputReader.GetStringInput();
                         Console.WriteLine("Enter the salary of developer");
-                        float developersalary = InputReader.GetFloatInput();
-                        var developer = new Developer(developername, developersalary);
+                        float developerSalary = InputReader.GetFloatInput();
+                        var developer = new Developer(developerName, developerSalary);
                         developer.PrintDetails();
                         developer.CalculateBonus();
                         break;

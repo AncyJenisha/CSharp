@@ -10,7 +10,7 @@ namespace ShapeHierarchy
     public class Program
     {
         /// <summary>
-        /// Main method.
+        /// Main method has objects for different shapes.
         /// </summary>
         private static void Main()
         {
@@ -20,16 +20,16 @@ namespace ShapeHierarchy
             float width = InputReader.GetFloatInput();
             Console.WriteLine("Enter the color of Rectangle");
             string color = InputReader.GetStringInput();
-            var ra = new Rectangle(length, width, color);
-            ra.PrintDetails();
-            ra.GetArea();
+            var rectangle = new Rectangle(length, width, color);
+            rectangle.PrintDetails();
+            rectangle.GetArea();
             Console.WriteLine("Enter the radius of Circle in cm");
             float radius = InputReader.GetFloatInput();
             Console.WriteLine("Enter the color of Circle");
-            string color1 = InputReader.GetStringInput();
-            var cr = new Circle(radius, color1);
-            cr.PrintDetails();
-            cr.GetArea();
+            string colour = InputReader.GetStringInput();
+            var circle = new Circle(radius, colour);
+            circle.PrintDetails();
+            circle.GetArea();
         }
     }
 }

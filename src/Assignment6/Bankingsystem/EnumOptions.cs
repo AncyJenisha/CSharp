@@ -4,11 +4,6 @@
 
 namespace Bankingsystem
 {
-    /// <summary>
-    /// Has the enum for type ofaccounts.
-    /// </summary>
-    public class EnumOptions
-    {
         /// <summary>
         /// Account type enum has the types of account.
         /// </summary>
@@ -17,12 +12,12 @@ namespace Bankingsystem
             /// <summary>
             /// Savings account has restrictions in withdrawal.
             /// </summary>
-            Savingsaccount = 1,
+            SavingsAccount = 1,
 
             /// <summary>
             /// Checking account has no restrictions in withdrawal.
             /// </summary>
-            Checkingaccount,
+            CheckingAccount,
 
             /// <summary>
             /// Exits the options.
@@ -55,5 +50,4 @@ namespace Bankingsystem
             /// </summary>
             Exit,
         }
-    }
 }

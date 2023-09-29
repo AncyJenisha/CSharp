@@ -14,47 +14,47 @@ namespace Bankingsystem
         /// </summary>
         private static void Main()
         {
-            bool x = true;
-            bool y = true;
+            bool continueSavingsAccountOptions = true;
+            bool continueCheckingAccountOptions = true;
             do
             {
-                string accountnumber;
+                string accountNumber;
                 Console.WriteLine("\nChoose the account type\n1.Savings Account\n2.Checking Account\n3.Exit");
-                int accounttype = Inputvalidators.IntegerValidator();
-                switch (accounttype)
+                int accountType = InputValidators.IntegerValidator();
+                switch (accountType)
                 {
-                    case (int)EnumOptions.AccountType.Savingsaccount:
+                    case (int)AccountType.SavingsAccount:
                         Console.WriteLine("Enter the account number:");
                         do
                         {
-                            accountnumber = Inputvalidators.StringValidator();
+                            accountNumber = InputValidators.StringValidator();
                         }
-                        while (Inputvalidators.AccountNumberValidate(accountnumber) == false);
-                        BankAccount savingsaccount = new SavingsAccount(accountnumber);
+                        while (!InputValidators.AccountNumberValidate(accountNumber));
+                        BankAccount savingsAccount = new SavingsAccount(accountNumber);
                         do
                         {
                             Console.WriteLine("\nChoose The account option:\n1.Deposit\n2.Withdrawal\n3.Check Balance\n4.Exit");
-                            int accountoptions = Inputvalidators.IntegerValidator();
-                            switch (accountoptions)
+                            int savingsAccountOptions = InputValidators.IntegerValidator();
+                            switch (savingsAccountOptions)
                             {
-                                case (int)EnumOptions.AccountOptions.Deposit:
+                                case (int)AccountOptions.Deposit:
                                     Console.WriteLine("Enter the amount to be deposited:");
-                                    float depositamount = Inputvalidators.FloatValidator();
-                                    savingsaccount.DepositAmount(depositamount);
+                                    float depositAmount = InputValidators.FloatValidator();
+                                    savingsAccount.DepositAmount(depositAmount);
                                     break;
 
-                                case (int)EnumOptions.AccountOptions.Withdrawal:
+                                case (int)AccountOptions.Withdrawal:
                                     Console.WriteLine("Enter the amount to be Withdrawn:");
-                                    float withdrawamount = Inputvalidators.FloatValidator();
-                                    savingsaccount.WithdrawAmount(withdrawamount);
+                                    float withdrawAmount = InputValidators.FloatValidator();
+                                    savingsAccount.WithdrawAmount(withdrawAmount);
                                     break;
 
-                                case (int)EnumOptions.AccountOptions.CheckBalance:
-                                    savingsaccount.CheckBalance();
+                                case (int)AccountOptions.CheckBalance:
+                                    savingsAccount.CheckBalance();
                                     break;
 
-                                case (int)EnumOptions.AccountOptions.Exit:
-                                    x = false;
+                                case (int)AccountOptions.Exit:
+                                    continueSavingsAccountOptions = false;
                                     break;
 
                                 default:
@@ -62,41 +62,41 @@ namespace Bankingsystem
                                     break;
                             }
                         }
-                        while (x == true);
+                        while (continueSavingsAccountOptions == true);
                         break;
 
-                    case (int)EnumOptions.AccountType.Checkingaccount:
+                    case (int)AccountType.CheckingAccount:
                         Console.WriteLine("Enter the account number:");
                         do
                         {
-                            accountnumber = Inputvalidators.StringValidator();
+                            accountNumber = InputValidators.StringValidator();
                         }
-                        while (Inputvalidators.AccountNumberValidate(accountnumber) == false);
-                        BankAccount checkingaccount = new CheckingAccount(accountnumber);
+                        while (InputValidators.AccountNumberValidate(accountNumber) == false);
+                        BankAccount checkingAccount = new CheckingAccount(accountNumber);
                         do
                         {
                             Console.WriteLine("\nChoose the account option:\n1.Deposit\n2.Withdrawal\n3.CheckBalance\n4.Exit");
-                            int accountoptions1 = Inputvalidators.IntegerValidator();
-                            switch (accountoptions1)
+                            int checkingAccountOptions = InputValidators.IntegerValidator();
+                            switch (checkingAccountOptions)
                             {
-                                case (int)EnumOptions.AccountOptions.Deposit:
+                                case (int)AccountOptions.Deposit:
                                     Console.WriteLine("Enter the amount to be deposited:");
-                                    float depositamount = Inputvalidators.FloatValidator();
-                                    checkingaccount.DepositAmount(depositamount);
+                                    float depositAmount = InputValidators.FloatValidator();
+                                    checkingAccount.DepositAmount(depositAmount);
                                     break;
 
-                                case (int)EnumOptions.AccountOptions.Withdrawal:
+                                case (int)AccountOptions.Withdrawal:
                                     Console.WriteLine("Enter the amount to be Withdrawn:");
-                                    float withdrawamount = Inputvalidators.FloatValidator();
-                                    checkingaccount.WithdrawAmount(withdrawamount);
+                                    float withdrawAmount = InputValidators.FloatValidator();
+                                    checkingAccount.WithdrawAmount(withdrawAmount);
                                     break;
 
-                                case (int)EnumOptions.AccountOptions.CheckBalance:
-                                    checkingaccount.CheckBalance();
+                                case (int)AccountOptions.CheckBalance:
+                                    checkingAccount.CheckBalance();
                                     break;
 
-                                case (int)EnumOptions.AccountOptions.Exit:
-                                    y = false;
+                                case (int)AccountOptions.Exit:
+                                    continueCheckingAccountOptions = false;
                                     break;
 
                                 default:
@@ -104,10 +104,10 @@ namespace Bankingsystem
                                     break;
                             }
                         }
-                        while (y == true);
+                        while (continueCheckingAccountOptions == true);
                         break;
 
-                    case (int)EnumOptions.AccountType.Exit:
+                    case (int)AccountType.Exit:
                         return;
 
                     default:
