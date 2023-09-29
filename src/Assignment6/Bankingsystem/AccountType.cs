@@ -1,4 +1,4 @@
-﻿// <copyright file="EnumOptions.cs" company="PlaceholderCompany">
+﻿// <copyright file="AccountType.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
