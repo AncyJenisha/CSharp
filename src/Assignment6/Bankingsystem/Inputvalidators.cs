@@ -1,8 +1,4 @@
-﻿// <copyright file="InputValidators.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-namespace Bankingsystem
+﻿namespace Bankingsystem
 {
     using System.Text.RegularExpressions;
 
