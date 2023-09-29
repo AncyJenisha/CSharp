@@ -55,4 +55,7 @@
 ![Conditional Breakpoints](.\Images\9.3.2.ConditionalBreakpoints.png)
 
     Quick Watch:
-        Quick watch 
+        Quick watch window displays one variable value at a time. It must be closed to continue debugging.
+
+![Quick watch window](.\Images\9.3.3.QuickWatchWindow.png)
+    
