@@ -137,3 +137,165 @@
         It creates a circular dependency and can be solved by creating a new project validators and having the getinput methods there and making it a dependency of MathApp.
 
 ![Build order](.\Images\BuildOrder(task5).png)
+
+
+# ASSIGNMENT - 6
+## Task-1 SHAPE HIERARCHY
+SHAPES (Abstract class):
+        Properties:
+                1.Color of the shape as string.
+        Methods:
+                GetArea method as abstract that returns the area as a float value.
+                PrintDetails method as abstract that prints the details of the shape.
+        
+        RECTANGLE :
+                It is the class that inherits the Shapes class.
+                It gets the length, width and color and sets as property of the class.
+                It has methods overriden for the GetArea() and PrintDetails().
+                GetArea()
+                        It multiplies the length and width and returns the area as float value.
+
+                PrintDetails()
+                        It prints the Shape type, color and area of the shape.
+
+        CIRCLE:
+                It is the class that inherits the Shapes class.
+                It gets the color, radius and sets them as property of the class.
+                It has methods overriden for the GetArea() and PrintDetails().
+                GetArea()
+                        It multiplies the radius with 6.24 to return the area as float.
+                
+                PrintDetails()
+                        It prints the shape type, color and area of the shape.
+
+        INPUTREADERS:
+                It has the methods to read the input enetered by the user and validate it.
+                GetFloatInput():
+                        It reads the input entered by the user and converts it into float.
+                GetStringInput():
+                        It reads the input entered by user and checks if it is not null.
+        
+        PROGRAM:
+                It has the main method.
+                Main():
+                        It asks for input from user.
+                        It reads the input for the color, width, length from user.
+                        An object is created to 
+                        The PrintDetails() method of Rectangle class is called to display the details.
+                        It reads the input for the color, radius from user.
+                        An object is created
+                        The PrintDetails() method of Circle class is called to display the details.
+
+
+## TASK-2 EMPLOYEE HIERARCHY
+EMPLOYEE (Abstract class)
+        Properties:
+                1.Name of the employee as string.
+                2.Salary of the employee as float.
+        Methods:
+                1.CalculateBonus():
+                        It is an abstract method that returns the bonus as a float value.
+                2.PrintDetails():
+                        It is an abstract method.
+
+MANAGER:
+        This class inherits the employee class.
+        It gets the name, salary and sets as property.
+        It has methods overriden for CalculateBonus() and PrintDetails().
+        CalculateBonus():
+                It calculates the bonus by multiplying 0.25 with the salary of the manager.
+        PrintDetails():
+                It displays the name, salary, position and bonus of the manager.
+
+DEVELOPER:
+        This class inherits the employee class.
+        It gets the name, salary and sets as property.
+        It has methods overwritten for CalculateBonus() and PrintDetails()
+        CalculateBonus():
+                It calculates the bonus by multiplying 0.15 with the salary of the developer.
+        PrintDetails():
+                It displays the name,salary, position and bonus of the developer.
+
+INPUTREADER:
+        It has methods to read input from user.
+        GetFloatInput():
+                It gets the input as string and converts as float.
+        GetIntegerInput():
+                It gets the input as string from user and converts into integer.
+        GetStringInput():
+                It reads the string from user and checks if it is not null.
+
+OPTIONS:
+        It has the enum for the type of employees in it and an option to exit.
+
+PROGRAM:
+        It has the main method.
+        Main():
+                It displays the type of employee and asks the user to select the type .
+                It creates the object based on ethe choice of the user.
+                It reads the name and salary from user.
+                An object for the class choosen by the user is created with the details as properties of class.
+                The PrintDetails() method is called which displays the details of the employee.
+
+
+## TASK-3 BANKING SYSTEM
+BANKACCOUNT(Abstract class):
+        Properties:
+                1.Account number as string.
+                2.Balance amount of the account as float value.
+                3.Amount to be withdrawn or deposited as float value.
+        Methods:
+                1.DepositAmount()
+                        The method gets the amount and adds it to the balance and returns the balance.
+                2.WithdrawAmount()
+                        This method is abstract.
+                        It gets the amount and returns the balance as float value.
+                3.CheckBalance()
+                        This method displays the account number and balance of the account.
+                
+SAVINGSACCOUNT:
+        This class inherits the BankAccount.
+        It gets the account number and sets it as property of class.
+        It has method overwritten for the WithdrawAmount().
+        WithdrawAmount():
+                It gets the amount to be withdrawn from user and checks if after withdrawal the account has a minimum balance.
+                If the account has the minimum balance, it deducts the amount from the balance and displays a message.
+                If the account does note have the sufficient balance, it displays a message saying the acccount does not have sufficient balance.
+        
+CHECKINGACCOUNT:
+        This class inherits the BankAccount.
+        It gets the account number and sets it as property of class.
+        It has method overwritten for the WithdrawAmount()
+        WithdrawAmount():
+                It gets the amount to be withdrawn and checks if the balance is more than the amount.
+                If the balance is more, it deducts the amount and returns the balance and displays a message.
+                If the balance is less, a message saying the account does not have the sufficent balance is displayed.
+
+INPUTREADERS:
+        It has methods to read input from user.
+        GetFloatInput():
+                It gets the input as string and converts as float.
+        GetIntegerInput():
+                It gets the input as string from user and converts into integer.
+        GetStringInput():
+                It reads the string from user and checks if it is not null.               
+
+EnumOptions:
+        It has the enum used in the main program.
+        AccounType:
+                Savingsaccount: It creates an object for SavingsAccount in switch case.
+                CheckingAccount: It creates an object for CheckingAccount in switch case.
+                Exit: It exits the switch case.
+        AccountOptions:
+                Deposit:It calls the DepositAmount method.
+                Withdrawal:It calls the WithdrawAmount method.
+                Checkbalance:It calls the method to display the balance of the account. 
+                Exit:It exits the switch case.
+
+PROGRAM:
+        It gets the input from user.
+        An object is creaed based on the choice of user.
+        Method to withdraw or deposite is called based on the user choice.
+        DepositAmount() method adds the amount entered by the user to the balance of the respective account.
+        WithdrawAmount() method deducts the amount entered by the user from the balance of the respective account.
+        
