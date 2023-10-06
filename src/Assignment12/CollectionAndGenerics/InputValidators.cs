@@ -1,11 +1,10 @@
 ﻿// <copyright file="InputValidators.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
-
-using System.Collections.Generic;
-
 namespace CollectionAndGenerics
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// InputValidators has methods to validate inputs entered by user.
     /// </summary>
@@ -80,25 +79,6 @@ namespace CollectionAndGenerics
             }
 
             return character;
-        }
-
-        /// <summary>
-        /// Gets string from user and converts it to Generic type.
-        /// </summary>
-        /// <typeparam name = "T" >The key is string type.</typeparam>
-        /// <returns>Inputread parsed as Generic</returns>
-        public static T GetValidInput<T>()
-        {
-            string? inputRead = Console.ReadLine();
-            char character;
-            while (!char.TryParse(inputRead, out character))
-            {
-                Console.WriteLine("Enter a valid number");
-                inputRead = Console.ReadLine();
-            }
-
-            T parsedInput = (T)Convert.ChangeType(inputRead, typeof(T));
-            return parsedInput;
         }
     }
 }

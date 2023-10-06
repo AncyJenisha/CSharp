@@ -9,15 +9,19 @@ namespace CollectionAndGenerics
     /// </summary>
     public static class Queue
     {
-        private static Queue<string> QueueOfNames { get; set; } = new Queue<string>();
+        /// <summary>
+        /// Gets or sets elements to the Generic Queue.
+        /// </summary>
+        private static GenericQueue<string> QueueOfNames { get; set; } = new ();
 
         /// <summary>
         /// Adds a string at the last of the Queue.
         /// </summary>
         public static void EnqueueNames()
         {
+            Console.WriteLine("Enter the Name:");
             string nameToBeAddedToQueue = InputValidators.GetStringInput();
-            QueueOfNames.Enqueue(nameToBeAddedToQueue);
+            QueueOfNames.AddName(nameToBeAddedToQueue);
         }
 
         /// <summary>
@@ -25,18 +29,7 @@ namespace CollectionAndGenerics
         /// </summary>
         public static void DequeueNames()
         {
-            QueueOfNames.Dequeue();
-        }
-
-        /// <summary>
-        /// Displays the queue elements.
-        /// </summary>
-        public static void DisplayQueue()
-        {
-            foreach (var queue in QueueOfNames)
-            {
-                Console.WriteLine(queue);
-            }
+            QueueOfNames.RemoveName();
         }
     }
 }

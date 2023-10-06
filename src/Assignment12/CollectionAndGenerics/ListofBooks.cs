@@ -33,16 +33,19 @@ namespace CollectionAndGenerics
         {
             Console.WriteLine("Enter the serial number of book to be deleted.");
             int idOfBookToDelete = InputValidators.GetIntegerInput();
-            if (idOfBookToDelete > 0 && idOfBookToDelete < ListObj.Count)
+            if (ListObj.Count == 0)
+            {
+                Console.WriteLine("List is empty");
+            }
+            else if (idOfBookToDelete > 0 && idOfBookToDelete <= ListObj.Count)
             {
                 ListObj.RemoveAt(idOfBookToDelete - 1);
+                Console.WriteLine("Book Name Removed");
             }
             else
             {
-                Console.WriteLine("Enter a valid number to delete\n");
+                Console.WriteLine("Enter a valid index");
             }
-
-            Console.WriteLine("Book name Removed");
         }
     }
 }

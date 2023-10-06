@@ -5,24 +5,23 @@
 namespace CollectionAndGenerics
 {
     /// <summary>
-    /// Generic
+    /// Class with methods for generic list.
     /// </summary>
-    /// <typeparam name="T">fskjdf</typeparam>
+    /// <typeparam name="T">Generic Type parameter.</typeparam>
     public class GenericList<T>
     {
         /// <summary>
         /// Gets or sets the books list in generic type.
         /// </summary>
         /// <value>Book name as String</value>
-        public List<T> GenericListOfBooks { get; set; } = new List<T>();
+        public static List<T> GenericListOfBooks { get; set; } = new ();
 
         /// <summary>
         /// Gets count of the GenericListOfBooks.
         /// </summary>
         /// <value>
         /// Count of the GenericListOfBooks.
-        /// </value>
-        public int Count => this.GenericListOfBooks.Count;
+        public int Count => GenericListOfBooks.Count;
 
         /// <summary>
         /// jhghfh
@@ -30,7 +29,7 @@ namespace CollectionAndGenerics
         /// <param name="bookName">hjghj</param>
         public void Add(T bookName)
         {
-            this.GenericListOfBooks.Add(bookName);
+            GenericListOfBooks.Add(bookName);
         }
 
         /// <summary>
@@ -39,7 +38,7 @@ namespace CollectionAndGenerics
         /// <param name="index">Index of the element to be removed.</param>
         public void RemoveAt(int index)
         {
-            this.GenericListOfBooks.RemoveAt(index);
+            GenericListOfBooks.RemoveAt(index);
         }
 
         /// <summary>
@@ -47,10 +46,17 @@ namespace CollectionAndGenerics
         /// </summary>
         public void DisplayBookList()
         {
-            Console.WriteLine("The Book List\n");
-            foreach (var bookName in this.GenericListOfBooks)
+            if (GenericListOfBooks.Count == 0)
             {
-                Console.WriteLine(bookName);
+                Console.WriteLine("No books to display");
+            }
+            else
+            {
+                Console.WriteLine("The Book List");
+                foreach (var bookName in GenericListOfBooks)
+                {
+                    Console.WriteLine(bookName);
+                }
             }
         }
     }

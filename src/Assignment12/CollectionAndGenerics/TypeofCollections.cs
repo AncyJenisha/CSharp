@@ -138,4 +138,30 @@ namespace ValidatorsApp
         /// </summary>
         Exit,
     }
+
+    /// <summary>
+    /// Has the type collection to be recieved as input for getting sum.
+    /// </summary>
+    public enum TypeOfCollectionForSum
+    {
+        /// <summary>
+        /// Input as list.
+        /// </summary>
+        List = 1,
+
+        /// <summary>
+        /// Input as queue.
+        /// </summary>
+        Queue,
+
+        /// <summary>
+        /// Input as Stack.
+        /// </summary>
+        Stack,
+
+        /// <summary>
+        /// Exits the sum of collections method.
+        /// </summary>
+        Exit,
+    }
 }
