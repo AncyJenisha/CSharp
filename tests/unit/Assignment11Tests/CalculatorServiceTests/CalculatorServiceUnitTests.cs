@@ -2,13 +2,13 @@ using CalculationService;
 
 namespace XunitTestingAssignment
 {
-    public class UnitTest1
+    public class CalculatorServiceUnitTests
     {
         [Theory]
-        [InlineData(10,3,13)]
-        [InlineData(0,0.23,0.23)]
-        [InlineData(10.25,3.00,13.25)]
-        public void Addition_BothInputsArePositive_GivesPositiveNumberAsResult(double firstNumber, double secondNumber,double expectedResult)
+        [InlineData(10, 3, 13)]
+        [InlineData(0, 0.23, 0.23)]
+        [InlineData(10.25, 3.00, 13.25)]
+        public void Addition_BothInputsArePositive_GivesPositiveNumberAsResult(double firstNumber, double secondNumber, double expectedResult)
         {
             double actualResult = Calculator.Addition(firstNumber, secondNumber);
             Assert.Equal(expectedResult, actualResult);
@@ -24,9 +24,9 @@ namespace XunitTestingAssignment
         }
 
         [Theory]
-        [InlineData(2,-5,7)]
-        [InlineData(2,-0.15,2.15)]
-        public void Subtraction_FirstNumberLargerThanSecondNumber_GivesPositiveNumberAsResult(double firstNumber, double secondNumber,double expectedResult)
+        [InlineData(2, -5, 7)]
+        [InlineData(2, -0.15, 2.15)]
+        public void Subtraction_FirstNumberLargerThanSecondNumber_GivesPositiveNumberAsResult(double firstNumber, double secondNumber, double expectedResult)
         {
             double actualResult = Calculator.Subtraction(firstNumber, secondNumber);
             Assert.Equal(expectedResult, actualResult);
@@ -53,7 +53,7 @@ namespace XunitTestingAssignment
         [Theory]
         [InlineData(3, 3, 9)]
         [InlineData(3, 100, 300)]
-        public void Multiplication_BothMultiplicantAndMultiplierArePositiveNumbers_GivesPositiveNumberAsResult(double firstNumber, double secondNumber,double expectedresult)
+        public void Multiplication_BothMultiplicantAndMultiplierArePositiveNumbers_GivesPositiveNumberAsResult(double firstNumber, double secondNumber, double expectedresult)
         {
             double actualResult = Calculator.Multiplication(firstNumber, secondNumber);
             Assert.Equal(expectedresult, actualResult);
@@ -79,7 +79,7 @@ namespace XunitTestingAssignment
 
         [Theory]
         [InlineData(5, 1, 5)]
-        [InlineData(15,3, 5)]
+        [InlineData(15, 3, 5)]
         public void Division_DivisorandDividentArePositive_QuotientIsPositive(double firstNumber, double secondNumber, double expectedResult)
         {
             double actualValue = Calculator.Division(firstNumber, secondNumber);
@@ -87,8 +87,8 @@ namespace XunitTestingAssignment
         }
 
         [Theory]
-        [InlineData(15,-3,-5)]
-        [InlineData(-15,3,-5)]
+        [InlineData(15, -3, -5)]
+        [InlineData(-15, 3, -5)]
         public void Division_DivisororDividentIsNegative_QuotientIsNegative(double x, double y, double expectedresult)
         {
             double actualvalue = Calculator.Division(x, y);
@@ -96,10 +96,10 @@ namespace XunitTestingAssignment
         }
 
         [Theory]
-        [InlineData(17,3.16, 5.379746835443037)]
-        [InlineData(16.23,13.03, 1.2455871066768995)]
-        [InlineData(-13.16,7.10, -1.8535211267605636)]
-        public void Division_DivisororDividentIsFraction_QuotientIsFraction(double firstNumber, double secondNumber,double expectedResult)
+        [InlineData(17, 3.16, 5.379746835443037)]
+        [InlineData(16.23, 13.03, 1.2455871066768995)]
+        [InlineData(-13.16, 7.10, -1.8535211267605636)]
+        public void Division_DivisororDividentIsFraction_QuotientIsFraction(double firstNumber, double secondNumber, double expectedResult)
         {
             double actualValue = Calculator.Division(firstNumber, secondNumber);
             Assert.Equal(expectedResult, actualValue);

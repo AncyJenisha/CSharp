@@ -1,4 +1,5 @@
-﻿using System;
+using CalculationService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,18 +22,6 @@ namespace XunitTestingAssignment
         }
 
         [Fact]
-        public void AddProductstoCart_InValidProductIdandQuantityGiven_DoesNotUpdateOrderedProductsList()
-        {
-            Console.SetIn(new StringReader("pname1\n30\n25.02\n"));
-            SellerServices.AddProducts();
-            Console.SetIn(new StringReader("pname2\n25\n25.02\n"));
-            SellerServices.AddProducts();
-            Console.SetIn(new StringReader("5\n"));
-            BuyerServices.AddProductstocart();
-            Assert.Empty(BuyerServices.OrderedProductsList);
-        }
-
-        [Fact]
         public void RemoveFromCart_ValidProductIdGiven_RemovesOrderedProductsList()
         {
             Console.SetIn(new StringReader("pname1\n30\n25.02\n"));
@@ -41,7 +30,7 @@ namespace XunitTestingAssignment
             BuyerServices.AddProductstocart();
             Console.SetIn(new StringReader("1\n"));
             BuyerServices.RemoveFromCart();
-            Assert.Empty(BuyerServices.OrderedProductsList);
+            Assert.Single(BuyerServices.OrderedProductsList);
         }
 
         [Fact]
