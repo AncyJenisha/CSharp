@@ -5,12 +5,12 @@
 namespace LoggingSystem
 {
     /// <summary>
-    /// Logs Json
+    /// Has method to log in json format.
     /// </summary>
     public class JsonLogger : ILogger
     {
         /// <summary>
-        /// Logs
+        /// Logs the message in Json Format.
         /// </summary>
         /// <param name="message">Message to be logged</param>
         public void Log(string message)
@@ -18,5 +18,4 @@ namespace LoggingSystem
             Console.WriteLine($"{message}:Logged as Json");
         }
     }
-
 }

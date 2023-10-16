@@ -10,11 +10,14 @@ namespace LoggingSystem
     internal class Program
     {
         /// <summary>
-        /// Main
+        /// Main method gets the message the logging type.
         /// </summary>
         private static void Main()
         {
-            LoggingSystem.LogMethod("Log Data", "Simple Text");
+            LoggingSystem.LogMethod("Log Data", "SimpleText");
+            LoggingSystem.LogMethod("Log Data as Json", "Json");
+            SimpleLoggerFactory simpleLoggerFactory = new ();
+            Console.WriteLine(simpleLoggerFactory.CreateLogger("Json").GetType());
         }
     }
 }

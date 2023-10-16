@@ -10,7 +10,7 @@ namespace LoggingSystem
     public class TextLogger : ILogger
     {
         /// <summary>
-        /// Logs the text message
+        /// Logs the message as simpletext.
         /// </summary>
         /// <param name="message">The message as string</param>
         public void Log(string message)
@@ -18,5 +18,4 @@ namespace LoggingSystem
             Console.WriteLine(message);
         }
     }
-
 }

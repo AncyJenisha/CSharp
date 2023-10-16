@@ -5,7 +5,7 @@
 namespace LoggingSystem
 {
     /// <summary>
-    /// Lo
+    /// Abstract class which has the method to create the instance of the object.
     /// </summary>
     public abstract class LoggerFactory
     {
@@ -13,7 +13,7 @@ namespace LoggingSystem
         /// Creates a new logger.
         /// </summary>
         /// <param name="type">Type of logging message</param>
-        /// <returns>Instantiation of Ilogger</returns>
+        /// <returns>Instance of Ilogger</returns>
         public abstract ILogger CreateLogger(string type);
     }
 }

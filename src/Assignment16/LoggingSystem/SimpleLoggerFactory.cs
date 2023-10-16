@@ -5,7 +5,7 @@
 namespace LoggingSystem
 {
     /// <summary>
-    /// 
+    /// Creates Ilogger based on the type.
     /// </summary>
     public class SimpleLoggerFactory : LoggerFactory
     {
@@ -14,20 +14,16 @@ namespace LoggingSystem
         /// </summary>
         /// <param name="type">Type of logger</param>
         /// <returns>An object</returns>
-        public ILogger CreateLogger(string type)
+        public override ILogger CreateLogger(string type)
         {
-            ILogger loggerType = null;
-
-            if (type == "SimpleText")
+            if (type == "Json")
             {
-                loggerType = new TextLogger();
+                return new JsonLogger();
             }
-            else if (type == "Json")
+            else
             {
-                loggerType = new JsonLogger();
+                return new TextLogger();
             }
         }
-
     }
-
 }

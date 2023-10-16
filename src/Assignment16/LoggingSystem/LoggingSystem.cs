@@ -19,10 +19,6 @@ namespace LoggingSystem
         /// </summary>
         private static LoggingSystem? instance;
 
-        private LoggingSystem()
-        {
-        }
-
         /// <summary>
         /// Gets the thread and creates new objectinstance for it.
         /// </summary>
@@ -53,10 +49,15 @@ namespace LoggingSystem
         /// <param name="type">Message Type</param>
         public static void LogMethod(string message, string type)
         {
-            using (StreamWriter streamWriter = new StreamWriter("Log.txt"))
+            SimpleLoggerFactory simpleLoggerFactory = new ();
+            if (type != "Json" && type != "SimpleText")
             {
-                streamWriter.WriteLine(message);
-                streamWriter.Close();
+                Console.WriteLine("Enter a valid logger type");
+            }
+            else
+            {
+                ILogger logger = simpleLoggerFactory.CreateLogger(type);
+                logger.Log(message);
             }
         }
     }
