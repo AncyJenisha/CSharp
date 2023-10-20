@@ -67,7 +67,7 @@ This file offers methods to modify file content. It demonstrates both synchronou
 
 `AddCapitalizedContentToFile()`: It opens a filestream and a bufferedstream to read from a file asynchronously and decode it to string and writes it to another file decoding it to bytes.
 
-**INFERENCE**
+### **INFERENCE**
 
 The time taken to perform file operations asynchronously is less when compared to doing it synchronously.
 
@@ -96,6 +96,10 @@ The `Program` class contains a `Main` method, which is the starting point of the
 
 This code serves as a starting point for investigating memory leaks during file I/O operations. It's important to analyze the memory behavior and usage during such operations, as excessive memory allocation without proper cleanup can lead to memory leaks.
 
+### **Inference**
+The memory issue in the provided code is the use of a MemoryStream to store the entire content of the file before writing it to the disk. This approach can be problematic when dealing with large files because it loads the entire content into memory, potentially causing memory-related performance and resource issues.
+
+
 ## TASK4 Logging System for Multiple Users
 
 This project demonstrates a simple logging system for multiple users.
@@ -112,3 +116,10 @@ The `Logger` class provides the functionality to log error messages. It follows 
 ### Methods:
 
 - `LogError(string filepath, string message)`: Logs an error message to a specified file path. It takes two parameters: the file path as a string and the error message. The method ensures thread safety for writing to the log files by using a lock.
+
+### **Inference**
+
+
+   File Locking and Concurrency: When multiple users try to log errors simultaneously, there is a risk of file contention. The FileStream is opened with FileMode.Append, which means it will write to the end of the file. However, this can lead to contention when multiple threads or users attempt to write to the same file simultaneously, potentially causing data corruption or incomplete log entries.
+
+   Resource Leakage: The given code uses a MemoryStream for encoding the error message before writing it to the file. This creates a new memory stream for each error log entry. While the MemoryStream is disposed of properly in the code using the using statement, repeated allocation and deallocation of memory streams can lead to performance issues and memory fragmentation.
