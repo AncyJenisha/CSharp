@@ -7,33 +7,35 @@ namespace FilesAndStreamsTest
         [Fact]
         public void ValidSourceDestinationFileNamesGiven_AddCapitalizedContentToFile_FileUpdates()
         {
-            string sourceFileName = "Hello.txt";
+            using(StreamWriter streamWriter = new StreamWriter("Hello.txt"))
+            {
+                streamWriter.WriteLine("hello");
+            }
             string destinationFileName = "Assignment17AsyncTest.txt";
             string modifiedData;
 
-            FileModifier.AddCapitalizedContentToFile(sourceFileName, destinationFileName);
+            FileModifier.AddCapitalizedContentToFile("Hello.txt", destinationFileName);
 
             using (StreamReader fileStream = new (destinationFileName))
             {
                 modifiedData = fileStream.ReadToEnd();
             }
-            Assert.Equal("HELLO", modifiedData);
+            Assert.Equal("HELLO\r\n", modifiedData);
         }
 
         [Fact]
         public async void ValidSourceAndDestinationGiven_AddCapitalizedContentToFileAsync_FileUpdated()
         {
-            string sourceFile = "Hello.txt";
             string destinationFile = "Assignment17.txt";
             string modifiedData;
 
-            await FileModifier.AddCapitalizedContentToFileAsync(sourceFile, destinationFile);
+            await FileModifier.AddCapitalizedContentToFileAsync("Hello.txt", destinationFile);
 
             using (StreamReader fileStream = new(destinationFile))
             {
                 modifiedData = fileStream.ReadToEnd();
             }
-            Assert.Equal("HELLO", modifiedData);
+            Assert.Equal("HELLO\r\n", modifiedData);
         }
     }
 }
