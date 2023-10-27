@@ -1,59 +1,92 @@
-﻿namespace AssessmentA3
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace AssessmentA3
 {
     public class Boiler
+    {
+        public object InterLock = new object();
+
+        public bool Switch = false;
+
+        public string? SystemStatus { get; set; }
+
+        public Boiler(string initialStatus)
         {
-            public readonly object Lockout = new object();
+            SystemStatus = initialStatus;
+        }
 
-            public List<BoilerSequenceDetails> SequenceDetails;
-
-            public string SystemStatus { get; set; } = "LockOut";
-
-            public Boiler(string initialStatus)
+        public async void BoilerSequence()
+        {
+            if (Switch)
             {
-                SystemStatus = initialStatus;
-            }
 
-            public void BoilerSequence()
-            {
-                lock (Lockout)
-                {
-                    PrePurgePhase();
-                    IgnitionPhase();
-                    OperationalPhase();
-                }
+                PrePurgePhase();
+                IgnitionPhase();
+                OperationalPhase();
             }
-            public void PrePurgePhase()
+            else
             {
-                lock (Lockout)
-                {
-                    DateTime dateTime = DateTime.Now;
-                    System.Timers.Timer timer = new System.Timers.Timer(10000);
-                    timer.Start();
-                    SystemStatus = "Pre-Purge";
-                    timer.Stop();
-                    BoilerSequenceDetails boilerSequenceDetails = new("Pre-Purge Completed", dateTime);
-                    SequenceDetails.Add(boilerSequenceDetails);
-                }
+                Console.WriteLine("Switch is opened, toggle it to start boiler");
             }
-            public void IgnitionPhase()
+        }
+        public void PrePurgePhase()
+        {
+            lock (InterLock)
+            {
+                DateTime dateTime = DateTime.Now;
+                System.Timers.Timer timer = new System.Timers.Timer(10000);
+                timer.Start();
+                SystemStatus = "Pre-Purge";
+                Task.Delay(1000);
+                timer.Stop();
+                BoilerSequenceDetails boilerSequenceDetails = new();
+                boilerSequenceDetails.Time = dateTime;
+                boilerSequenceDetails.SequenceDescription = "Pre-Purge phase completed";
+                Log log = new Log();
+                log.SequenceDetails.Add(boilerSequenceDetails);
+            }
+        }
+        public void IgnitionPhase()
+        {
+            lock (InterLock)
             {
                 DateTime dateTime = DateTime.Now;
                 System.Timers.Timer timer = new System.Timers.Timer(10000);
                 timer.Start();
                 SystemStatus = "Ignition";
-                timer.Stop();
-                BoilerSequenceDetails boilerSequenceDetails = new("Ignition Phase Completed", dateTime);
-                SequenceDetails.Add(boilerSequenceDetails);
+                // Console.WriteLine($"{timer.ToString}");
+                Task.Delay(1000);
+                BoilerSequenceDetails boilerSequenceDetails = new();
+                boilerSequenceDetails.Time = dateTime;
+                boilerSequenceDetails.SequenceDescription = "Ignition Phase Completed";
+                Log log = new Log();
+                log.SequenceDetails.Add(boilerSequenceDetails);
             }
-            public void OperationalPhase()
+
+        }
+        public void OperationalPhase()
+        {
+            lock (InterLock)
             {
                 DateTime dateTime = DateTime.Now;
-                System.Timers.Timer timer = new System.Timers.Timer(10000);
+                System.Timers.Timer timer = new System.Timers.Timer();
                 timer.Start();
                 SystemStatus = "Operational";
-                timer.Stop();
-                BoilerSequenceDetails boilerSequenceDetails = new("Operational Phase Completed", dateTime);
-                SequenceDetails.Add(boilerSequenceDetails);
+                BoilerSequenceDetails boilerSequenceDetails = new();
+                boilerSequenceDetails.Time = dateTime;
+                boilerSequenceDetails.SequenceDescription = "Operational Phase Completed";
+                Log log = new Log();
+                log.SequenceDetails.Add(boilerSequenceDetails);
+            }
+        }
+
+        public void Toggle()
+        {
+            lock (InterLock)
+            {
+                DateTime dateTime = DateTime.Now;
+                Switch = !Switch;
+
             }
         }
     }

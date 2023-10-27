@@ -2,14 +2,8 @@
 {
     public class BoilerSequenceDetails
     {
-        public string? SequenceDescription { get; set; }
+        public string SequenceDescription { get; set; } = "LockDown";
 
         public DateTime Time { get; set; }
-
-        public BoilerSequenceDetails(string sequenceDetails, DateTime dateTime)
-        {
-            SequenceDescription = sequenceDetails;
-            Time = dateTime;
-        }
     }
 }
