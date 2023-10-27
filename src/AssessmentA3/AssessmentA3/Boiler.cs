@@ -15,7 +15,7 @@ namespace AssessmentA3
             SystemStatus = initialStatus;
         }
 
-        public async void BoilerSequence()
+        public void  BoilerSequence()
         {
             if (Switch)
             {
@@ -23,6 +23,7 @@ namespace AssessmentA3
                 PrePurgePhase();
                 IgnitionPhase();
                 OperationalPhase();
+
             }
             else
             {
@@ -34,15 +35,14 @@ namespace AssessmentA3
             lock (InterLock)
             {
                 DateTime dateTime = DateTime.Now;
-                System.Timers.Timer timer = new System.Timers.Timer(10000);
+                System.Timers.Timer timer = new System.Timers.Timer(100000);
                 timer.Start();
                 SystemStatus = "Pre-Purge";
-                Task.Delay(1000);
                 timer.Stop();
                 BoilerSequenceDetails boilerSequenceDetails = new();
                 boilerSequenceDetails.Time = dateTime;
                 boilerSequenceDetails.SequenceDescription = "Pre-Purge phase completed";
-                Log log = new Log();
+                LogManager log = new LogManager();
                 log.SequenceDetails.Add(boilerSequenceDetails);
             }
         }
@@ -51,15 +51,15 @@ namespace AssessmentA3
             lock (InterLock)
             {
                 DateTime dateTime = DateTime.Now;
-                System.Timers.Timer timer = new System.Timers.Timer(10000);
+                System.Timers.Timer timer = new System.Timers.Timer(100000);
                 timer.Start();
                 SystemStatus = "Ignition";
                 // Console.WriteLine($"{timer.ToString}");
-                Task.Delay(1000);
+                timer.Stop();
                 BoilerSequenceDetails boilerSequenceDetails = new();
                 boilerSequenceDetails.Time = dateTime;
                 boilerSequenceDetails.SequenceDescription = "Ignition Phase Completed";
-                Log log = new Log();
+                LogManager log = new LogManager();
                 log.SequenceDetails.Add(boilerSequenceDetails);
             }
 
@@ -72,10 +72,11 @@ namespace AssessmentA3
                 System.Timers.Timer timer = new System.Timers.Timer();
                 timer.Start();
                 SystemStatus = "Operational";
+                timer.Stop();
                 BoilerSequenceDetails boilerSequenceDetails = new();
                 boilerSequenceDetails.Time = dateTime;
                 boilerSequenceDetails.SequenceDescription = "Operational Phase Completed";
-                Log log = new Log();
+                LogManager log = new LogManager();
                 log.SequenceDetails.Add(boilerSequenceDetails);
             }
         }
@@ -86,8 +87,21 @@ namespace AssessmentA3
             {
                 DateTime dateTime = DateTime.Now;
                 Switch = !Switch;
-
+                LogManager logManager = new LogManager();
+                Log log = new Log();
+                string message = "InterLock Switch Toggled To" + Switch + " " + dateTime;
+                if (message is not null)
+                {
+                    log.LogMessage = message;
+                    logManager.logs.Add(log);
+                }
             }
+        }
+
+        public void Reset()
+        {
+            SystemStatus = "LockedDown";
+            Switch = false;
         }
     }
 }

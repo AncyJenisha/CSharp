@@ -10,5 +10,9 @@
 
         ToggleRunInterLockSwitch,
 
+        Display,
+
+        Exit,
+
     }
 }

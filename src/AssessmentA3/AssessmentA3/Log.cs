@@ -2,7 +2,6 @@
 {
     public class Log
     {
-        public List<BoilerSequenceDetails> SequenceDetails { get; set; } = new List<BoilerSequenceDetails>();
-
+        public string? LogMessage { get; set; }
     }
 }

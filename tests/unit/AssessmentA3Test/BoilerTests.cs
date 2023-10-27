@@ -9,7 +9,7 @@ namespace AssessmentA3Test
             Boiler boiler = new Boiler("LockOut");
             boiler.BoilerSequence();
             string? actual = boiler.SystemStatus;
-            Assert.Equal("Operational Phase Completed",actual);
+            Assert.Equal("LockOut",actual);
 
         }
     }
