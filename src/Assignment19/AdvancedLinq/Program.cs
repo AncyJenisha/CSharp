@@ -22,7 +22,7 @@ namespace AdvancedLinq
             supplierManager.InitializeWithDefaultSuppliers();
 
             InputValidators inputValidators = new InputValidators();
-            DisplayList displayList = new DisplayList();
+            ListDisplayer displayList = new ListDisplayer();
 
             do
             {

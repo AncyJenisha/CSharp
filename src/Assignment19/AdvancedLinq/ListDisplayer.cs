@@ -1,4 +1,4 @@
-﻿// <copyright file="DisplayList.cs" company="PlaceholderCompany">
+﻿// <copyright file="ListDisplayer.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 namespace AdvancedLinq
@@ -8,7 +8,7 @@ namespace AdvancedLinq
     /// <summary>
     /// Has methods to display the list.
     /// </summary>
-    public class DisplayList
+    public class ListDisplayer
     {
         /// <summary>
         /// Displays the filtered products list.
