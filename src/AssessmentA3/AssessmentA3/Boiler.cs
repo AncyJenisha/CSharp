@@ -1,107 +1,226 @@
-﻿using System.Security.Cryptography.X509Certificates;
-
-namespace AssessmentA3
+﻿namespace AssessmentA3
 {
+    using System.Security.Cryptography.X509Certificates;
+    using System.Timers;
+
     public class Boiler
     {
-        public object InterLock = new object();
-
         public bool Switch = false;
+
+        private Timer? processTimer;
 
         public string? SystemStatus { get; set; }
 
         public Boiler(string initialStatus)
         {
             SystemStatus = initialStatus;
+            Switch = false;
+            LogManager logger = new();
+            BoilerSequenceDetails boilerSequenceDetails = new();
+            boilerSequenceDetails.Time = DateTime.Now;
+            boilerSequenceDetails.EventData = "Boiler initialized";
+            boilerSequenceDetails.Event = SystemStatus;
+
+            using (StreamWriter streamWriter = File.AppendText("Log.txt"))
+            {
+                logger.LogToFile(boilerSequenceDetails, streamWriter);
+            }
         }
 
-        public void  BoilerSequence()
+        public void BoilerSequence()
         {
-            if (Switch)
+            if (Switch && SystemStatus == "Ready")
             {
-
                 PrePurgePhase();
                 IgnitionPhase();
                 OperationalPhase();
-
+            }
+            else if(!Switch)
+            {
+                Console.WriteLine("Switch is opened, toggle it to start boiler\n\n");
             }
             else
             {
-                Console.WriteLine("Switch is opened, toggle it to start boiler");
+                Console.WriteLine("Reset the boiler to get to ready state");
             }
         }
+
         public void PrePurgePhase()
         {
-            lock (InterLock)
+            if (Switch)
             {
-                DateTime dateTime = DateTime.Now;
-                System.Timers.Timer timer = new System.Timers.Timer(100000);
-                timer.Start();
                 SystemStatus = "Pre-Purge";
-                timer.Stop();
+                Console.WriteLine("In Pre-Purge Phase");
+
+                TimerImplementer timer = new TimerImplementer();
+                timer.SetTimer(10000);
+
                 BoilerSequenceDetails boilerSequenceDetails = new();
-                boilerSequenceDetails.Time = dateTime;
-                boilerSequenceDetails.SequenceDescription = "Pre-Purge phase completed";
+                boilerSequenceDetails.Time = DateTime.Now;
+                boilerSequenceDetails.Event = SystemStatus;
+                boilerSequenceDetails.EventData = "Pre-Purge phase completed";
+
                 LogManager log = new LogManager();
-                log.SequenceDetails.Add(boilerSequenceDetails);
+
+                using (StreamWriter streamWriter = File.AppendText("Log.txt"))
+                {
+                    log.LogToFile(boilerSequenceDetails, streamWriter);
+                }
+
             }
         }
+
+
         public void IgnitionPhase()
         {
-            lock (InterLock)
+            if (Switch)
             {
-                DateTime dateTime = DateTime.Now;
-                System.Timers.Timer timer = new System.Timers.Timer(100000);
-                timer.Start();
-                SystemStatus = "Ignition";
-                // Console.WriteLine($"{timer.ToString}");
-                timer.Stop();
-                BoilerSequenceDetails boilerSequenceDetails = new();
-                boilerSequenceDetails.Time = dateTime;
-                boilerSequenceDetails.SequenceDescription = "Ignition Phase Completed";
-                LogManager log = new LogManager();
-                log.SequenceDetails.Add(boilerSequenceDetails);
-            }
+                SystemStatus = "Ignition Phase";
+                Console.WriteLine("In Ignition Phase");
 
+                TimerImplementer timer = new TimerImplementer();
+                timer.SetTimer(10000);
+
+                BoilerSequenceDetails boilerSequenceDetails = new();
+                boilerSequenceDetails.Time = DateTime.Now;
+                boilerSequenceDetails.Event = SystemStatus;
+                boilerSequenceDetails.EventData = "Pre-Purge phase completed";
+
+                LogManager log = new LogManager();
+
+                using (StreamWriter streamWriter = File.AppendText("Log.txt"))
+                {
+                    log.LogToFile(boilerSequenceDetails, streamWriter);
+                }
+
+            }
         }
+
+
         public void OperationalPhase()
         {
-            lock (InterLock)
+            if (Switch)
             {
-                DateTime dateTime = DateTime.Now;
-                System.Timers.Timer timer = new System.Timers.Timer();
-                timer.Start();
                 SystemStatus = "Operational";
-                timer.Stop();
+                Console.WriteLine("In operational Phase");
+
+                TimerImplementer timer = new TimerImplementer();
+                timer.SetTimer(10000);
+
                 BoilerSequenceDetails boilerSequenceDetails = new();
-                boilerSequenceDetails.Time = dateTime;
-                boilerSequenceDetails.SequenceDescription = "Operational Phase Completed";
+                boilerSequenceDetails.Time = DateTime.Now;
+                boilerSequenceDetails.EventData = "Boiler now Operational";
+                boilerSequenceDetails.Event = SystemStatus;
+
                 LogManager log = new LogManager();
-                log.SequenceDetails.Add(boilerSequenceDetails);
+
+                using (StreamWriter streamWriter = File.AppendText("Log.txt"))
+                {
+                    log.LogToFile(boilerSequenceDetails, streamWriter);
+                }
             }
+
         }
 
         public void Toggle()
         {
-            lock (InterLock)
+            Switch = !Switch;
+
+            LogManager logManager = new LogManager();
+            BoilerSequenceDetails boilerSequenceDetails = new();
+            boilerSequenceDetails.Time = DateTime.Now;
+            boilerSequenceDetails.EventData = "InterLock Switch Toggled To" + Switch;
+            boilerSequenceDetails.Event = SystemStatus;
+
+            if (boilerSequenceDetails is not null)
             {
-                DateTime dateTime = DateTime.Now;
-                Switch = !Switch;
-                LogManager logManager = new LogManager();
-                Log log = new Log();
-                string message = "InterLock Switch Toggled To" + Switch + " " + dateTime;
-                if (message is not null)
+
+                LogManager logger = new();
+
+                using (StreamWriter streamWriter = File.AppendText("Log.txt"))
                 {
-                    log.LogMessage = message;
-                    logManager.logs.Add(log);
+                    logger.LogToFile(boilerSequenceDetails, streamWriter);
                 }
             }
+
+            Console.WriteLine("Switch Toggled\n\n");
         }
 
         public void Reset()
         {
-            SystemStatus = "LockedDown";
-            Switch = false;
+            if (!Switch)
+            {
+                Console.WriteLine("Close the interlock");
+            }
+            else
+            {
+                SystemStatus = "Ready";
+                LogManager logger = new();
+                BoilerSequenceDetails boilerSequenceDetails = new();
+                boilerSequenceDetails.Time = DateTime.Now;
+                boilerSequenceDetails.EventData = "Boiler is reset";
+                boilerSequenceDetails.Event = SystemStatus;
+
+                using (StreamWriter streamWriter = File.AppendText("Log.txt"))
+                {
+                    logger.LogToFile(boilerSequenceDetails, streamWriter);
+                }
+
+            }
+        }
+
+        public void SimulateBoilerError()
+        {
+            if(SystemStatus == "Operational")
+            {
+                Switch = false;
+                SystemStatus = "Error";
+
+                LogManager logger = new();
+                BoilerSequenceDetails boilerSequenceDetails = new();
+                boilerSequenceDetails.Time = DateTime.Now;
+                boilerSequenceDetails.EventData = "Boiler faced an error and went to LockOut state";
+                boilerSequenceDetails.Event = SystemStatus;
+
+                using (StreamWriter streamWriter = File.AppendText("Log.txt"))
+                {
+                    logger.LogToFile(boilerSequenceDetails, streamWriter);
+                }
+
+                SystemStatus = "LockOut";
+                Console.WriteLine("Boiler faced an error");
+            }
+            else
+            {
+                Console.WriteLine("Boiler is not in operational state");
+            }
+            
+        }
+
+        public void StopBoilerSequence()
+        {
+            if(SystemStatus == "Operational")
+            {
+                Switch = false;
+                SystemStatus = "LockOut";
+
+                LogManager logger = new();
+                BoilerSequenceDetails boilerSequenceDetails = new();
+                boilerSequenceDetails.Time = DateTime.Now;
+                boilerSequenceDetails.EventData = "Boiler Operation is stopped";
+                boilerSequenceDetails.Event = SystemStatus;
+
+                using (StreamWriter streamWriter = File.AppendText("Log.txt"))
+                {
+                    logger.LogToFile(boilerSequenceDetails, streamWriter);
+                }
+
+                Console.WriteLine("Boiler stopped");
+            }
+            else
+            {
+                Console.WriteLine("Boiler is not in operational phase");
+            }
         }
     }
 }

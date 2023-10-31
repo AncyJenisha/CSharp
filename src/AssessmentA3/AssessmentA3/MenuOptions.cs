@@ -2,13 +2,15 @@
 {
     public enum  MenuOptions
     {
-        Start = 1,
+        ToggleRunInterLockSwitch = 1,
+
+        ResetLockOut,
+
+        Start,
 
         Stop,
 
         SimulateBoilerError,
-
-        ToggleRunInterLockSwitch,
 
         Display,
 

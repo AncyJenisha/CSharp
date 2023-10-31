@@ -2,27 +2,19 @@
 {
     public class LogManager
     {
-        public List<BoilerSequenceDetails> SequenceDetails { get; set; } = new List<BoilerSequenceDetails>();
 
-        public List<Log> logs {  get; set; } = new List<Log>();
-
-        public void LogToFile()
+        public void LogToFile(BoilerSequenceDetails sequenceData, TextWriter w)
         {
+            w.Write("Log Entry : ");
+            w.WriteLine($"{sequenceData.Event},  {sequenceData.Time},  {sequenceData.EventData}");
         }
 
-        public void DisplayLogs() 
+        public void DisplayLogs()
         {
-            foreach (var log in logs)
+            using (StreamReader streamReader = new StreamReader("Log.txt"))
             {
-                Console.WriteLine(log.ToString());
-            }
-        }
-
-        public void DisplaySequenceDetails()
-        {
-            foreach (var  sequence in SequenceDetails) 
-            {
-                Console.WriteLine($"{sequence.SequenceDescription} : {sequence.Time}");
+                string? line = streamReader.ReadToEnd();
+                Console.WriteLine(line);
             }
         }
     }

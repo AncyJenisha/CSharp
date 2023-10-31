@@ -4,35 +4,40 @@
     {
         static void Main()
         {
+            Console.WriteLine("Boiler Controller Initialized");
+
             int choiceOfMenu;
             InputValidators inputValidators = new InputValidators();
             LogManager logManager = new LogManager();
             Boiler boiler = new Boiler("LockOut");
             do
             {
-                Console.WriteLine("1.Start the Boiler\n2.Stop the Boiler\n3.Simulate Boiler Error\n4.Toggle Switch\n5.Display Details\n");
+                Console.WriteLine("1.Toggle Switch\n2.Reset the boiler\n3.Start the Boiler\n4.Stop the Boiler\n5.Simulate Boiler Error\n6.Display Details\n7.Exit\n");
                 choiceOfMenu = inputValidators.GetIntegerInput();
                 switch (choiceOfMenu)
                 {
+                    case (int)MenuOptions.ToggleRunInterLockSwitch:
+                        boiler.Toggle();
+                        break;
+
+                    case (int)MenuOptions.ResetLockOut:
+                        boiler.Reset();
+                        break;
+
                     case (int)MenuOptions.Start:
-                        Console.WriteLine("Boiler Controller Initialized");
                         boiler.BoilerSequence();
                         break;
 
                     case (int)MenuOptions.Stop:
-                        boiler.Switch = true;
+                        boiler.StopBoilerSequence();
                         break;
 
                     case (int)MenuOptions.SimulateBoilerError:
-                        Console.WriteLine();
+                        boiler.SimulateBoilerError();
                         break;
 
-                    case (int)MenuOptions.ToggleRunInterLockSwitch:
-                        boiler.Toggle();
-                        break;
                     case (int)MenuOptions.Display:
                         logManager.DisplayLogs();
-                        logManager.DisplaySequenceDetails();
                         break;
 
                     case (int)MenuOptions.Exit:
@@ -43,7 +48,7 @@
                         break;
                 }
             }
-            while (choiceOfMenu !=5);
+            while (choiceOfMenu !=7);
         }    
     }
 }
