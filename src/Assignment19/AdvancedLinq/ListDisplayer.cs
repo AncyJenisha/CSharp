@@ -23,7 +23,7 @@ namespace AdvancedLinq
 
             List<Tuple<string, float>> filteredProductsList = basicLinqQueries.FilterProducts();
 
-            Console.WriteLine("Products under Electronics Category:\n");
+            Console.WriteLine("Filtering and Sorting the list\n\nProducts under Electronics Category:\n");
             foreach (var product in filteredProductsList)
             {
                 table.AddRow(product.Item1, product.Item2);
@@ -44,13 +44,21 @@ namespace AdvancedLinq
         {
             LinqToObjects linqToObjects = new LinqToObjects();
 
+            Console.WriteLine("Generating Unique Pairs that add to the given target sum\n");
             List<(int, int)> expectedSum = linqToObjects.GenerateUniquePairsThatAddUpToTarget();
-            foreach (var number in expectedSum)
+            if (expectedSum.Count() == 0)
             {
-                Console.WriteLine($"{number.Item1} and {number.Item2} add upto the target number");
+                Console.WriteLine("No two numbers in the list add up to the target number");
             }
+            else
+            {
+                foreach (var number in expectedSum)
+                {
+                    Console.WriteLine($"{number.Item1} and {number.Item2} add upto the target number");
+                }
 
-            Console.WriteLine("\n\n");
+                Console.WriteLine("\n\n");
+            }
         }
 
         /// <summary>
@@ -63,6 +71,7 @@ namespace AdvancedLinq
             BasicLinqQueries basicLinqQueries = new BasicLinqQueries();
             var table = new ConsoleTable("ProductId", "ProductName", "ProductPrice", "Category");
 
+            Console.WriteLine("Grouping Products");
             var groupedProductList = basicLinqQueries.GroupProductsBasedOnCategory();
             foreach (var categoryGroup in groupedProductList)
             {
@@ -91,6 +100,7 @@ namespace AdvancedLinq
             var joinedList = basicLinqQueries.JoinProductAndSupplierList();
             var table = new ConsoleTable("ProductId", "ProductName", "ProductPrice", "Category", "SupplierId", "SupplierName");
 
+            Console.WriteLine("Implementing Join to join two lists");
             foreach (var product in joinedList)
             {
                 table.AddRow(product.Item1, product.Item2, product.Item3, product.Item4, product.Item5, product.Item6);
@@ -110,6 +120,8 @@ namespace AdvancedLinq
             List<Product> sortedListOfBooks = performanceConsiderationsOfLinq.FilterAndSortBooks();
             var table = new ConsoleTable("Product ID", "Product Name", "ProductPrice", "Product Category");
 
+            Console.WriteLine("Sorting Books from the products list");
+
             foreach (var book in sortedListOfBooks)
             {
                 table.AddRow(book.ProductId, book.ProductName, book.ProductPrice, book.ProductCategory);
@@ -128,6 +140,8 @@ namespace AdvancedLinq
             AdvancedLinqFeatures advancedLinqFeatures = new AdvancedLinqFeatures();
             List<Product> listOfFilteredProducts = advancedLinqFeatures.FilterListOfProductsUsingLambdaExpression(product => product.ProductCategory == "Snacks");
             var table = new ConsoleTable("Product ID", "Product Name", "ProductPrice", "Product Category");
+
+            Console.WriteLine("Filter using lambda Expression");
 
             foreach (Product product in listOfFilteredProducts)
             {

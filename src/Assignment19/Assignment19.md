@@ -1,6 +1,8 @@
 # Advanced Linq Operations
 
-This code is a C# program that demonstrates various advanced LINQ (Language-Integrated Query) operations. LINQ is a powerful feature in C# that allows you to work with collections of data in a query-like syntax. This program includes the following features:
+This C# program demonstrates various advanced LINQ (Language-Integrated Query) operations. 
+LINQ is a powerful feature in C# that allows you to work with collections of data in a query-like syntax. 
+This program includes the following features:
 
 ## Program.cs
 - The entry point of the program.

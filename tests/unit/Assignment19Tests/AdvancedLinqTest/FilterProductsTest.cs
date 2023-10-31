@@ -1,4 +1,3 @@
-
 namespace AdvancedLinqTest
 {
     using AdvancedLinq;

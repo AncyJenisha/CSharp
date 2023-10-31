@@ -1,5 +1,12 @@
-﻿namespace AdvancedLinq
+﻿// <copyright file="InputValidators.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace AdvancedLinq
 {
+    /// <summary>
+    /// Has methods to get and validate input
+    /// </summary>
     public class InputValidators
     {
         /// <summary>

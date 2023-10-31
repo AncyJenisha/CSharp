@@ -21,7 +21,7 @@ namespace AdvancedLinq
             this.ListOfProductsToBeQueried = listOfProducts;
         }
 
-        private List<Product> ListOfProductsToBeQueried { get; set; } 
+        private List<Product> ListOfProductsToBeQueried { get; set; }
 
         private List<Supplier> ListOfSuppliersToBeJoined { get; set; } = SupplierManager.SuppliersList;
 

@@ -20,9 +20,17 @@ namespace AdvancedLinq
             InputValidators inputValidators = new InputValidators();
             int[] sortedNumbers = arrayOfIntegers.OrderByDescending((number) => number).ToArray();
             Console.WriteLine($"The second Largest Number:{sortedNumbers[1]}");
+
+            IEnumerable<(int, int)> expectedSum;
             Console.WriteLine("Enter the target number:");
             int targetNumber = inputValidators.GetIntegerInput();
-            IEnumerable<(int, int)> expectedSum;
+            while (targetNumber == 0 || targetNumber < 0)
+            {
+                Console.WriteLine("Enter a positive integer");
+                Console.WriteLine("Enter the target number:");
+                targetNumber = inputValidators.GetIntegerInput();
+            }
+
             expectedSum = from x in sortedNumbers
                           from y in sortedNumbers
                           where x + y == targetNumber && x != y

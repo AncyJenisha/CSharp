@@ -62,7 +62,7 @@ namespace AdvancedLinq
                         break;
                 }
             }
-            while (choice != 8);
+            while (choice != 9);
         }
     }
 }
