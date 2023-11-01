@@ -1,5 +1,8 @@
 ﻿namespace TaskManager
 {
+    /// <summary>
+    /// InputValidators - Has the methods to read and validate input.
+    /// </summary>
     public class InputValidators
     {
         /// <summary>

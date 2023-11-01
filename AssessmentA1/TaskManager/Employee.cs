@@ -6,15 +6,16 @@
     public class Employee
     {
         public int Id { get; set; }
+
         public string Name { get; set; }
 
         public double WorkingHours { get; set; }
 
-        public string Skills { get; set; }
+        public IEnumerable<string> Skills { get; set; }
 
         public string Availability {  get; set; }
 
-        public Employee(int id, string name, double workingHours, string skills, string availability ) 
+        public Employee(int id, string name, double workingHours, IEnumerable<string> skills, string availability ) 
         {
             Id = id;
             Name = name;
