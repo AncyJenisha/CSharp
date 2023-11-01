@@ -2,8 +2,15 @@
 
 namespace AssessmentA3
 {
+    /// <summary>
+    /// InputValidators - Has method to validate input enterd by user.
+    /// </summary>
     public class InputValidators
     {
+        /// <summary>
+        /// Read and parse string input to integer.
+        /// </summary>
+        /// <returns></returns>
         public int GetIntegerInput()
         {
             int number;
