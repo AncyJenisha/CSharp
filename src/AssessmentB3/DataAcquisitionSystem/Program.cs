@@ -4,7 +4,8 @@
     {
         static void Main()
         {
-            Console.WriteLine("Hello, World!");
+            ConfigurationInitializer configurationInitializer = new ConfigurationInitializer();
+            configurationInitializer.SetConfiguration();
         }
     }
 }
