@@ -2,7 +2,7 @@
 {
     public class ConfigureParameter
     {
-        public string Parameter { get; set; }
+        public string ParameterName { get; set; }
 
         public double MaximumValue { get; set; }
 
@@ -10,7 +10,7 @@
 
         public ConfigureParameter( string parameter, double maximumValue, double minimumValue)
         {
-            this.Parameter = parameter;
+            this.ParameterName = parameter;
             this.MaximumValue = maximumValue;
             this.MinimumValue = minimumValue;
         }

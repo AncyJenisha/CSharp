@@ -6,6 +6,8 @@
         {
             ConfigurationInitializer configurationInitializer = new ConfigurationInitializer();
             configurationInitializer.SetConfiguration();
+            DataAcquisitior dataAcquisitior = new DataAcquisitior();
+            dataAcquisitior.GetConfigurationLimits();
         }
     }
 }

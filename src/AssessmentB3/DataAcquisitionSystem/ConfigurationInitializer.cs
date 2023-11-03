@@ -14,23 +14,28 @@ namespace DataAcquisitionSystem
             ConfigureData configureData = new ConfigureData();
             InputValidators inputValidators = new InputValidators();
 
-            Console.WriteLine("Enter the parameter");
-            string parameter = inputValidators.GetStringInput();
-            Console.WriteLine("Enter the maximum value:");
-            double maximumValue = inputValidators.GetDoubleInput();
-            Console.WriteLine("Eneter the minimum data:");
-            double minimumValue = inputValidators.GetDoubleInput();
-            ConfigureParameter configureParameter = new ConfigureParameter(parameter, maximumValue, minimumValue);
+            Console.WriteLine("Enter the number of paramter");
+            int numberOfParameters = inputValidators.GetIntegerInput();
+            for(int i = 0; i < numberOfParameters; i++)
+            {
+                Console.WriteLine("Enter the parameter");
+                string parameter = inputValidators.GetStringInput();
+                Console.WriteLine("Enter the maximum value:");
+                double maximumValue = inputValidators.GetDoubleInput();
+                Console.WriteLine("Enter the minimum data:");
+                double minimumValue = inputValidators.GetDoubleInput();
+                ConfigureParameter configureParameter = new ConfigureParameter(parameter, maximumValue, minimumValue);
+                configureData.Parameters.Add(configureParameter);
+            }
 
             Console.WriteLine("Enter the rate");
             configureData.rate = inputValidators.GetDoubleInput();
-            configureData.Parameters.Add(configureParameter);
             WriteConfigurationToFile(configureData);
         }
 
-        public void WriteConfigurationToFile( ConfigureData configureData)
+        public void WriteConfigurationToFile(ConfigureData configureData)
         {
-            string jsonString = JsonSerializer.Serialize(configureData, new JsonSerializerOptions() { IncludeFields = true ,WriteIndented = true});
+            string jsonString = JsonSerializer.Serialize(configureData, new JsonSerializerOptions() { IncludeFields = true, WriteIndented = true });
             using (StreamWriter configureFile = new StreamWriter("ConfigurationFile.json"))
             {
                 configureFile.Write(jsonString);

@@ -15,6 +15,19 @@
             return number;
         }
 
+        public int GetIntegerInput()
+        {
+            int number;
+            string? inputRead = Console.ReadLine();
+            while (!int.TryParse(inputRead, out number))
+            {
+                Console.WriteLine("Enter a valid number");
+                inputRead = Console.ReadLine();
+            }
+
+            return number;
+        }
+
         public string GetStringInput()
         {
             string? inputRead = Console.ReadLine();
