@@ -13,13 +13,19 @@ namespace Reflection
         /// Gets or sets has the name of the employee
         /// </summary>
         /// <value>String</value>
-        public string? Name { get; set; }
+        public string? Name { get; set; } = "Jeni";
 
         /// <summary>
         /// Gets or sets has the salary of the employee.
         /// </summary>
         /// <value>float number</value>
-        public float Salary { get; set; }
+        public float Salary { get; set; } = 25000;
+
+        /// <summary>
+        /// Gets or sets the employee id.
+        /// </summary>
+        /// <value>Value as integer</value>
+        public int EmployeeID { get; set; } = 24005;
 
         /// <summary>
         /// Calculates the bonous for the employee

@@ -66,5 +66,16 @@ namespace Reflection
                 Console.WriteLine(field);
             }
         }
+
+        /// <summary>
+        /// DisplayFieldInformation - Displays the field.
+        /// </summary>
+        /// <param name="propertyInfo">FieldInfo as array.</param>
+        public void DisplayPropertyValue(PropertyInfo propertyInfo)
+        {
+            Employee employee = new Employee();
+            Console.WriteLine("\n\nProperties in the object:\n");
+            Console.WriteLine($"Changed Property Value : {propertyInfo.GetValue(employee)}");
+        }
     }
 }
