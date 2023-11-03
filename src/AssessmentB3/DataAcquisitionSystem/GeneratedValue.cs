@@ -2,8 +2,8 @@
 {
     public class GeneratedValue
     {
-        double value { get; set; }
+        public int Value { get; set; }
 
-        string? Parameter { get; set; }
+        public string? Parameter { get; set; }
     }
 }

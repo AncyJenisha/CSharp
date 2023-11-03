@@ -1,16 +1,19 @@
-﻿using System.Text.Json;
+﻿using System;
+using System.Data.Common;
+using System.Reflection.Metadata;
+using System.Text.Json;
 
 namespace DataAcquisitionSystem
 {
     public class DataAcquisitior
     {
+       public List<ConfigureParameter> ConfigureParameters { get; set; } = new ();
+
         public void GetConfigurationLimits()
         {
-            // To generate data within the configured value
+            //DeserializeData from the Configure limit file
 
-            Random random = new Random();
-            ConfigureData? configurationLimits = new();
-            List<ConfigureParameter> configureParameters = new List<ConfigureParameter>();
+            ConfigureData? configurationLimits = new ConfigureData();
 
             using (StreamReader streamReader = new StreamReader("ConfigurationFile.json"))
             {
@@ -23,22 +26,37 @@ namespace DataAcquisitionSystem
                 {
                     configurationLimits = JsonSerializer.Deserialize<ConfigureData>(content);
                 }
-
             }
 
             if (configurationLimits != null)
             {
-                double timeperiod = configurationLimits.rate;
+                long timeperiod = configurationLimits.Rate * 1000;
+                Timer timer = new Timer();
+                timer.SetTimer(timeperiod);
 
-                foreach(var parameterLimit in configurationLimits.Parameters)
+                foreach (var parameterLimit in configurationLimits.Parameters)
                 {
-                    configureParameters.Add(parameterLimit);
-                    double maximumNumber = parameterLimit.MaximumValue;
-                    double minimumNumber = parameterLimit.MinimumValue;
-                    string parameter = parameterLimit.ParameterName;
+                    ConfigureParameters.Add(parameterLimit);
                 }
             }
 
+        }
+
+        public void GenerateData()
+        {
+            // To generate data within the configured Value
+
+            GeneratedValue generatedValue = new GeneratedValue();
+            ComplianceSetter complianceSetter = new();
+            ComplianceChecker complianceChecker = new ComplianceChecker();
+            Random random = new Random();
+            foreach (var parameterLimit in ConfigureParameters)
+            {
+                generatedValue.Parameter = parameterLimit.ParameterName;
+                generatedValue.Value = random.Next(parameterLimit.MinimumValue, parameterLimit.MaximumValue);
+                complianceChecker.CheckCompliance(generatedValue, complianceSetter.ComplianceDataOfAllParameters);
+            }
+            
         }
     }
 }

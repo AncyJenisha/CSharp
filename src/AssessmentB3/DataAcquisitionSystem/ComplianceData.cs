@@ -4,11 +4,11 @@
     {
         public string Parameter { get; set; }
 
-        public double MaximumValue { get; set; }
+        public int MaximumValue { get; set; }
 
-        public double MinimumValue { get; set; }
+        public int MinimumValue { get; set; }
 
-        public ComplianceData(string parameter, double maximumValue, double minimumValue) 
+        public ComplianceData(string parameter, int maximumValue, int minimumValue) 
         {
             Parameter = parameter;
             MaximumValue = maximumValue;

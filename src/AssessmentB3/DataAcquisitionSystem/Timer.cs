@@ -16,8 +16,9 @@ namespace DataAcquisitionSystem
         public void OnTimedEvent(object source, ElapsedEventArgs elapsedEventArgs)
         {
             timer.Enabled = false;
+            DataAcquisitior dataAcquisitior = new();
+            dataAcquisitior.GenerateData();
             ComplianceChecker complianceChecker = new ComplianceChecker();
-            //complianceChecker.CheckCompliance();
             timer.Stop();
         }
     }

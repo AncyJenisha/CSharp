@@ -20,16 +20,16 @@ namespace DataAcquisitionSystem
             {
                 Console.WriteLine("Enter the parameter");
                 string parameter = inputValidators.GetStringInput();
-                Console.WriteLine("Enter the maximum value:");
-                double maximumValue = inputValidators.GetDoubleInput();
+                Console.WriteLine("Enter the maximum Value:");
+                int maximumValue = inputValidators.GetIntegerInput();
                 Console.WriteLine("Enter the minimum data:");
-                double minimumValue = inputValidators.GetDoubleInput();
+                int minimumValue = inputValidators.GetIntegerInput();
                 ConfigureParameter configureParameter = new ConfigureParameter(parameter, maximumValue, minimumValue);
                 configureData.Parameters.Add(configureParameter);
             }
 
-            Console.WriteLine("Enter the rate");
-            configureData.rate = inputValidators.GetDoubleInput();
+            Console.WriteLine("Enter the Rate");
+            configureData.Rate = inputValidators.GetIntegerInput();
             WriteConfigurationToFile(configureData);
         }
 

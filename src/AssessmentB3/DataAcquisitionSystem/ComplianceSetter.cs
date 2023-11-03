@@ -4,7 +4,7 @@ namespace DataAcquisitionSystem
 {
     public class ComplianceSetter
     {
-        List<ComplianceData> ComplianceDataOfAllParameters {  get; set; } = new List<ComplianceData>();
+        public List<ComplianceData> ComplianceDataOfAllParameters {  get; set; } = new List<ComplianceData>();
 
         public void GetComplianceData()
         {
@@ -12,10 +12,10 @@ namespace DataAcquisitionSystem
 
             Console.WriteLine("Enter the parameter");
             string parameterName = InputValidators.GetStringInput();
-            Console.WriteLine("Enter the maximum value");
-            double maximumValue = InputValidators.GetDoubleInput();
-            Console.WriteLine("Enter the minimum value");
-            double minimumValue = InputValidators.GetDoubleInput();
+            Console.WriteLine("Enter the maximum Value");
+            int maximumValue = InputValidators.GetIntegerInput();
+            Console.WriteLine("Enter the minimum Value");
+            int minimumValue = InputValidators.GetIntegerInput();
             ComplianceData complianceData = new (parameterName, maximumValue, minimumValue);
             ComplianceDataOfAllParameters.Add(complianceData);
         }

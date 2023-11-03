@@ -2,13 +2,15 @@
 {
     public class ConfigureParameter
     {
+        public ConfigureParameter() { }
+
         public string ParameterName { get; set; }
 
-        public double MaximumValue { get; set; }
+        public int MaximumValue { get; set; }
 
-        public double MinimumValue { get; set; }
+        public int MinimumValue { get; set; }
 
-        public ConfigureParameter( string parameter, double maximumValue, double minimumValue)
+        public ConfigureParameter( string parameter, int maximumValue, int minimumValue)
         {
             this.ParameterName = parameter;
             this.MaximumValue = maximumValue;
