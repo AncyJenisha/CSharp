@@ -14,8 +14,6 @@ namespace DataAcquisitiorBTest
             ConfigurationInitializer configurationInitializer = new ConfigurationInitializer();
 
             configurationInitializer.WriteConfigurationToFile(configureData);
-
-
         }
     }
 }
