@@ -63,7 +63,7 @@ namespace Reflection
 
             foreach (var field in fields)
             {
-                Console.WriteLine(field);
+                Console.WriteLine(field.Name);
             }
         }
 

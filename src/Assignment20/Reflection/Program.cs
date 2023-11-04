@@ -53,7 +53,6 @@ namespace Reflection
                         break;
                 }
             }
-
             while (choiceOfOperation != 5);
         }
     }
