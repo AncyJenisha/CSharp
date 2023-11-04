@@ -7,7 +7,9 @@ namespace DataAcquisitionSystem
 {
     public class DataAcquisitior
     {
-       public List<ConfigureParameter> ConfigureParameters { get; set; } = new ();
+        public List<ConfigureParameter> ConfigureParameters { get; set; } = new ();
+
+        public long timeperiod ;
 
         public void GetConfigurationLimits()
         {
@@ -30,15 +32,16 @@ namespace DataAcquisitionSystem
 
             if (configurationLimits != null)
             {
-                long timeperiod = configurationLimits.Rate * 1000;
-                Timer timer = new Timer();
-                timer.SetTimer(timeperiod);
+                timeperiod = configurationLimits.Rate * 1000;
 
                 foreach (var parameterLimit in configurationLimits.Parameters)
                 {
                     ConfigureParameters.Add(parameterLimit);
                 }
             }
+
+            Timer timer = new Timer();
+            timer.SetTimer(timeperiod);
 
         }
 
@@ -50,6 +53,7 @@ namespace DataAcquisitionSystem
             ComplianceSetter complianceSetter = new();
             ComplianceChecker complianceChecker = new ComplianceChecker();
             Random random = new Random();
+
             foreach (var parameterLimit in ConfigureParameters)
             {
                 generatedValue.Parameter = parameterLimit.ParameterName;

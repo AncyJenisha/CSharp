@@ -7,9 +7,9 @@ namespace DataAcquisitiorBTest
         [Fact]
         public void WhenCalled_WriteConfigurationToFile_WritesToFile()
         {
-            ConfigureParameter configureParameter = new ConfigureParameter("Current", 150D, 50D);
+            ConfigureParameter configureParameter = new ConfigureParameter("Current", 150, 50);
             ConfigureData configureData = new();
-            configureData.Rate = 1D;
+            configureData.Rate = 1;
             configureData.Parameters.Add(configureParameter);
             ConfigurationInitializer configurationInitializer = new ConfigurationInitializer();
 

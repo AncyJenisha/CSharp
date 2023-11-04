@@ -5,7 +5,6 @@ namespace DataAcquisitionSystem
 {
     public class Logger
     {
-        private string m_exePath = string.Empty;
 
         public Logger(string logMessage)
         {
@@ -23,6 +22,7 @@ namespace DataAcquisitionSystem
             }
             catch (Exception exception)
             {
+                Console.WriteLine(exception.ToString());
             }
         }
 
