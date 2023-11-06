@@ -55,7 +55,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShapeHierarchy", "src\Assig
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assignment21", "Assignment21", "{86F8A65B-433B-467A-ABB1-4B037EB2A19E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyMathLibrary", "src\Assignment21\MyMathLibrary\MyMathLibrary.csproj", "{6771BC51-8985-4C8B-B216-D42DA02BF67E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyMathLibrary", "src\Assignment21\MyMathLibrary\MyMathLibrary.csproj", "{6771BC51-8985-4C8B-B216-D42DA02BF67E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyConsoleApplication", "src\Assignment21\MyConsoleApplication\MyConsoleApplication.csproj", "{94320DED-5891-448A-B5B7-149D70DBAD52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -127,6 +129,10 @@ Global
 		{6771BC51-8985-4C8B-B216-D42DA02BF67E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6771BC51-8985-4C8B-B216-D42DA02BF67E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6771BC51-8985-4C8B-B216-D42DA02BF67E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94320DED-5891-448A-B5B7-149D70DBAD52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94320DED-5891-448A-B5B7-149D70DBAD52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94320DED-5891-448A-B5B7-149D70DBAD52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94320DED-5891-448A-B5B7-149D70DBAD52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -157,6 +163,7 @@ Global
 		{774E7355-0647-42AC-B6B4-710399DCDBF8} = {DAA3C570-83EA-45A8-B90D-70F6C440E626}
 		{86F8A65B-433B-467A-ABB1-4B037EB2A19E} = {DCAA095E-2796-41FA-A1D0-1134E29309E7}
 		{6771BC51-8985-4C8B-B216-D42DA02BF67E} = {86F8A65B-433B-467A-ABB1-4B037EB2A19E}
+		{94320DED-5891-448A-B5B7-149D70DBAD52} = {86F8A65B-433B-467A-ABB1-4B037EB2A19E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D4CECB66-8E11-49D9-AA1E-464EE0231450}

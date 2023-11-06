@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>MyMathLab</id>
+    <version>1.0.0</version>
+    <title>MyMathLibrary</title>
+    <authors>AncyJenisha</authors>
+    <description>Has method for generating fibonacci sequence</description>
+	  <dependencies>
+		  <dependency id="MathNet.Numerics" version ="5.0.0"></dependency>
+	  </dependencies>
+	  <releaseNotes>This library has method to generate fibonacci sequence</releaseNotes>
+    <tags>FibonacciSequence </tags>
+  </metadata>
+	<files>
+		<file src =".\bin\Debug\net6.0\MyMathLibrary.dll" target ="./lib"></file>
+	</files>
+</package>
