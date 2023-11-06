@@ -25,6 +25,16 @@ namespace Reflection
         SetValueToProperty,
 
         /// <summary>
+        /// Calls the method to get the types which implement the interfaces.
+        /// </summary>
+        InpectInterfaces,
+
+        /// <summary>
+        /// Serializes the object and displays the serialized object.
+        /// </summary>
+        SerializeObject,
+
+        /// <summary>
         /// Exits the program.
         /// </summary>
         Exit,

@@ -14,16 +14,18 @@ namespace Reflection
         /// </summary>
         private static void Main()
         {
-            InputValidator validator = new InputValidator();
+            InputValidator validator = new ();
             AssemblyInspector assemblyInspector = new ();
-            DynamicObjectInspector dynamicObjectInspector = new DynamicObjectInspector();
-            Employee employee = new Employee();
-            PropertyDisplayer propertyDisplayer = new PropertyDisplayer();
+            DynamicObjectInspector dynamicObjectInspector = new ();
+            Employee employee = new ();
+            PropertyDisplayer propertyDisplayer = new ();
+            ImplementPlugin implementPlugin = new ();
+            Serializer serializer = new ();
 
             int choiceOfOperation;
             do
             {
-                Console.WriteLine("Choose the operation\n1.Inspect Assembly MetaData\n2.Inspect Dynamic Object\n3.Set value to property");
+                Console.WriteLine("Choose the operation\n1.Inspect Assembly MetaData\n2.Inspect Dynamic Object\n3.Set value to property\n4.Check Types which uses the interfaces and invoke them.\n5.Serialize the object\n6.Exit\n");
                 choiceOfOperation = validator.GetIntegerInput();
                 switch (choiceOfOperation)
                 {
@@ -31,6 +33,7 @@ namespace Reflection
                         assemblyInspector.GetAssemblyDetails();
                         assemblyInspector.GetPropertyDetails();
                         assemblyInspector.GetMethodDetails();
+                        assemblyInspector.GetFieldDetails();
                         propertyDisplayer.DisplayMemberInformation(assemblyInspector.MemberType);
                         propertyDisplayer.DisplayPropertyInformation(assemblyInspector.PropertyTypes);
                         propertyDisplayer.DisplayMethodInformation(assemblyInspector.MethodType);
@@ -45,6 +48,18 @@ namespace Reflection
                         propertyDisplayer.DisplayPropertyValue(dynamicObjectInspector.SetValueToProperty(employee, "Ancy"));
                         break;
 
+                    case (int)OperationOptions.InpectInterfaces:
+                        implementPlugin.GetAssemblyDetails();
+                        implementPlugin.GetInterfaces();
+                        propertyDisplayer.DisplayMemberInformation(implementPlugin.MemberType);
+                        propertyDisplayer.DisplayInterfaceTypes(implementPlugin.InterfaceType);
+                        implementPlugin.CallMethodsThroughPlugin();
+                        break;
+
+                    case (int)OperationOptions.SerializeObject:
+                        serializer.SerializeObject(employee);
+                        break;
+
                     case (int)OperationOptions.Exit:
                         break;
 
@@ -53,7 +68,7 @@ namespace Reflection
                         break;
                 }
             }
-            while (choiceOfOperation != 5);
+            while (choiceOfOperation != 6);
         }
     }
 }

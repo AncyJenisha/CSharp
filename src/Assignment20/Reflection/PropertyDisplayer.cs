@@ -23,6 +23,8 @@ namespace Reflection
             {
                 Console.WriteLine(assembly);
             }
+
+            Console.WriteLine("\n\n");
         }
 
         /// <summary>
@@ -37,6 +39,8 @@ namespace Reflection
             {
                 Console.WriteLine(member);
             }
+
+            Console.WriteLine("\n\n");
         }
 
         /// <summary>
@@ -51,6 +55,8 @@ namespace Reflection
             {
                 Console.WriteLine(method.Name);
             }
+
+            Console.WriteLine("\n\n");
         }
 
         /// <summary>
@@ -59,11 +65,20 @@ namespace Reflection
         /// <param name="fields">FieldInfo as array.</param>
         public void DisplayFieldInformation(FieldInfo[] fields)
         {
-            Console.WriteLine("\n\nFields in the type:\n");
-
-            foreach (var field in fields)
+            if (fields.Length == 0)
             {
-                Console.WriteLine(field.Name);
+                Console.WriteLine("No fields in the class\n");
+            }
+            else
+            {
+                Console.WriteLine("\n\nFields in the type:\n");
+
+                foreach (var field in fields)
+                {
+                    Console.WriteLine(field.Name);
+                }
+
+                Console.WriteLine("\n\n");
             }
         }
 
@@ -73,9 +88,21 @@ namespace Reflection
         /// <param name="propertyInfo">FieldInfo as array.</param>
         public void DisplayPropertyValue(PropertyInfo propertyInfo)
         {
-            Employee employee = new Employee();
+            Employee employee = new ();
             Console.WriteLine("\n\nProperties in the object:\n");
             Console.WriteLine($"Changed Property Value : {propertyInfo.GetValue(employee)}");
+            Console.WriteLine("\n\n");
+        }
+
+        /// <summary>
+        /// Displays the types which uses the interfaces.
+        /// </summary>
+        /// <param name="interfaceType">Type as array</param>
+        public void DisplayInterfaceTypes(Type interfaceType)
+        {
+            Console.WriteLine("\n The Types which use the interface:");
+            Console.WriteLine(interfaceType);
+            Console.WriteLine("\n\n");
         }
     }
 }
