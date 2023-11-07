@@ -5,7 +5,7 @@
 namespace Reflection
 {
     /// <summary>
-    /// BankAccount - It is the Abstract Class and has methods.
+    /// BankAccount - It is the Interface Class and has base methods.
     /// </summary>
     public interface IBankAccount
     {
