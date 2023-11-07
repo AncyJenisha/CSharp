@@ -6,7 +6,7 @@
     /// <summary>
     /// FibonnaciCalculator - Has method to generate fibonnaci sequence upto given number.
     /// </summary>
-    public class FibonnaciCalculator
+    public class FibonacciCalculator
     {
         /// <summary>
         /// CalculateFibonnaci - Gets a number and returns an array of fibonacci sequence upto the number.
