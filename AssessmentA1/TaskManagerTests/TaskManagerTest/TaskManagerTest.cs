@@ -9,7 +9,7 @@ namespace TaskManagerTest
             TaskDetailsManager taskManager = new();
             TaskDetails task = new TaskDetails("Backend for webpage", 72D, "C#", new DateOnly(2023, 12, 21));
             taskManager.AddTaskDetails(task);
-            Assert.Equal(4, taskManager.ListOfTasks.Count);
+            Assert.Equal(4, taskManager.Tasks.Count);
         }
     }
 

@@ -1,14 +1,18 @@
-﻿using System.Globalization;
+﻿using Newtonsoft.Json;
+using System.Globalization;
 
 namespace TaskManager
 {
-    public class TaskDetailsManager : List<TaskDetails> 
+    public class TaskDetailsManager
     {
-        public List<TaskDetails> ListOfTasks { get; set; } = new List<TaskDetails>();
+        public List<TaskDetails> Tasks { get; set; } = new List<TaskDetails>();
 
-        public TaskDetailsManager()
+        Logger Logger { get; }
+
+        public TaskDetailsManager(Logger logger)
         {
-            InitializeDefaultTasks();
+            // InitializeDefaultTasks();
+            this.Logger = logger;
         }
 
         public void InitializeDefaultTasks()
@@ -17,24 +21,25 @@ namespace TaskManager
             TaskDetails secondTask = new TaskDetails("Automated testing software", 64D, "LabView", new DateOnly(2024, 10, 21));
             TaskDetails thirdTask = new TaskDetails("Test an application", 38D, "Testing", new DateOnly(2024, 11, 21));
 
-            ListOfTasks.Add(firstTask); 
-            ListOfTasks.Add(secondTask); 
-            ListOfTasks.Add(thirdTask);
+            Tasks.Add(firstTask); 
+            Tasks.Add(secondTask); 
+            Tasks.Add(thirdTask);
 
+            using (StreamWriter streamWriter = new StreamWriter("Tasks.json"))
+            {
+                string json = JsonConvert.SerializeObject(Tasks, Formatting.Indented);
+                streamWriter.WriteLine(json);
+            }
         }
 
         public void AddTaskDetails(TaskDetails task)
         {
-            
-            ListOfTasks.Add(task);
-
-            Logger logger = new Logger();
+            Tasks.Add(task);
 
             using (StreamWriter streamWriter = File.AppendText("Log.txt"))
             {
-                logger.Log("TaskDetails Added", streamWriter);
+                Logger.Log("TaskDetails Added", streamWriter);
             }
-
         }
     }
 }

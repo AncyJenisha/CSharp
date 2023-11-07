@@ -3,16 +3,28 @@ namespace TaskManager
 {
     public class ScheduleViewer
     {
+        public TaskScheduler Scheduler { get; set; }
+
+        public ScheduleViewer(TaskScheduler taskScheduler) 
+        {
+            Scheduler = taskScheduler;
+        }
+
         public void DiplayScheduledTask()
         {
-            var table = new ConsoleTable("EmployeeId", "EmployeeName", "EmployeeWorkingHours", "TaskDescription", "TaskDeadLine");
-            TaskScheduler taskScheduler = new TaskScheduler();
-            IEnumerable<(Employee, TaskDetails)> scheduledTask = taskScheduler.ScheduleTask();
-            foreach (var employee in scheduledTask)
+            var table = new ConsoleTable("EmployeeId", "EmployeeName", "TaskDescription", "TaskDeadLine");
+            if (Scheduler.ScheduledTasks is null)
             {
-                table.AddRow(employee.Item1.Name, employee.Item1.WorkingHours, employee.Item1.WorkingHours, employee.Item2.Description, employee.Item2.DeadlineDate);
+                Console.WriteLine("No task scheduled\n");
             }
-            table.Write();
+            else
+            {
+                foreach (var scheduledTask in Scheduler.ScheduledTasks)
+                {
+                    table.AddRow(scheduledTask.EmployeeId, scheduledTask.Name, scheduledTask.Description, scheduledTask.DeadlineDate);
+                }
+                table.Write();
+            }
         }
     }
 }

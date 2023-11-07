@@ -5,20 +5,20 @@
     /// </summary>
     public class Employee
     {
-        public int Id { get; set; }
+        public int EmployeeId { get; set; }
 
-        public string Name { get; set; }
+        public string EmployeeName { get; set; }
 
         public double WorkingHours { get; set; }
 
-        public IEnumerable<string> Skills { get; set; }
+        public List<string> Skills { get; set; }
 
         public string Availability {  get; set; }
 
-        public Employee(int id, string name, double workingHours, IEnumerable<string> skills, string availability ) 
+        public Employee(int id, string name, double workingHours, List<string> skills, string availability ) 
         {
-            Id = id;
-            Name = name;
+            EmployeeId = id;
+            EmployeeName = name;
             WorkingHours = workingHours;
             Skills = skills;
             Availability = availability;

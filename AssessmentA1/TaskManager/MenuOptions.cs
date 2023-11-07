@@ -12,6 +12,8 @@
 
         DisplayLog,
 
+        GenerateReport,
+
         Exit,
     }
 }

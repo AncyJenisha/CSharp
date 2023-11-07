@@ -9,7 +9,7 @@ namespace TaskManagerTest
             Employee employee = new Employee(24005,"Ancy Jenisha", 8D, "C#", "Yes");
             EmployeeManager employeeManager = new();
             employeeManager.AddEmployeeDetails(employee);
-            Assert.Equal(3,employeeManager.ListOfEmployees.Count);
+            Assert.Equal(3,employeeManager.Employees.Count);
         }
     }
 }
