@@ -12,14 +12,14 @@ namespace CalculationService
         /// <summary>
         /// Initializes a new instance of the <see cref="Products"/> class.
         /// </summary>
-        /// <param name="productname">Name of the product</param>
+        /// <param name="productName">Name of the product</param>
         /// <param name="quantity">Number of products put up for sale.</param>
         /// <param name="price">Price of the product.</param>
         /// <param name="id">serial number for the product.</param>
-        public Products(int id, string productname, int quantity, double price)
+        public Products(int id, string productName, int quantity, double price)
         {
             this.Id = id;
-            this.ProductName = productname;
+            this.ProductName = productName;
             this.Quantity = quantity;
             this.Price = price;
         }

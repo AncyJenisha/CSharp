@@ -16,11 +16,11 @@ namespace ValidatorforInputs
         public static double ReadDoubleInput()
         {
             double number;
-            string? n = Console.ReadLine();
-            while (!double.TryParse(n, out number))
+            string? inputRead = Console.ReadLine();
+            while (!double.TryParse(inputRead, out number))
             {
                 Console.WriteLine("Enter valid Number");
-                n = Console.ReadLine();
+                inputRead = Console.ReadLine();
             }
 
             return number;
@@ -33,11 +33,11 @@ namespace ValidatorforInputs
         public static int ReadIntegerInput()
         {
             int number;
-            string? n = Console.ReadLine();
-            while (!int.TryParse(n, out number))
+            string? inputRead = Console.ReadLine();
+            while (!int.TryParse(inputRead, out number))
             {
                 Console.WriteLine("Enter valid Number");
-                n = Console.ReadLine();
+                inputRead = Console.ReadLine();
             }
 
             return number;
@@ -49,14 +49,14 @@ namespace ValidatorforInputs
         /// <returns>Valid String</returns>
         public static string GetStringInput()
         {
-            string? n = Console.ReadLine();
-            while (string.IsNullOrEmpty(n))
+            string? inputRead = Console.ReadLine();
+            while (string.IsNullOrEmpty(inputRead))
             {
                 Console.WriteLine("Enter a valid Input");
-                n = Console.ReadLine();
+                inputRead = Console.ReadLine();
             }
 
-            return n;
+            return inputRead;
         }
     }
 }

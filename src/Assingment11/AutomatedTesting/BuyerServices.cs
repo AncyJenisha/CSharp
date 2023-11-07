@@ -50,7 +50,7 @@ namespace CalculationService
         /// </summary>
         public static void DisplayOrder()
         {
-            var table = new ConsoleTable("Id", "Product Name", "Quantity", "Price");
+            ConsoleTable table = new ConsoleTable("Id", "Product Name", "Quantity", "Price");
             if (OrderedProductsList.Count > 0)
             {
                 foreach (var product in OrderedProductsList)
@@ -77,7 +77,7 @@ namespace CalculationService
             if (idToRemove > 0 && idToRemove <= OrderedProductsList.Count)
             {
                 bool flag = false;
-                foreach (Products products in OrderedProductsList.ToList())
+                foreach (Products products in OrderedProductsList)
                 {
                     if (products.Id == idToRemove)
                     {

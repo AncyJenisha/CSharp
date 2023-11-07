@@ -40,7 +40,7 @@ namespace CalculationService
         /// <param name="product">Product details as an object.</param>
         public static void DisplayProducts()
         {
-            var table = new ConsoleTable("Id", "Product Name", "Quantity", "PricePerUnit");
+            ConsoleTable table = new ConsoleTable("Id", "Product Name", "Quantity", "PricePerUnit");
             if (ProductsforSaleList.Count > 0)
             {
                 foreach (var product in SellerServices.ProductsforSaleList)

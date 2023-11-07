@@ -16,21 +16,21 @@ namespace CalculationService
         /// </summary>
         public static void Orderservice()
         {
-            int typeofuser;
-            int optionchosebyseller;
-            int optionchosebybuyer;
+            int typeOfUser;
+            int optionChoseBySeller;
+            int optionChoseByBuyer;
             do
             {
                 Console.WriteLine("\n1.Seller\n2.Buyer\n3.Exit\n");
-                typeofuser = InputValidators.ReadIntegerInput();
-                switch (typeofuser)
+                typeOfUser = InputValidators.ReadIntegerInput();
+                switch (typeOfUser)
                 {
                     case (int)EnumforOptions.OrderServiceUser.Seller:
                         do
                         {
                             Console.WriteLine("\n1.Add Products\n2.Display the avilable products\n3.Delete Products put for sale\n4.Exit");
-                            optionchosebyseller = InputValidators.ReadIntegerInput();
-                            switch (optionchosebyseller)
+                            optionChoseBySeller = InputValidators.ReadIntegerInput();
+                            switch (optionChoseBySeller)
                             {
                                 case (int)EnumforOptions.OptionsforSellers.AddProducts:
                                     SellerServices.AddProducts();
@@ -48,15 +48,15 @@ namespace CalculationService
                                     break;
                             }
                         }
-                        while (optionchosebyseller != 4);
+                        while (optionChoseBySeller != 4);
                         break;
 
                     case (int)EnumforOptions.OrderServiceUser.Buyer:
                         do
                         {
                             Console.WriteLine("1.Add Products to cart\n2.Display the Products Ordered\n3.Remove products from cart\n4.Exit\n");
-                            optionchosebybuyer = InputValidators.ReadIntegerInput();
-                            switch (optionchosebybuyer)
+                            optionChoseByBuyer = InputValidators.ReadIntegerInput();
+                            switch (optionChoseByBuyer)
                             {
                                 case (int)EnumforOptions.Optionsforbuyers.AddProductstoCart:
                                     BuyerServices.AddProductstocart();
@@ -74,7 +74,7 @@ namespace CalculationService
                                     break;
                             }
                         }
-                        while (optionchosebybuyer != 4);
+                        while (optionChoseByBuyer != 4);
                         break;
 
                     case (int)EnumforOptions.OrderServiceUser.Exit:
@@ -84,7 +84,7 @@ namespace CalculationService
                         break;
                 }
             }
-            while (typeofuser != 3);
+            while (typeOfUser != 3);
         }
     }
 }
