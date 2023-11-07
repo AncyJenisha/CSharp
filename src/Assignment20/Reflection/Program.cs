@@ -10,7 +10,7 @@ namespace Reflection
     internal partial class Program
     {
         /// <summary>
-        /// Main -
+        /// Main - Gets user choice and calls the method based on the choice.
         /// </summary>
         private static void Main()
         {
