@@ -3,34 +3,48 @@ using System.Xml.Serialization;
 
 namespace DataAcquisitionSystem
 {
+    /// <summary>
+    /// ConfigurationInitializer - 
+    /// </summary>
     public class ConfigurationInitializer
     {
+        public ConfigureData ConfigureData { get; set; }
+
+        public InputValidators InputValidators { get; set; }
+
+        public ConfigureParameter ConfigureParameter { get; set; }
+
+        public ConfigurationInitializer(ConfigureData configureData, InputValidators inputValidators, ConfigureParameter configureParameter)
+        {
+            ConfigureData = configureData;
+            InputValidators = inputValidators;
+            ConfigureParameter = configureParameter;
+        }
+
         public ConfigurationInitializer()
         {
         }
 
         public void SetConfiguration()
         {
-            ConfigureData configureData = new ConfigureData();
-            InputValidators inputValidators = new InputValidators();
 
             Console.WriteLine("Enter the number of paramter");
-            int numberOfParameters = inputValidators.GetIntegerInput();
+            int numberOfParameters = InputValidators.GetIntegerInput();
             for(int i = 0; i < numberOfParameters; i++)
             {
                 Console.WriteLine("Enter the parameter");
-                string parameter = inputValidators.GetStringInput();
+                string parameter = InputValidators.GetStringInput();
                 Console.WriteLine("Enter the maximum Value:");
-                int maximumValue = inputValidators.GetIntegerInput();
+                int maximumValue = InputValidators.GetIntegerInput();
                 Console.WriteLine("Enter the minimum data:");
-                int minimumValue = inputValidators.GetIntegerInput();
-                ConfigureParameter configureParameter = new ConfigureParameter(parameter, maximumValue, minimumValue);
-                configureData.Parameters.Add(configureParameter);
+                int minimumValue = InputValidators.GetIntegerInput();
+                ConfigureParameter = new ConfigureParameter(parameter, maximumValue, minimumValue);
+                ConfigureData.Parameters.Add(ConfigureParameter);
             }
 
             Console.WriteLine("Enter the Rate");
-            configureData.Rate = inputValidators.GetIntegerInput();
-            WriteConfigurationToFile(configureData);
+            ConfigureData.Rate = InputValidators.GetIntegerInput();
+            WriteConfigurationToFile(ConfigureData);
         }
 
         public void WriteConfigurationToFile(ConfigureData configureData)

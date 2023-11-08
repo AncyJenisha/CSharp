@@ -7,6 +7,24 @@ namespace DataAcquisitionSystem
 {
     public class DataAcquisitior
     {
+        public ConfigureData? ConfigurationLimits { get; set; }
+
+        public ComplianceChecker ComplianceChecker { get; set; }
+
+        public GeneratedValue GeneratedValue { get; set; }
+
+        public ComplianceSetter ComplianceSetter { get; set; }
+
+        public Timer Timer { get; set; }
+
+        public DataAcquisitior(ComplianceSetter complianceSetter, ComplianceChecker complianceChecker, GeneratedValue generatedValue, ConfigureData configureData) 
+        {
+            ComplianceSetter = complianceSetter;
+            ComplianceChecker = complianceChecker;
+            GeneratedValue = generatedValue;
+            ConfigurationLimits = configureData;
+        }
+
         public List<ConfigureParameter> ConfigureParameters { get; set; } = new ();
 
         public long timeperiod ;
@@ -14,8 +32,6 @@ namespace DataAcquisitionSystem
         public void GetConfigurationLimits()
         {
             //DeserializeData from the Configure limit file
-
-            ConfigureData? configurationLimits = new ConfigureData();
 
             using (StreamReader streamReader = new StreamReader("ConfigurationFile.json"))
             {
@@ -26,41 +42,19 @@ namespace DataAcquisitionSystem
                 }
                 else
                 {
-                    configurationLimits = JsonSerializer.Deserialize<ConfigureData>(content);
+                    ConfigurationLimits = JsonSerializer.Deserialize<ConfigureData>(content);
                 }
             }
 
-            if (configurationLimits != null)
+            if (ConfigurationLimits != null)
             {
-                timeperiod = configurationLimits.Rate * 1000;
+                timeperiod = ConfigurationLimits.Rate * 1000;
 
-                foreach (var parameterLimit in configurationLimits.Parameters)
+                foreach (var parameterLimit in ConfigurationLimits.Parameters)
                 {
                     ConfigureParameters.Add(parameterLimit);
                 }
             }
-
-            Timer timer = new Timer();
-            timer.SetTimer(timeperiod);
-
-        }
-
-        public void GenerateData()
-        {
-            // To generate data within the configured Value
-
-            GeneratedValue generatedValue = new GeneratedValue();
-            ComplianceSetter complianceSetter = new();
-            ComplianceChecker complianceChecker = new ComplianceChecker();
-            Random random = new Random();
-
-            foreach (var parameterLimit in ConfigureParameters)
-            {
-                generatedValue.Parameter = parameterLimit.ParameterName;
-                generatedValue.Value = random.Next(parameterLimit.MinimumValue, parameterLimit.MaximumValue);
-                complianceChecker.CheckCompliance(generatedValue, complianceSetter.ComplianceDataOfAllParameters);
-            }
-            
         }
     }
 }

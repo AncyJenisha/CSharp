@@ -5,12 +5,6 @@ namespace DataAcquisitionSystem
 {
     public class Logger
     {
-
-        public Logger(string logMessage)
-        {
-            LogWrite(logMessage);
-        }
-
         public void LogWrite(string logMessage)
         {
             try
@@ -33,8 +27,7 @@ namespace DataAcquisitionSystem
                 textWriter.Write("\r\nLog Entry : ");
                 textWriter.WriteLine("{0} {1}", DateTime.Now.ToLongTimeString(),
                     DateTime.Now.ToLongDateString());
-                textWriter.WriteLine("  :");
-                textWriter.WriteLine("  :{0}", message);
+                textWriter.WriteLine(message);
                 textWriter.WriteLine("-------------------------------");
             }
             catch (Exception exception)

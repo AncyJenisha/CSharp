@@ -4,12 +4,18 @@ namespace DataAcquisitionSystem
 {
     public class ComplianceSetter
     {
+        public InputValidators InputValidators { get; }
+
+        public ComplianceSetter(InputValidators inputValidators)
+        {
+            InputValidators = inputValidators;
+        }
+
         public List<ComplianceData> ComplianceDataOfAllParameters {  get; set; } = new List<ComplianceData>();
 
+        
         public void GetComplianceData()
         {
-            InputValidators InputValidators = new InputValidators();
-
             Console.WriteLine("Enter the parameter");
             string parameterName = InputValidators.GetStringInput();
             Console.WriteLine("Enter the maximum Value");

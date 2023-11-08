@@ -2,26 +2,37 @@
 {
     public class ComplianceChecker
     {
-        public void CheckCompliance(GeneratedValue generatedValue , List<ComplianceData> checkdata)
+        public Logger Logger { get; set; }
+
+        public Timer Timer { get; set; }
+
+        public ComplianceChecker(Logger logger)
+        {
+            Logger = logger;
+        }
+
+        public void CheckCompliance(List<GeneratedValue> generatedValue, List<ComplianceData> checkdata, bool check)
         {
             // To Check The compliance of the generated values.
 
             foreach (ComplianceData complianceData in checkdata)
             {
-                if (complianceData.Parameter == generatedValue.Parameter)
+                foreach (GeneratedValue generated in generatedValue)
                 {
-                    if(generatedValue.Value <= complianceData.MaximumValue && generatedValue.Value >= complianceData.MaximumValue)
+                    if (complianceData.Parameter == generated.Parameter)
                     {
-                        Logger logger = new ($"{generatedValue.Parameter} : {generatedValue.Value}  Compliance Successful");
-
-                    }
-                    else
-                    {
-                        Logger logger = new ($"{generatedValue.Parameter} : {generatedValue.Value}  Compliance Failed");
-
+                        if (generated.Value < complianceData.MaximumValue && generated.Value > complianceData.MinimumValue)
+                        {
+                            Logger.LogWrite($"{generated.Parameter} : {generated.Value}  Compliance Successful");
+                        }
+                        else
+                        {
+                            Logger.LogWrite($"{generated.Parameter} : {generated.Value}  Compliance Failed");
+                        }
                     }
                 }
             }
+
         }
     }
 }
