@@ -2,19 +2,43 @@
 
 namespace TaskManager
 {
+    /// <summary>
+    /// ReportGenerator - Has methods and property to generate report.
+    /// </summary>
     public class ReportGenerator
     {
+        /// <summary>
+        /// Gets the object logger and sets it to the instance.
+        /// </summary>
+        public Logger Logger { get;}
 
-        public Logger Logger { get; set; }
+        /// <summary>
+        /// Gets the object for the EmployeeManager and sets it to instance.
+        /// </summary>
+        public EmployeeManager EmployeeManager { get;}
 
-        public EmployeeManager EmployeeManager { get; set; }
+        /// <summary>
+        /// Gets the object for TaskDetailsManager.
+        /// </summary>
+        public TaskDetailsManager TaskDetailsManager { get;}
 
-        public TaskDetailsManager TaskDetailsManager { get; set; }
+        /// <summary>
+        /// Gets the object for the TaskScheduler.
+        /// </summary>
+        public TaskScheduler TaskScheduler { get; }
 
-        public TaskScheduler TaskScheduler { get; set; }
-
+        /// <summary>
+        /// Gets or sets the list of UnscheduledTasks object.
+        /// </summary>
         public IEnumerable<TaskDetails> UnscheduledTasks { get; set; } = new List<TaskDetails>();
 
+        /// <summary>
+        /// Gets and assigns the objects.
+        /// </summary>
+        /// <param name="employeeManager">Object for the EmployeeManager class.</param>
+        /// <param name="taskDetailsManager">Object for the TaskDetailsManager class.</param>
+        /// <param name="taskScheduler">Object for the TaskScheduler class.</param>
+        /// <param name="logger">Object for the Logger class.</param>
         public ReportGenerator(EmployeeManager employeeManager, TaskDetailsManager taskDetailsManager, TaskScheduler taskScheduler, Logger logger)
         {
             EmployeeManager = employeeManager;
@@ -23,11 +47,14 @@ namespace TaskManager
             Logger = logger;
         }
 
+        /// <summary>
+        /// GenerateReport - generates report to print details of the unassigned tasks.
+        /// </summary>
         public void GenerateReport()
         {
             var table = new ConsoleTable();
 
-            if (TaskScheduler.ScheduledTasks is null)
+            if (TaskScheduler.ScheduledTasks.Count == 0)
             {
                 Console.WriteLine("No task is scheduled\n");
             }

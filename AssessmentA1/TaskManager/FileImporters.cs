@@ -3,8 +3,15 @@ using System.Reflection.PortableExecutable;
 using System.Text.Json; 
 namespace TaskManager
 {
+    /// <summary>
+    /// FileImporters - Imports the file contents.
+    /// </summary>
     public class FileImporters
     {
+        /// <summary>
+        /// ImportEmployeeDetails - imports the employee details from the file to list of employee objects.
+        /// </summary>
+        /// <param name="employeeManager">object for the EmployeeManager class</param>
         public void ImportEmployeeDetails(EmployeeManager employeeManager)
         {
 
@@ -23,6 +30,10 @@ namespace TaskManager
             }
         }
 
+        /// <summary>
+        /// ImportTaskDetails - Imports the task details from the file to list of TaskDetails object
+        /// </summary>
+        /// <param name="taskDetailsManager">Object for the TaskDetailsManager class</param>
         public void ImportTaskDetails(TaskDetailsManager taskDetailsManager)
         {
             // Read from File and add to taskDetails list

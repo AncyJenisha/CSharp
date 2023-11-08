@@ -2,8 +2,14 @@
 
 namespace TaskManager
 {
+    /// <summary>
+    /// Program - Program class has the main method which is the entry of the program.
+    /// </summary>
     internal class Program
     {
+        /// <summary>
+        /// Main method - gets the choice of operation from user and calls the methods.
+        /// </summary>
         static void Main()
         {
             InputValidators inputValidators = new InputValidators();
@@ -14,9 +20,11 @@ namespace TaskManager
             Logger logger = new Logger();
             EmployeeManager employeeManager = new EmployeeManager(logger);
             TaskDetailsManager taskManager = new TaskDetailsManager(logger);
+            ScheduledTask scheduledTask = new ScheduledTask();
             TaskScheduler taskScheduler = new TaskScheduler(logger, taskManager, employeeManager);
             ScheduleViewer scheduleViewer = new ScheduleViewer(taskScheduler);
             ReportGenerator reportGenerator = new ReportGenerator(employeeManager, taskManager, taskScheduler, logger);
+            InputCheckers inputCheckers = new InputCheckers(employeeManager);
 
             fileImporters.ImportEmployeeDetails(employeeManager);
             fileImporters.ImportTaskDetails(taskManager);
@@ -33,10 +41,20 @@ namespace TaskManager
                     case (int)MenuOptions.AddEmployeeDetails:
                         Console.WriteLine("Enter the Employee EmployeeId:");
                         int employeeId = inputValidators.GetIntegerInput();
+                        if(!inputCheckers.ValidateEmployeeId(employeeId))
+                        {
+                            break;
+                        }
                         Console.WriteLine("Enter the Employee EmployeeName:");
                         string employeeName = inputValidators.GetStringInput();
+
                         Console.WriteLine("Enter the Working Hours Per Day:");
                         double employeeWorkingHours = inputValidators.GetDoubleInput();
+                        while (inputCheckers.ValidateWorkingHours(employeeWorkingHours))
+                        {
+                            employeeWorkingHours = inputValidators.GetDoubleInput();
+                        }
+
                         Console.WriteLine("Enter the Employee skills");
                         employeeSkill = inputValidators.GetStringInput();
                         while (employeeSkill != "")
@@ -49,6 +67,7 @@ namespace TaskManager
                         }
                         Console.WriteLine("Enter the availability (Yes/No):");
                         string employeeAvailability = inputValidators.GetStringInput();
+
                         Employee employee = new(employeeId, employeeName, employeeWorkingHours, employeeSkills, employeeAvailability);
                         employeeManager.AddEmployeeDetails(employee);
                         break;
@@ -56,13 +75,25 @@ namespace TaskManager
                     case (int)MenuOptions.AddTaskDetails:
                         Console.WriteLine("Enter the task description:");
                         string taskDescription = inputValidators.GetStringInput();
+
                         Console.WriteLine("Enter the Required hours");
                         double taskRequiredHours = inputValidators.GetDoubleInput();
+                        if(inputCheckers.ValidateTaskRequiredHours(taskRequiredHours))
+                        {
+                            break;
+                        }
+
                         Console.WriteLine("Enter the required skills:");
                         string taskRequiredWorkingSkills = inputValidators.GetStringInput();
+
                         Console.WriteLine("Enter the deadline in (YYYY, MM, DD) format ");
                         string date = inputValidators.GetStringInput();
+                        while(inputCheckers.ValidateDate(date))
+                        {
+                            date = inputValidators.GetStringInput() ;
+                        }
                         var taskDeadline = DateOnly.Parse(date, CultureInfo.InvariantCulture);
+
                         TaskDetails task = new(taskDescription, taskRequiredHours, taskRequiredWorkingSkills, taskDeadline);
                         taskManager.AddTaskDetails(task);
                         break;
@@ -78,9 +109,11 @@ namespace TaskManager
                     case (int)MenuOptions.DisplayLog:
                         logger.DisplayLog();
                         break;
+
                     case (int)MenuOptions.GenerateReport:
                         reportGenerator.GenerateReport();
                         break;
+
                     case (int)MenuOptions.Exit:
                         break;
 
