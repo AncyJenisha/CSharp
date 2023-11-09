@@ -299,3 +299,52 @@ PROGRAM:
         DepositAmount() method adds the amount entered by the user to the balance of the respective account.
         WithdrawAmount() method deducts the amount entered by the user from the balance of the respective account.
         
+
+# ASSIGNMENT-11 AUTOMATED TESTING
+## Program.cs
+    The Program class has the main method.
+`main` method :
+    It gets two numbers and the choice of service from the user and calls the method to perform the operation.
+    It gets the choice of operation for the calculation service.
+   
+ ## Product.cs
+    Product class has properties.
+    Id: Has the Serial number of the product in int.
+    ProductName: Has the name of the product in string.
+    Quantity: Has the quantity of the product in int.
+    Price: Has the price of the product in double.
+
+## EnumOptions.cs
+    Has enum for ChoiceOfService, ChoiceOfMathOperations, OrderServiceUser, OptionsForSellers, OptionsForBuyers.
+`ChoiceOfService` : Has the options for the type of services.
+
+ `ChoiceOfMathOperation`: Has the different type of mathematical operations. 
+
+`OrderServiceUser` : Has the options for different type of users using order Service.
+
+`OptonsForSellers`: Has the options for operations performed by the sellers.
+
+`OptionsForBuyers`: Has the options for operations performed by the buyers.
+
+## OrderService.cs
+    It gets the type of user for the Order Service.
+
+    It gets the options to chose the opertions by the users of the order service and calls the method.
+
+## SellerService.cs
+    The SellerService class has the methods for the options for the sellers.
+
+`AddProducts`: Gets the product details and adds the product to the list.
+
+`DisplayProducts`: Displays the list of `ProductForSaleList`.
+
+`DeleteProducts`: Deletes the Product from the `ProductForSaleList`.
+
+## BuyerService.cs
+    The BuyerService class has the methods for the options for the buyers.
+
+`AddProductsToCart`: Adds the product from the `ProductForSaleList` to the `OrderedProductsList` with the `id` entered by user.
+
+`DisplayOrder`: Displays the `ProductForSaleList`.
+
+`RemoveFromCart`: Removes the product from the `OrderedProductsList` with the `id` entered by user.
