@@ -23,7 +23,7 @@
         /// CheckCompliance - Gets the list of generated data and compliance data and check if it is in the limit.
         /// </summary>
         /// <param name="generatedValue">The generated value based on the configuration limits</param>
-        /// <param name="checkdata">The standard data to be comapred with.</param>
+        /// <param name="checkdata">The standard data to be compared with</param>
         public void CheckCompliance(List<GeneratedValue> generatedValue, List<ComplianceData> checkdata)
         {
             // To Check The compliance of the generated values.
@@ -34,16 +34,29 @@
                 {
                     if (complianceData.Parameter == generated.Parameter)
                     {
-                        if (generated.Value < complianceData.MaximumValue && generated.Value > complianceData.MinimumValue)
+                        if (LogComplianceCheck(complianceData, generated))
                         {
-                            Logger.LogWrite($"{generated.Parameter} : {generated.Value}  Compliance Successful");
+                            Logger.LogWrite($"{generated.Parameter} : {generated.Value} Compliance Successful");
                         }
                         else
                         {
-                            Logger.LogWrite($"{generated.Parameter} : {generated.Value}  Compliance Failed");
+                            Logger.LogWrite($"{generated.Parameter} : {generated.Value} Compliance Failed");
                         }
                     }
                 }
+            }
+
+        }
+
+        public bool LogComplianceCheck(ComplianceData complianceData, GeneratedValue generatedValue)
+        {
+            if (generatedValue.Value < complianceData.MaximumValue && generatedValue.Value > complianceData.MinimumValue)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
 
         }
