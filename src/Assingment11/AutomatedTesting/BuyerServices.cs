@@ -77,7 +77,7 @@ namespace CalculationService
             if (idToRemove > 0 && idToRemove <= OrderedProductsList.Count)
             {
                 bool flag = false;
-                foreach (Products products in OrderedProductsList)
+                foreach (Products products in OrderedProductsList.ToList())
                 {
                     if (products.Id == idToRemove)
                     {
