@@ -18,10 +18,10 @@ namespace IdisposableImplementation
         }
 
         /// <summary>
-        /// Gets or sets ListOfData has elements as string.
+        /// Gets or sets Data has elements as string.
         /// </summary>
         /// <value>List elements as string </value>
-        public List<string> ListOfData { get; set; } = new List<string>();
+        public List<string> Data { get; set; } = new List<string>();
 
         /// <summary>
         /// Adds content to the list.
@@ -29,7 +29,7 @@ namespace IdisposableImplementation
         /// <param name="data">string entered as input</param>
         public void AddData(string data)
         {
-            this.ListOfData.Add(data);
+            this.Data.Add(data);
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace IdisposableImplementation
         /// </summary>
         public void ClearData()
         {
-            this.ListOfData.Clear();
+            this.Data.Clear();
         }
 
         /// <summary>
@@ -56,9 +56,9 @@ namespace IdisposableImplementation
         {
             if (disposing)
             {
-                if (this.ListOfData != null)
+                if (this.Data != null)
                 {
-                    this.ListOfData.Clear();
+                    this.Data.Clear();
                 }
             }
 

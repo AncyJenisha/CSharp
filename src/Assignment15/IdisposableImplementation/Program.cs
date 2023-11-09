@@ -16,9 +16,9 @@ namespace IdisposableImplementation
         {
             ManagedResources managedResources = new ();
             managedResources.AddData("Hello World!");
-            Console.WriteLine(managedResources.ListOfData[0]);
+            Console.WriteLine(managedResources.Data[0]);
             managedResources.Dispose();
-            Console.WriteLine(managedResources.ListOfData.Count);
+            Console.WriteLine(managedResources.Data.Count);
 
             UnmanagedResources unmanagedResources = new ("Test.txt");
             unmanagedResources.WriteToFile("Hello World!!");
