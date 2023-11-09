@@ -13,7 +13,7 @@ namespace CollectionAndGenericsTests
             DictionaryofStudentDetails.AddDetails();
             Console.SetIn(new StringReader("Jenisha\n8.75"));
             DictionaryofStudentDetails.AddDetails();
-            Assert.True(StudentDetails.GenericDictionaryCount == 2);
+            Assert.True(StudentDetails.Count == 2);
         }
 
         [Fact]
@@ -22,7 +22,7 @@ namespace CollectionAndGenericsTests
             StudentDetails.AddStudentDetails("Ancy", 7.25F);
             Console.SetIn(new StringReader("Ancy"));
             DictionaryofStudentDetails.RemoveDetails();
-            Assert.True(StudentDetails.GenericDictionaryCount == 0);
+            Assert.True(StudentDetails.Count == 0);
         }
     }
 }

@@ -14,13 +14,13 @@ namespace CollectionAndGenerics
         /// Gets or Sets the Names as string to the generic list.
         /// </summary>
         /// <value>Names as String.</value>
-        public static Queue<T> GenericQueueOfNames { get; set; } = new Queue<T>();
+        public static Queue<T> Names { get; set; } = new Queue<T>();
 
         /// <summary>
         /// Gets the count of Generic Queue.
         /// </summary>
         /// <value>Count as integer</value>
-        public int QueueCount => GenericQueueOfNames.Count;
+        public int QueueCount => Names.Count;
 
         /// <summary>
         /// Adds the name to the Queue.
@@ -28,7 +28,7 @@ namespace CollectionAndGenerics
         /// <param name="nameToBeAddedToQueue">Adds the name as String.</param>
         public void AddName(T nameToBeAddedToQueue)
         {
-            GenericQueueOfNames.Enqueue(nameToBeAddedToQueue);
+            Names.Enqueue(nameToBeAddedToQueue);
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace CollectionAndGenerics
         {
             if (this.QueueCount > 0)
             {
-                GenericQueueOfNames.Dequeue();
+                Names.Dequeue();
             }
             else
             {
@@ -51,13 +51,13 @@ namespace CollectionAndGenerics
         /// </summary>
         public void DisplayNames()
         {
-            if (GenericQueueOfNames.Count == 0)
+            if (Names.Count == 0)
             {
                 Console.WriteLine("No names to display");
             }
             else
             {
-                foreach (var queue in GenericQueueOfNames)
+                foreach (var queue in Names)
                 {
                     Console.WriteLine(queue);
                 }

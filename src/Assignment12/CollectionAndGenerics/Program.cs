@@ -14,13 +14,13 @@ namespace CollectionAndGenerics
         /// Gets or sets elements to the Generic Queue.
         /// </summary>
         /// <value>Has names as string</value>
-        public static GenericQueue<string> QueueOfNames { get; set; } = new ();
+        public static GenericQueue<string> Names { get; set; } = new ();
 
         /// <summary>
         /// Gets or sets the generic type elements for the Stack.
         /// </summary>
         /// <value>Generic type elements.</value>
-        public static GenericStack<char> StackOfCharactersObject { get; set; } = new ();
+        public static GenericStack<char> CharactersObject { get; set; } = new ();
 
         /// <summary>
         /// Gets or sets the Generic type elements for the list.
@@ -91,7 +91,7 @@ namespace CollectionAndGenerics
                                 StackOfCharacters.PopCharacterToStack();
                                 break;
                             case (int)StackOperations.DisplayStack:
-                                StackOfCharactersObject.DisplayCharacters();
+                                CharactersObject.DisplayCharacters();
                                 break;
                             case (int)StackOperations.Exit:
                                 break;
@@ -114,7 +114,7 @@ namespace CollectionAndGenerics
                                 Queue.EnqueueNames();
                                 break;
                             case (int)QueueOperations.DisplayQueue:
-                                QueueOfNames.DisplayNames();
+                                Names.DisplayNames();
                                 break;
                             case (int)QueueOperations.DeleteQueue:
                                 Queue.DequeueNames();

@@ -20,13 +20,13 @@ namespace CollectionAndGenerics
         /// Gets or sets the student details to the generic dictionary.
         /// </summary>
         /// <value>Generic type of student name and grade.</value>
-        public static Dictionary<TKey, TValue> GenericDictionaryOfStudentDetails { get; set; } = new ();
+        public static Dictionary<TKey, TValue> StudentDetails { get; set; } = new ();
 
         /// <summary>
         /// Gets the count of Generic Dictionary.
         /// </summary>
         /// <value>Key as string and value as float</value>
-        public int GenericDictionaryCount => GenericDictionaryOfStudentDetails.Count;
+        public int Count => StudentDetails.Count;
 
         /// <summary>
         /// Adds the student name and grade to the dictionary.
@@ -35,7 +35,7 @@ namespace CollectionAndGenerics
         /// <param name="studentGrade">Grade of students as Generic Type.</param>
         public void AddStudentDetails(TKey studentName, TValue studentGrade)
         {
-            GenericDictionaryOfStudentDetails.Add(studentName, studentGrade);
+            StudentDetails.Add(studentName, studentGrade);
         }
 
         /// <summary>
@@ -44,9 +44,9 @@ namespace CollectionAndGenerics
         /// <param name="studentName"> Name of student to be removed.</param>
         public void RemoveStudentDetails(TKey studentName)
         {
-            if (GenericDictionaryOfStudentDetails.ContainsKey(studentName))
+            if (StudentDetails.ContainsKey(studentName))
             {
-                GenericDictionaryOfStudentDetails.Remove(studentName);
+                StudentDetails.Remove(studentName);
                 Console.WriteLine("Student details removed\n");
                 return;
             }
@@ -61,13 +61,13 @@ namespace CollectionAndGenerics
         /// </summary>
         public void DisplayStudentDetails()
         {
-            if (this.GenericDictionaryCount == 0)
+            if (this.Count == 0)
             {
                 Console.WriteLine("No student details available");
             }
             else
             {
-                foreach (var student in GenericDictionaryOfStudentDetails)
+                foreach (var student in StudentDetails)
                 {
                     Console.WriteLine($"Student Name:{student.Key} Grade:{student.Value}");
                 }

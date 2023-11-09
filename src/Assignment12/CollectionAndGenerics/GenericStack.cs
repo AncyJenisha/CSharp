@@ -15,13 +15,13 @@ namespace CollectionAndGenerics
         /// <typeparam name = "T" >Generic parameter.</typeparam>
         /// </summary>
         /// <value>Character as elements.</value>
-        public static Stack<T> GenericStackOfCharcters { get; set; } = new Stack<T>();
+        public static Stack<T> Characters { get; set; } = new Stack<T>();
 
         /// <summary>
         /// Gets the count of the GenericStack.
         /// </summary>
         /// <value>Integer as count</value>
-        public int GenericStackCount => GenericStackOfCharcters.Count;
+        public int Count => Characters.Count;
 
         /// <summary>
         /// Adds a character to the Stack.
@@ -29,7 +29,7 @@ namespace CollectionAndGenerics
         /// <param name="characterToBeAddedToTheStack">Generic type to character.</param>
         public void AddCharactersToStack(T characterToBeAddedToTheStack)
         {
-            GenericStackOfCharcters.Push(characterToBeAddedToTheStack);
+            Characters.Push(characterToBeAddedToTheStack);
         }
 
         /// <summary>
@@ -37,9 +37,9 @@ namespace CollectionAndGenerics
         /// </summary>
         public void RemoveCharacters()
         {
-            if (GenericStackOfCharcters.Count > 0)
+            if (Characters.Count > 0)
             {
-                Console.WriteLine(GenericStackOfCharcters.Pop());
+                Console.WriteLine(Characters.Pop());
             }
             else
             {
@@ -52,13 +52,13 @@ namespace CollectionAndGenerics
         /// </summary>
         public void DisplayCharacters()
         {
-            if (this.GenericStackCount == 0)
+            if (this.Count == 0)
             {
                 Console.WriteLine("No characters to display");
             }
             else
             {
-                foreach (T character in GenericStackOfCharcters)
+                foreach (T character in Characters)
                 {
                     Console.WriteLine(character);
                 }

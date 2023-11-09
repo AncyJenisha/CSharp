@@ -25,7 +25,7 @@ namespace CollectionAndGenerics
         }
 
         /// <summary>
-        /// Removes the first string from the QueueOfNames.
+        /// Removes the first string from the Names.
         /// </summary>
         public static void DequeueNames()
         {

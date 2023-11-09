@@ -11,7 +11,7 @@ namespace CollectionAndGenericsTests
             GenericStack<char> StackOfCharactersObject = new();
             Console.SetIn(new StringReader("A"));
             StackOfCharacters.PushCharacterToStack();
-            Assert.Equal(2,StackOfCharactersObject.GenericStackCount);
+            Assert.Equal(2,StackOfCharactersObject.Count);
         }
 
         [Fact]
@@ -21,7 +21,7 @@ namespace CollectionAndGenericsTests
             StackOfCharactersObject.AddCharactersToStack('A');
             StackOfCharactersObject.AddCharactersToStack('J');
             StackOfCharacters.PopCharacterToStack();
-            Assert.Equal(1,StackOfCharactersObject.GenericStackCount);
+            Assert.Equal(1,StackOfCharactersObject.Count);
         }
 
     }

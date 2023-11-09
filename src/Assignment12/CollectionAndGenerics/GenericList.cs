@@ -14,14 +14,14 @@ namespace CollectionAndGenerics
         /// Gets or sets the books list in generic type.
         /// </summary>
         /// <value>Book name as String</value>
-        public static List<T> GenericListOfBooks { get; set; } = new ();
+        public static List<T> Books { get; set; } = new ();
 
         /// <summary>
-        /// Gets count of the GenericListOfBooks.
+        /// Gets count of the Books.
         /// </summary>
         /// <value>
-        /// Count of the GenericListOfBooks.
-        public int Count => GenericListOfBooks.Count;
+        /// Count of the Books.
+        public int Count => Books.Count;
 
         /// <summary>
         /// jhghfh
@@ -29,16 +29,16 @@ namespace CollectionAndGenerics
         /// <param name="bookName">hjghj</param>
         public void Add(T bookName)
         {
-            GenericListOfBooks.Add(bookName);
+            Books.Add(bookName);
         }
 
         /// <summary>
-        /// Removes element of the generic GenericListOfBooks.
+        /// Removes element of the generic Books.
         /// </summary>
         /// <param name="index">Index of the element to be removed.</param>
         public void RemoveAt(int index)
         {
-            GenericListOfBooks.RemoveAt(index);
+            Books.RemoveAt(index);
         }
 
         /// <summary>
@@ -46,14 +46,14 @@ namespace CollectionAndGenerics
         /// </summary>
         public void DisplayBookList()
         {
-            if (GenericListOfBooks.Count == 0)
+            if (Books.Count == 0)
             {
                 Console.WriteLine("No books to display");
             }
             else
             {
                 Console.WriteLine("The Book List");
-                foreach (var bookName in GenericListOfBooks)
+                foreach (var bookName in Books)
                 {
                     Console.WriteLine(bookName);
                 }

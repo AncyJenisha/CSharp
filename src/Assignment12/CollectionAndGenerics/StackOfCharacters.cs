@@ -32,7 +32,7 @@ namespace CollectionAndGenerics
         /// </summary>
         public static void PopCharacterToStack()
         {
-            if (StackOfCharactersObject.GenericStackCount > 0)
+            if (StackOfCharactersObject.Count > 0)
             {
                 StackOfCharactersObject.RemoveCharacters();
             }
