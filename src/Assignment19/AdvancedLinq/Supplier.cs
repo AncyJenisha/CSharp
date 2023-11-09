@@ -39,6 +39,5 @@ namespace AdvancedLinq
         /// </summary>
         /// <value>Id of the product as integer</value>
         public int ProductId { get; set; }
-
     }
 }

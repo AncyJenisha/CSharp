@@ -4,7 +4,6 @@
 namespace AdvancedLinq
 {
     using ConsoleTables;
-    using System.Net.Http.Headers;
 
     /// <summary>
     /// Has the methods to explain basic and complex linq queries.

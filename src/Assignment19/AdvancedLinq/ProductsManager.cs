@@ -23,10 +23,10 @@ namespace AdvancedLinq
             Product firstProduct = new (1, 300F, "Mobile Phone", "Electronics");
             Products.Add(firstProduct);
 
-            Product secondProduct = new (2,600f, "Laptop", "Electronics");
+            Product secondProduct = new (2, 600f, "Laptop", "Electronics");
             Products.Add(secondProduct);
 
-            Product thirdProduct = new(3, 6000f, "Bed", "Furniture");
+            Product thirdProduct = new (3, 6000f, "Bed", "Furniture");
             Products.Add(thirdProduct);
 
             Product fourthProduct = new (4, 1.50F, "Hide and seek", "Snacks");

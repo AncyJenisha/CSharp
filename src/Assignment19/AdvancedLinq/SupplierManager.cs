@@ -29,13 +29,13 @@ namespace AdvancedLinq
             Supplier thirdSupplier = new Supplier(3, "Duroflex", 3);
             Suppliers.Add(thirdSupplier);
 
-            Supplier fourthSupplier = new Supplier(4, "Parle",4);
+            Supplier fourthSupplier = new Supplier(4, "Parle", 4);
             Suppliers.Add(fourthSupplier);
 
-            Supplier fifthSupplier = new Supplier(5,"Cadberry", 5);
+            Supplier fifthSupplier = new Supplier(5, "Cadberry", 5);
             Suppliers.Add(fifthSupplier);
 
-            Supplier sixthSupplier = new Supplier(6,"Harper Collins", 6);
+            Supplier sixthSupplier = new Supplier(6, "Harper Collins", 6);
             Suppliers.Add(sixthSupplier);
 
             Supplier seventhSupplier = new Supplier(7, "Mass Market PaperBack", 7);

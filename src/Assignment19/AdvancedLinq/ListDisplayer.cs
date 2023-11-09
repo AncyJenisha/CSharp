@@ -67,10 +67,9 @@ namespace AdvancedLinq
         public void DisplayGroupProducts()
         {
             int countOfProductsInCategory = 0;
-            Product expensiveProduct = new Product();
             BasicLinqQueries basicLinqQueries = new BasicLinqQueries();
             var table = new ConsoleTable("ProductId", "ProductName", "ProductPrice", "Category");
-
+            Product expensiveProduct = null;
             Console.WriteLine("Grouping Products");
             var groupedProductList = basicLinqQueries.GroupProductsBasedOnCategory();
             foreach (var categoryGroup in groupedProductList)
@@ -78,7 +77,7 @@ namespace AdvancedLinq
                 foreach (var product in categoryGroup)
                 {
                     table.AddRow(product.ProductId, product.ProductName, product.ProductPrice, product.ProductCategory);
-                    expensiveProduct = categoryGroup.First();
+                    expensiveProduct = new (categoryGroup.First().ProductId, categoryGroup.First().ProductPrice, categoryGroup.First().ProductName, categoryGroup.First().ProductCategory);
                     countOfProductsInCategory++;
                 }
 
@@ -103,7 +102,7 @@ namespace AdvancedLinq
             Console.WriteLine("Implementing Join to join two lists");
             foreach (var product in joinedList)
             {
-                table.AddRow(product.Item1, product.Item2, product.Item3, product.Item4, product.Item5, product.Item6);
+                table.AddRow(product.ProductObject.ProductId, product.ProductObject.ProductName, product.ProductObject.ProductPrice, product.ProductObject.ProductPrice, product.ProductObject.ProductCategory, product.SupplierObject.SupplierId, product.SupplierObject.SupplierName);
             }
 
             Console.WriteLine("Products and Suppliers");
