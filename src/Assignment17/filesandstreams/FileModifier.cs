@@ -24,8 +24,7 @@ namespace FileProcessor
             UTF8Encoding encoder = new ();
             byte[] buffer = new byte[1024];
             int bytesRead = fileStreamReader.Read(buffer, 0, buffer.Length);
-            string contentRead = encoder.GetString(buffer, 0, bytesRead);
-            contentRead = contentRead.ToUpper();
+            string contentRead = encoder.GetString(buffer, 0, bytesRead).ToUpper();
 
             Stopwatch stopwatch = Stopwatch.StartNew();
 
