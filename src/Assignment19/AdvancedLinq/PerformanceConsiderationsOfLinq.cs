@@ -17,7 +17,7 @@ namespace AdvancedLinq
         /// <returns> List of Books from products list</returns>
         public List<Product> FilterAndSortBooks()
         {
-            List<Product> productsList = ProductsManager.ProductsList;
+            List<Product> productsList = ProductsManager.Products;
 
             var listOfBooks = from product in productsList
                               where product.ProductCategory == "Books"

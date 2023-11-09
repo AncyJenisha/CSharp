@@ -6,8 +6,8 @@ namespace ImplemenationOfBuildQueryTests
         [Fact]
         public void WhenCalled_ImplementBuildQuery_JoinsList()
         {
-            List<Supplier> suppliersList = SupplierManager.SuppliersList;
-            List<Product> productsList = ProductsManager.ProductsList;
+            List<Supplier> suppliersList = SupplierManager.Suppliers;
+            List<Product> productsList = ProductsManager.Products;
             BuildQueryImplementor buildQueryImplementor = new BuildQueryImplementor();
 
             var expectedResult = productsList

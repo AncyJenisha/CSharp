@@ -23,7 +23,7 @@ namespace AdvancedLinq
 
         private List<Product> ListOfProductsToBeQueried { get; set; }
 
-        private List<Supplier> ListOfSuppliersToBeJoined { get; set; } = SupplierManager.SuppliersList;
+        private List<Supplier> ListOfSuppliersToBeJoined { get; set; } = SupplierManager.Suppliers;
 
         private IEnumerable<Product> FilteredProducts { get; set; }
 
@@ -55,7 +55,7 @@ namespace AdvancedLinq
         /// It gets the lambda method with condition to join.
         /// </summary>
         /// <param name="inner">The Supplier</param>
-        /// <param name="outerKeySelector">Id Of Product</param>
+        /// <param name="outerKeySelector">Id Of Products</param>
         /// <param name="innerKeySelector">Id Of Supplier</param>
         /// <param name="resultSelector">The result of the lambda function</param>
         /// <returns>Joined List</returns>

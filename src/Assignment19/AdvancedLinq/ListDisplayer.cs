@@ -18,7 +18,7 @@ namespace AdvancedLinq
             float totalPrice = 0;
             int numberOfProducts = 0;
 
-            var table = new ConsoleTable("Product Name", "ProductPrice");
+            var table = new ConsoleTable("Products Name", "ProductPrice");
             BasicLinqQueries basicLinqQueries = new BasicLinqQueries();
 
             List<Tuple<string, float>> filteredProductsList = basicLinqQueries.FilterProducts();
@@ -118,7 +118,7 @@ namespace AdvancedLinq
         {
             PerformanceConsiderationsOfLinq performanceConsiderationsOfLinq = new PerformanceConsiderationsOfLinq();
             List<Product> sortedListOfBooks = performanceConsiderationsOfLinq.FilterAndSortBooks();
-            var table = new ConsoleTable("Product ID", "Product Name", "ProductPrice", "Product Category");
+            var table = new ConsoleTable("Products ID", "Products Name", "ProductPrice", "Products Category");
 
             Console.WriteLine("Sorting Books from the products list");
 
@@ -139,7 +139,7 @@ namespace AdvancedLinq
         {
             AdvancedLinqFeatures advancedLinqFeatures = new AdvancedLinqFeatures();
             List<Product> listOfFilteredProducts = advancedLinqFeatures.FilterListOfProductsUsingLambdaExpression(product => product.ProductCategory == "Snacks");
-            var table = new ConsoleTable("Product ID", "Product Name", "ProductPrice", "Product Category");
+            var table = new ConsoleTable("Products ID", "Products Name", "ProductPrice", "Products Category");
 
             Console.WriteLine("Filter using lambda Expression");
 
@@ -160,7 +160,7 @@ namespace AdvancedLinq
         {
             AdvancedLinqFeatures advancedLinqFeatures = new AdvancedLinqFeatures();
             List<Product> listOfFilteredProducts = advancedLinqFeatures.FilterListOfProductsUsingExpressionTree();
-            var table = new ConsoleTable("Product ID", "Product Name", "ProductPrice", "Product Category");
+            var table = new ConsoleTable("Products ID", "Products Name", "ProductPrice", "Products Category");
 
             foreach (Product product in listOfFilteredProducts)
             {
@@ -181,7 +181,7 @@ namespace AdvancedLinq
 
             List<(Product, Supplier)> joinedList = buildQueryImplementor.ImplementBuildQuery();
 
-            var table = new ConsoleTable("Product ID", "Product Name", "ProductPrice", "Product Category");
+            var table = new ConsoleTable("Products ID", "Products Name", "ProductPrice", "Products Category");
 
             foreach (var product in joinedList)
             {

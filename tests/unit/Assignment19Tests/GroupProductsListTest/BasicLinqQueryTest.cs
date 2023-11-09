@@ -7,7 +7,7 @@ namespace GroupProductsListTest
         [Fact]
         public void WhenCalled_GroupProductsBasedOnCategory_ReturnsGroupedList()
         {
-            List<Product> productsList = ProductsManager.ProductsList;
+            List<Product> productsList = ProductsManager.Products;
             var expectedGroupedProductList = from product in productsList.OrderByDescending((product) => product.ProductPrice)
                                      group product by product.ProductCategory into categoryGroup
                                      select categoryGroup;

@@ -19,7 +19,7 @@ namespace AdvancedLinq
         /// <returns>Filtered products List</returns>
         public List<Product> FilterListOfProductsUsingLambdaExpression(Func<Product, bool> filterProductsList)
         {
-            List<Product> productsList = ProductsManager.ProductsList;
+            List<Product> productsList = ProductsManager.Products;
 
             var filteredProductListByCategory = from product in productsList
                                                 where filterProductsList(product)
@@ -37,7 +37,7 @@ namespace AdvancedLinq
         /// <returns>List of filtered Products</returns>
         public List<Product> FilterListOfProductsUsingExpressionTree()
         {
-            List<Product> listOfProducts = ProductsManager.ProductsList;
+            List<Product> listOfProducts = ProductsManager.Products;
 
             var expression = this.GenerateExpressionTreeToFilterProduct().Compile();
             var listOfFilteredProducts = from product in listOfProducts
@@ -53,7 +53,7 @@ namespace AdvancedLinq
         public Expression<Func<Product, bool>> GenerateExpressionTreeToFilterProduct()
         {
             InputValidators inputValidators = new InputValidators();
-            List<Product> productsList = ProductsManager.ProductsList;
+            List<Product> productsList = ProductsManager.Products;
             ParameterExpression parameterExpression = Expression.Parameter(typeof(Product), "p");
 
             MemberExpression memberExpression = Expression.Property(parameterExpression, "ProductCategory");

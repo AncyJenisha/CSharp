@@ -6,8 +6,8 @@ namespace ImplementationOfJoin
         [Fact]
         public void WhenCalled_JoinProductAndSupplierList_ReturnsJoinedList()
         {
-            List<Product> productsList = ProductsManager.ProductsList;
-            List<Supplier> suppliersList = SupplierManager.SuppliersList;
+            List<Product> productsList = ProductsManager.Products;
+            List<Supplier> suppliersList = SupplierManager.Suppliers;
             BasicLinqQueries basicLinqQueries = new BasicLinqQueries();
 
             var expectedJoinedList = productsList.Join(

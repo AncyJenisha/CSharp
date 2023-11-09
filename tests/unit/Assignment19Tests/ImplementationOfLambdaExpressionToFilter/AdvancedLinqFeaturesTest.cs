@@ -6,7 +6,7 @@ namespace ImplementationOfLambdaExpressionToFilter
         [Fact]
         public void WhenCalled_FilterProductsUsingLambdaExpression_FiltersSnacksFromList()
         {
-            List<Product> productsList = ProductsManager.ProductsList;
+            List<Product> productsList = ProductsManager.Products;
             AdvancedLinqFeatures advancedLinqFeatures = new AdvancedLinqFeatures();
 
             IEnumerable<Product> listOfExpectedFilteredProducts = from product in productsList 

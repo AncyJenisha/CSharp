@@ -10,6 +10,19 @@ namespace AdvancedLinq
     public class Supplier
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="Supplier"/> class.
+        /// </summary>
+        /// <param name="supplierId">The supplier ID as integer</param>
+        /// <param name="supplierName">The supplier name as string.</param>
+        /// <param name="productId">The productId as integer</param>
+        public Supplier(int supplierId, string? supplierName, int productId)
+        {
+            this.SupplierId = supplierId;
+            this.SupplierName = supplierName;
+            this.ProductId = productId;
+        }
+
+        /// <summary>
         /// Gets or sets the Id of supplier as integer.
         /// </summary>
         /// <value>Id as integer</value>
@@ -26,5 +39,6 @@ namespace AdvancedLinq
         /// </summary>
         /// <value>Id of the product as integer</value>
         public int ProductId { get; set; }
+
     }
 }

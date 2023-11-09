@@ -15,8 +15,8 @@ namespace AdvancedLinq
         /// <returns>Joined list of products and supplier</returns>
         public List<(Product, Supplier)> ImplementBuildQuery()
         {
-            QueryBuilder queryBuilder = new QueryBuilder(ProductsManager.ProductsList);
-            List<Supplier> suppliersList = SupplierManager.SuppliersList;
+            QueryBuilder queryBuilder = new QueryBuilder(ProductsManager.Products);
+            List<Supplier> suppliersList = SupplierManager.Suppliers;
             var result = queryBuilder
                 .Filter(p => p.ProductPrice > 100)
                 .SortBy(p => p.ProductPrice)

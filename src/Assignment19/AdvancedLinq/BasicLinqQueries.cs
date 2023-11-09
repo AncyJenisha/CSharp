@@ -4,6 +4,7 @@
 namespace AdvancedLinq
 {
     using ConsoleTables;
+    using System.Net.Http.Headers;
 
     /// <summary>
     /// Has the methods to explain basic and complex linq queries.
@@ -16,7 +17,7 @@ namespace AdvancedLinq
         /// <returns>A list of tuple with name and price of product</returns>
         public List<Tuple<string, float>> FilterProducts()
         {
-            List<Product> productsList = ProductsManager.ProductsList;
+            List<Product> productsList = ProductsManager.Products;
 
             var filteredProducts = from product in productsList
                                    where product.ProductCategory == "Electronics"
@@ -33,9 +34,7 @@ namespace AdvancedLinq
         /// <returns>IGrouping of products</returns>
         public List<IGrouping<string, Product>> GroupProductsBasedOnCategory()
         {
-            Product expensiveProduct = new ();
-
-            List<Product> productsList = ProductsManager.ProductsList;
+            List<Product> productsList = ProductsManager.Products;
 
             var groupedProductList = from product in productsList.OrderByDescending((product) => product.ProductPrice)
                                      group product by product.ProductCategory into categoryGroup
@@ -48,22 +47,21 @@ namespace AdvancedLinq
         /// Joins the product and supplier list.
         /// </summary>
         /// <returns>List of tuple</returns>
-        public List<Tuple<int, string?, float, string?, int, string?>> JoinProductAndSupplierList()
+        public List<JoinedProductSupplier> JoinProductAndSupplierList()
         {
-            List<Product> productsList = ProductsManager.ProductsList;
-            List<Supplier> suppliersList = SupplierManager.SuppliersList;
-
-            var joinedProductsAndSuppliersList = productsList.Join(
+            List<Product> productsList = ProductsManager.Products;
+            List<Supplier> suppliersList = SupplierManager.Suppliers;
+            JoinedProductSupplier joinedProductSupplier = new JoinedProductSupplier();
+            List<JoinedProductSupplier> joinedProductsAndSuppliersList = new List<JoinedProductSupplier>();
+            joinedProductsAndSuppliersList = productsList.Join(
                 suppliersList,
                 product => product.ProductId,
-                supplier => supplier.ProductId,
-                (product, supplier) => Tuple.Create(
-                    product.ProductId,
-                    product.ProductName,
-                    product.ProductPrice,
-                    product.ProductCategory,
-                    supplier.SupplierId,
-                    supplier.SupplierName)).ToList();
+                supplier => supplier.SupplierId,
+                (product, supplier) => new JoinedProductSupplier()
+                {
+                    SupplierObject = supplier,
+                    ProductObject = product,
+                }).ToList();
 
             return joinedProductsAndSuppliersList;
         }

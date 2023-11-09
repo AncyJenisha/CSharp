@@ -13,69 +13,33 @@ namespace AdvancedLinq
         /// Gets or sets the list of products with thier details.
         /// </summary>
         /// <value>The products as objects</value>
-        public static List<Product> ProductsList { get; set; } = new List<Product>();
+        public static List<Product> Products { get; set; } = new List<Product>();
 
         /// <summary>
         /// Adds Default products to the list.
         /// </summary>
         public void IntializeWithDefaultProducts()
         {
-            Product firstProduct = new ();
-            firstProduct.ProductId = 1;
-            firstProduct.ProductName = "Mobile Phone";
-            firstProduct.ProductCategory = "Electronics";
-            firstProduct.ProductPrice = 300;
+            Product firstProduct = new (1, 300F, "Mobile Phone", "Electronics");
+            Products.Add(firstProduct);
 
-            ProductsList.Add(firstProduct);
+            Product secondProduct = new (2,600f, "Laptop", "Electronics");
+            Products.Add(secondProduct);
 
-            Product secondProduct = new ();
+            Product thirdProduct = new(3, 6000f, "Bed", "Furniture");
+            Products.Add(thirdProduct);
 
-            secondProduct.ProductId = 2;
-            secondProduct.ProductName = "Laptop";
-            secondProduct.ProductCategory = "Electronics";
-            secondProduct.ProductPrice = 600;
+            Product fourthProduct = new (4, 1.50F, "Hide and seek", "Snacks");
+            Products.Add(fourthProduct);
 
-            ProductsList.Add(secondProduct);
+            Product fifthProduct = new (5, 0.5F, "KitKat", "Snacks");
+            Products.Add(fifthProduct);
 
-            Product thirdProduct = new ();
-            thirdProduct.ProductId = 3;
-            thirdProduct.ProductName = "Bed";
-            thirdProduct.ProductCategory = "Furniture";
-            thirdProduct.ProductPrice = 6000;
+            Product sixthProduct = new (6, 15F, "The Alchemist", "Books");
+            Products.Add(sixthProduct);
 
-            ProductsList.Add(thirdProduct);
-
-            Product fourthProduct = new ();
-            fourthProduct.ProductId = 4;
-            fourthProduct.ProductName = "Hide and seek";
-            fourthProduct.ProductCategory = "Snacks";
-            fourthProduct.ProductPrice = 1.50F;
-
-            ProductsList.Add(fourthProduct);
-
-            Product fifthProduct = new ();
-            fifthProduct.ProductId = 5;
-            fifthProduct.ProductName = "KitKat";
-            fifthProduct.ProductCategory = "Snacks";
-            fifthProduct.ProductPrice = 0.5F;
-
-            ProductsList.Add(fifthProduct);
-
-            Product sixthProduct = new ();
-            sixthProduct.ProductId = 6;
-            sixthProduct.ProductName = "The Alchemist";
-            sixthProduct.ProductCategory = "Books";
-            sixthProduct.ProductPrice = 15F;
-
-            ProductsList.Add(sixthProduct);
-
-            Product seventhProduct = new ();
-            seventhProduct.ProductId = 7;
-            seventhProduct.ProductName = "Paradise Lost";
-            seventhProduct.ProductCategory = "Books";
-            seventhProduct.ProductPrice = 20F;
-
-            ProductsList.Add(seventhProduct);
+            Product seventhProduct = new (7, 20F, "Paradise Lost", "Books");
+            Products.Add(seventhProduct);
         }
     }
 }
