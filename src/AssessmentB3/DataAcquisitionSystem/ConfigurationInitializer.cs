@@ -4,16 +4,31 @@ using System.Xml.Serialization;
 namespace DataAcquisitionSystem
 {
     /// <summary>
-    /// ConfigurationInitializer - 
+    /// ConfigurationInitializer - Has methods to set the configuration limits and its properties.
     /// </summary>
     public class ConfigurationInitializer
     {
+        /// <summary>
+        /// Gets or sets the object for the ConfigureData class.
+        /// </summary>
         public ConfigureData ConfigureData { get; set; }
 
+        /// <summary>
+        /// Gets or sets the object for the InputValidator class.
+        /// </summary>
         public InputValidators InputValidators { get; set; }
 
+        /// <summary>
+        /// Gets or sets the object for ConfigureParameter class.
+        /// </summary>
         public ConfigureParameter ConfigureParameter { get; set; }
 
+        /// <summary>
+        /// Gets and assigns the value for the properties.
+        /// </summary>
+        /// <param name="configureData">Object for the ConfigureData class.</param>
+        /// <param name="inputValidators">Object for InputValidator class</param>
+        /// <param name="configureParameter">Object for Configureparameter class</param>
         public ConfigurationInitializer(ConfigureData configureData, InputValidators inputValidators, ConfigureParameter configureParameter)
         {
             ConfigureData = configureData;
@@ -25,6 +40,9 @@ namespace DataAcquisitionSystem
         {
         }
 
+        /// <summary>
+        /// SetConfiguration - Sets the configuration value.
+        /// </summary>
         public void SetConfiguration()
         {
 
@@ -47,6 +65,10 @@ namespace DataAcquisitionSystem
             WriteConfigurationToFile(ConfigureData);
         }
 
+        /// <summary>
+        /// WriteConfigurationToFile - Writes the set configuration value to the file.
+        /// </summary>
+        /// <param name="configureData">The ConfigureData set by the user.</param>
         public void WriteConfigurationToFile(ConfigureData configureData)
         {
             string jsonString = JsonSerializer.Serialize(configureData, new JsonSerializerOptions() { IncludeFields = true, WriteIndented = true });

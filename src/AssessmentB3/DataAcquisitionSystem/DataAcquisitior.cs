@@ -5,30 +5,50 @@ using System.Text.Json;
 
 namespace DataAcquisitionSystem
 {
+    /// <summary>
+    /// DataAcquisitior - Has properties and methods to generate the values for the parameter
+    /// </summary>
     public class DataAcquisitior
     {
+        /// <summary>
+        /// Gets or sets the object for ConfigurationLimits class.
+        /// </summary>
         public ConfigureData? ConfigurationLimits { get; set; }
 
+        /// <summary>
+        /// Gets or sets the object for ComplianceChecker class.
+        /// </summary>
         public ComplianceChecker ComplianceChecker { get; set; }
 
+        /// <summary>
+        /// Gets or sets the object for GeneratedValue class.
+        /// </summary>
         public GeneratedValue GeneratedValue { get; set; }
 
-        public ComplianceSetter ComplianceSetter { get; set; }
-
-        public Timer Timer { get; set; }
-
-        public DataAcquisitior(ComplianceSetter complianceSetter, ComplianceChecker complianceChecker, GeneratedValue generatedValue, ConfigureData configureData) 
+        /// <summary>
+        /// Gets and assigns the value to the properties.
+        /// </summary>
+        /// <param name="generatedValue">Object for the GeneratedValue class</param>
+        /// <param name="configureData">Object for the configuerData class</param>
+        public DataAcquisitior(GeneratedValue generatedValue, ConfigureData configureData) 
         {
-            ComplianceSetter = complianceSetter;
-            ComplianceChecker = complianceChecker;
             GeneratedValue = generatedValue;
             ConfigurationLimits = configureData;
         }
 
+        /// <summary>
+        /// Gets or sets the list of objects of ConfigureParameter class.
+        /// </summary>
         public List<ConfigureParameter> ConfigureParameters { get; set; } = new ();
 
+        /// <summary>
+        /// Timeperiod calculated from rate
+        /// </summary>
         public long timeperiod ;
 
+        /// <summary>
+        /// GetConfiguratinLimits - Gets the configuration limits to generate data.
+        /// </summary>
         public void GetConfigurationLimits()
         {
             //DeserializeData from the Configure limit file

@@ -3,8 +3,15 @@ using System.Reflection;
 
 namespace DataAcquisitionSystem
 {
+    /// <summary>
+    /// Logger - Has methods to write the log to Log File
+    /// </summary>
     public class Logger
     {
+        /// <summary>
+        /// LogWrite - Writes the message to the log file.
+        /// </summary>
+        /// <param name="logMessage">The message to be logged.</param>
         public void LogWrite(string logMessage)
         {
             try
@@ -20,6 +27,11 @@ namespace DataAcquisitionSystem
             }
         }
 
+        /// <summary>
+        /// Log - Formats the log message to be written to file.
+        /// </summary>
+        /// <param name="message">The message to be written</param>
+        /// <param name="textWriter">The textWriter object.</param>
         public void Log(string message, TextWriter textWriter) 
         {
             try

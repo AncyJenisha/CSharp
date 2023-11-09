@@ -5,6 +5,9 @@
     /// </summary>
     internal class Program
     {
+        /// <summary>
+        /// Main - Gets the choice of operation from user and calls the method.
+        /// </summary>
         private static void Main()
         {
             int choiceOfOperation;
@@ -12,10 +15,10 @@
             ConfigureData configureData = new ConfigureData();
             GeneratedValue generatedValue = new GeneratedValue();
             Logger logger = new Logger();
-            ComplianceSetter complianceSetter = new ComplianceSetter(inputValidators);
-            ComplianceChecker complianceChecker = new ComplianceChecker(logger);
             ConfigureParameter configureParameter = new ConfigureParameter();
-            DataAcquisitior dataAcquisitior = new DataAcquisitior( complianceSetter, complianceChecker, generatedValue, configureData);
+            DataAcquisitior dataAcquisitior = new DataAcquisitior( generatedValue, configureData);
+            ComplianceSetter complianceSetter = new ComplianceSetter(inputValidators, dataAcquisitior);
+            ComplianceChecker complianceChecker = new ComplianceChecker(logger);
             ConfigurationInitializer configurationInitializer = new ConfigurationInitializer(configureData, inputValidators, configureParameter);
             Timer timer = new Timer(dataAcquisitior,configureParameter, complianceChecker, generatedValue, complianceSetter);
 
@@ -39,6 +42,10 @@
                     case (int)Options.RefreshConfigurationSettings:
                         configurationInitializer.SetConfiguration();
                         dataAcquisitior.GetConfigurationLimits();
+                        Timer.TimerForEvent.Stop();
+                        Timer.TimerForEvent.Dispose();
+                        dataAcquisitior.GetConfigurationLimits();
+                        timer.SetTimer(dataAcquisitior.timeperiod);
                         break;
                     case (int)Options.Exit:
                         break;
